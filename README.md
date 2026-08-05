@@ -173,8 +173,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
 
 <div align="center">
 
-**ساخته‌شده با 💜 در ایران**
+**ساخته‌شده با Coffee ☕**
 
-⭐ اگه خوشت اومد، ستارش بده!
+⭐ اگه خوشت اومد، ستاره بده!
 
 </div>
