@@ -3,160 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>رصد بازار و اخبار | نسخه پیشرفته</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>رصد بازار | نسخه شیشه‌ای</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
-  :root{--bg:#f5f6f8;--surface:#ffffff;--elevated:#ffffff;--text:#1a1a1a;--text-sec:#5a5a5a;--text-dis:#9e9e9e;--border:#e8eaed;--divider:#f0f0f0;--primary:#d32f2f;--primary-light:#ffebee;--primary-dark:#b71c1c;--accent:#2563eb;--success:#2e7d32;--warning:#ed6c02;--danger:#d32f2f;--info:#0288d1;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 12px rgba(0,0,0,.1);--shadow-lg:0 8px 24px rgba(0,0,0,.12);--transition:all .25s cubic-bezier(.4,0,.2,1);--header-h:56px;--bottom-nav-h:64px;}
-  [data-theme="dark"]{--bg:#0f1115;--surface:#1a1d24;--elevated:#22262e;--text:#f0f0f0;--text-sec:#b0b0b0;--text-dis:#666;--border:#2a2e38;--divider:#2a2e38;--primary:#ef5350;--primary-light:#3e2723;--primary-dark:#c62828;--shadow-sm:0 1px 3px rgba(0,0,0,.3);--shadow-md:0 4px 12px rgba(0,0,0,.4);--shadow-lg:0 8px 24px rgba(0,0,0,.5);}
+  :root{
+    --bg:#0a0c12;--surface:rgba(255,255,255,.03);--elevated:rgba(255,255,255,.06);
+    --text:#f0f2f5;--text-sec:#9ca3af;--text-dis:#6b7280;--border:rgba(255,255,255,.06);
+    --primary:#6366f1;--primary-glow:rgba(99,102,241,.25);--success:#22c55e;--danger:#ef4444;
+    --warning:#f59e0b;--info:#06b6d4;--purple:#a855f7;--pink:#ec4899;--orange:#f97316;
+    --glass: rgba(255,255,255,.04);--glass-border: rgba(255,255,255,.08);
+    --glass-strong: rgba(255,255,255,.08);--glass-border-strong: rgba(255,255,255,.15);
+    --radius-sm:16px;--radius-md:20px;--radius-lg:28px;--radius-xl:32px;
+    --shadow:0 4px 24px rgba(0,0,0,.4);--shadow-glow:0 0 60px var(--primary-glow);
+    --shadow-card:0 8px 32px rgba(0,0,0,.35);
+    --transition:all .4s cubic-bezier(.4,0,.2,1);
+  }
+  [data-theme="light"]{
+    --bg:#f3f4f6;--surface:rgba(255,255,255,.55);--elevated:rgba(255,255,255,.85);
+    --text:#111827;--text-sec:#4b5563;--text-dis:#9ca3af;--border:rgba(0,0,0,.04);
+    --glass:rgba(255,255,255,.45);--glass-border:rgba(0,0,0,.06);
+    --glass-strong:rgba(255,255,255,.65);--glass-border-strong:rgba(0,0,0,.1);
+    --shadow:0 4px 24px rgba(0,0,0,.08);--shadow-card:0 8px 32px rgba(0,0,0,.1);
+  }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{font-size:15px;scroll-behavior:smooth}
-  body{font-family:'Vazirmatn',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
-  ::-webkit-scrollbar{width:6px;height:6px}
-  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:8px}
-  .app-header{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 16px;transition:var(--transition)}
-  .brand{display:flex;align-items:center;gap:10px}
-  .brand-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;box-shadow:var(--shadow-sm)}
-  .brand-text h1{font-size:1.1rem;font-weight:800;line-height:1.2;letter-spacing:-.3px}
+  body{font-family:'Vazirmatn',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;overflow-x:hidden;transition:background .5s,color .5s}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 40%,rgba(99,102,241,.12) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 80% 20%,rgba(168,85,247,.1) 0%,transparent 50%),radial-gradient(ellipse 50% 50% at 50% 80%,rgba(236,72,153,.08) 0%,transparent 50%);pointer-events:none;z-index:0;animation:bgPulse 10s ease-in-out infinite alternate}
+  @keyframes bgPulse{0%{opacity:.8}100%{opacity:1}}
+  ::-webkit-scrollbar{width:4px}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
+  .app-header{position:sticky;top:0;z-index:100;background:var(--glass-strong);backdrop-filter:blur(30px) saturate(180%);border-bottom:1px solid var(--glass-border-strong);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;transition:var(--transition)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--purple),var(--pink));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;box-shadow:0 4px 20px var(--primary-glow);position:relative;overflow:hidden}
+  .brand-icon::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);animation:shine 3s infinite}
+  @keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  .brand-text h1{font-size:1.15rem;font-weight:900;letter-spacing:-.5px;background:linear-gradient(135deg,var(--text),var(--text-sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .brand-text p{font-size:.65rem;color:var(--text-dis);margin-top:-2px;font-weight:500}
   .header-actions{display:flex;align-items:center;gap:8px}
-  .icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:transparent;color:var(--text-sec);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);font-size:1.1rem}
-  .icon-btn:hover{background:var(--divider);color:var(--text)}
-  .live-badge{display:flex;align-items:center;gap:4px;padding:4px 10px;background:var(--primary-light);color:var(--primary);border-radius:20px;font-size:.65rem;font-weight:700;border:1px solid rgba(211,47,47,.15)}
-  .live-dot{width:6px;height:6px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  .ticker-wrap{position:sticky;top:var(--header-h);z-index:90;background:var(--elevated);border-bottom:1px solid var(--border);overflow:hidden}
-  .ticker{height:40px;display:flex;align-items:center;position:relative}
-  .ticker-label{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:0 14px;height:100%;font-size:.7rem;font-weight:800;color:#fff;background:var(--primary);white-space:nowrap}
-  .ticker-label.blue{background:var(--accent)}
-  .ticker-viewport{flex:1;overflow:hidden;position:relative;height:100%;-webkit-mask-image:linear-gradient(to left,transparent,#000 30px,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(to left,transparent,#000 30px,#000 calc(100% - 30px),transparent)}
+  .icon-btn{width:40px;height:40px;border-radius:14px;border:1px solid var(--glass-border);background:var(--glass);color:var(--text-sec);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);font-size:1.1rem;backdrop-filter:blur(10px)}
+  .icon-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 0 24px var(--primary-glow);transform:translateY(-2px)}
+  .live-pill{display:flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.05));color:var(--success);border-radius:24px;font-size:.68rem;font-weight:800;border:1px solid rgba(34,197,94,.2);backdrop-filter:blur(10px)}
+  .live-dot{width:7px;height:7px;background:var(--success);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 10px var(--success)}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+  .ticker-wrap{position:sticky;top:68px;z-index:90;background:var(--glass);backdrop-filter:blur(20px) saturate(150%);border-bottom:1px solid var(--glass-border);overflow:hidden}
+  .ticker{height:44px;display:flex;align-items:center}
+  .ticker-tag{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:0 18px;height:100%;font-size:.7rem;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--primary),var(--purple));white-space:nowrap;clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}
+  .ticker-tag.red{background:linear-gradient(135deg,var(--danger),var(--pink))}
+  .ticker-viewport{flex:1;overflow:hidden;position:relative;height:100%}
   .ticker-track{position:absolute;top:0;right:0;height:100%;display:flex;align-items:center;white-space:nowrap;will-change:transform}
-  .tick{display:inline-flex;align-items:center;gap:6px;padding:0 16px;font-size:.78rem;font-weight:500;color:var(--text-sec);border-left:1px solid var(--border);cursor:pointer;height:24px;transition:var(--transition)}
+  .tick{display:inline-flex;align-items:center;gap:8px;padding:0 20px;font-size:.8rem;font-weight:500;color:var(--text-sec);border-left:1px solid var(--border);cursor:pointer;height:26px;transition:var(--transition)}
   .tick:hover{color:var(--primary)}
-  .tick b{color:var(--text);font-weight:700}
-  .tick .chg{font-size:.7rem;font-weight:700;direction:ltr}
+  .tick b{color:var(--text);font-weight:800}
+  .tick .chg{font-size:.72rem;font-weight:800;direction:ltr}
   .tick .up{color:var(--success)} .tick .down{color:var(--danger)}
-  .tick .dot{width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0}
-  .main-content{padding:16px;padding-bottom:calc(var(--bottom-nav-h) + 20px);max-width:720px;margin:0 auto}
-  .sec-title{display:flex;align-items:center;justify-content:space-between;margin:24px 0 14px}
-  .sec-title h2{font-size:1.05rem;font-weight:800;position:relative;padding-right:12px}
-  .sec-title h2::before{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:4px;height:18px;background:var(--primary);border-radius:4px}
-  .chips{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tick .dot{width:5px;height:5px;border-radius:50%;background:var(--danger);flex-shrink:0;animation:pulse 2s infinite}
+  .main-content{padding:20px;padding-bottom:100px;max-width:860px;margin:0 auto;position:relative;z-index:1}
+  .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin:32px 0 18px;padding:0 4px}
+  .section-title{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:900}
+  .section-title::before{content:'';width:5px;height:22px;background:linear-gradient(180deg,var(--primary),var(--purple));border-radius:6px}
+  .section-more{font-size:.78rem;color:var(--primary);font-weight:700;cursor:pointer;padding:4px 10px;border-radius:20px;transition:var(--transition)}
+  .section-more:hover{background:var(--primary-glow)}
+  .chips{display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto;padding:4px 4px 10px;margin-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
-  .chip{flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text-sec);font-size:.78rem;font-weight:600;cursor:pointer;transition:var(--transition);user-select:none}
-  .chip:hover{border-color:var(--primary);color:var(--primary)}
-  .chip.active{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(211,47,47,.25)}
-  .news-feed{display:flex;flex-direction:column;gap:16px}
-  .news-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:var(--transition);cursor:pointer;position:relative}
-  .news-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-  .news-img-wrap{position:relative;width:100%;height:200px;overflow:hidden;background:var(--divider)}
-  .news-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-  .news-card:hover .news-img-wrap img{transform:scale(1.04)}
-  .news-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 60%);pointer-events:none}
-  .news-badge{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:6px;font-size:.68rem;font-weight:800;color:#fff;background:var(--primary);z-index:2;box-shadow:0 2px 6px rgba(0,0,0,.2)}
-  .news-badge.economy{background:var(--success)} .news-badge.tech{background:var(--info)} .news-badge.politics{background:var(--warning)}
-  .news-time-badge{position:absolute;bottom:12px;left:12px;display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:.68rem;font-weight:600;color:#fff;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:2}
-  .news-body{padding:14px 16px 16px}
-  .news-source{display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:.72rem;color:var(--text-dis);font-weight:500}
-  .news-source .dot{width:4px;height:4px;background:var(--text-dis);border-radius:50%}
-  .news-title{font-size:1rem;font-weight:800;line-height:1.65;color:var(--text);margin-bottom:8px;letter-spacing:-.2px}
-  .news-desc{font-size:.82rem;color:var(--text-sec);line-height:1.85;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .news-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--divider)}
-  .news-date{font-size:.72rem;color:var(--text-dis);font-weight:500;display:flex;align-items:center;gap:4px}
+  .chip{flex-shrink:0;padding:8px 18px;border-radius:24px;border:1px solid var(--border);background:var(--glass);color:var(--text-sec);font-size:.8rem;font-weight:700;cursor:pointer;transition:var(--transition);user-select:none;backdrop-filter:blur(10px)}
+  .chip:hover{border-color:var(--primary);color:var(--primary);background:var(--elevated)}
+  .chip.active{background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;border-color:transparent;box-shadow:0 4px 20px var(--primary-glow)}
+  .view-toggle{display:flex;gap:8px;margin-bottom:16px;flex-wrap:nowrap;overflow-x:auto;padding:4px 4px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .view-toggle::-webkit-scrollbar{display:none}
+  .news-feed{display:flex;flex-direction:column;gap:24px}
+  .hero-card{background:var(--surface);border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-card);transition:var(--transition);cursor:pointer;position:relative;backdrop-filter:blur(10px)}
+  .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--purple),var(--pink));opacity:0;transition:opacity .4s;z-index:2}
+  .hero-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.4)}
+  .hero-card:hover::before{opacity:1}
+  .hero-img-wrap{position:relative;width:100%;height:260px;overflow:hidden;background:linear-gradient(135deg,#1e1b4b,#312e81)}
+  .hero-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+  .hero-card:hover .hero-img-wrap img{transform:scale(1.1)}
+  .hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.3) 40%,transparent 70%)}
+  .hero-topic-tag{position:absolute;top:16px;right:16px;padding:6px 14px;border-radius:12px;font-size:.7rem;font-weight:900;color:#fff;z-index:2;backdrop-filter:blur(12px);background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2)}
+  .hero-time-badge{position:absolute;bottom:16px;left:16px;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:12px;font-size:.75rem;font-weight:700;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);direction:ltr;font-family:monospace}
+  .hero-body{padding:22px 24px 24px}
+  .hero-source-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .hero-source{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--text-dis);font-weight:600}
+  .hero-source .src-name{color:var(--primary);font-weight:800}
+  .hero-title{font-size:1.15rem;font-weight:900;line-height:1.7;color:var(--text);margin-bottom:10px;letter-spacing:-.3px}
+  .hero-desc{font-size:.88rem;color:var(--text-sec);line-height:2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .hero-footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+  .hero-date-exact{font-size:.75rem;color:var(--text-dis);font-weight:600;direction:ltr;font-family:monospace}
+  .news-scroll{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .news-scroll::-webkit-scrollbar{display:none}
+  .news-card{flex-shrink:0;width:280px;background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-card);transition:var(--transition);cursor:pointer;position:relative;backdrop-filter:blur(10px)}
+  .news-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--purple));opacity:0;transition:opacity .3s;z-index:2}
+  .news-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+  .news-card:hover::before{opacity:1}
+  .news-img-wrap{position:relative;width:100%;height:160px;overflow:hidden;background:linear-gradient(135deg,#1e1b4b,#312e81)}
+  .news-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+  .news-card:hover .news-img-wrap img{transform:scale(1.08)}
+  .news-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 50%)}
+  .news-topic-tag{position:absolute;top:12px;right:12px;padding:5px 10px;border-radius:8px;font-size:.65rem;font-weight:900;color:#fff;z-index:2;backdrop-filter:blur(8px);background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15)}
+  .news-time-badge{position:absolute;bottom:12px;left:12px;padding:5px 10px;border-radius:8px;font-size:.68rem;font-weight:700;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);direction:ltr;font-family:monospace}
+  .news-body{padding:16px 18px 18px}
+  .news-source-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .news-source{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--text-dis);font-weight:600}
+  .news-source .src-name{color:var(--primary);font-weight:800}
+  .news-title{font-size:.92rem;font-weight:800;line-height:1.7;color:var(--text);margin-bottom:8px;letter-spacing:-.2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .news-desc{font-size:.8rem;color:var(--text-sec);line-height:1.8;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .news-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+  .news-date-exact{font-size:.7rem;color:var(--text-dis);font-weight:500;direction:ltr;font-family:monospace}
   .news-actions{display:flex;gap:10px}
-  .news-actions button{background:none;border:none;color:var(--text-dis);cursor:pointer;font-size:.85rem;padding:4px;transition:var(--transition)}
-  .news-actions button:hover{color:var(--primary)}
-  .breaking-banner{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:#fff;border-radius:var(--radius-md);padding:14px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-md);position:relative;overflow:hidden;cursor:pointer}
-  .breaking-banner::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);animation:rotate 10s linear infinite}
+  .news-actions button{background:none;border:none;color:var(--text-dis);cursor:pointer;font-size:1rem;padding:4px;transition:var(--transition)}
+  .news-actions button:hover{color:var(--primary);transform:scale(1.2)}
+  .news-topic-tag.economy{background:rgba(34,197,94,.2);border-color:rgba(34,197,94,.4);color:#86efac}
+  .news-topic-tag.politics{background:rgba(245,158,11,.2);border-color:rgba(245,158,11,.4);color:#fcd34d}
+  .news-topic-tag.tech{background:rgba(6,182,212,.2);border-color:rgba(6,182,212,.4);color:#67e8f9}
+  .news-topic-tag.sports{background:rgba(168,85,247,.2);border-color:rgba(168,85,247,.4);color:#d8b4fe}
+  .news-topic-tag.health{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.4);color:#fca5a5}
+  .news-topic-tag.world{background:rgba(99,102,241,.2);border-color:rgba(99,102,241,.4);color:#a5b4fc}
+  .news-topic-tag.iran{background:rgba(249,115,22,.2);border-color:rgba(249,115,22,.4);color:#fdba74}
+  .breaking-banner{background:linear-gradient(135deg,rgba(239,68,68,.9),rgba(236,72,153,.9));color:#fff;border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:28px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 32px rgba(239,68,68,.3);position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px)}
+  .breaking-banner::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.15) 0%,transparent 60%);animation:rotate 8s linear infinite}
   @keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-  .breaking-icon{font-size:1.4rem;animation:shake 2s infinite;z-index:1}
-  @keyframes shake{0%,100%{transform:rotate(0)}5%{transform:rotate(-10deg)}10%{transform:rotate(10deg)}15%{transform:rotate(-5deg)}20%{transform:rotate(5deg)}25%{transform:rotate(0)}}
-  .breaking-text{font-weight:700;font-size:.9rem;z-index:1}
-  .breaking-text small{display:block;font-size:.72rem;font-weight:400;opacity:.9;margin-top:2px}
-  .price-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
-  .price-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px;box-shadow:var(--shadow-sm);transition:var(--transition);cursor:pointer;position:relative;overflow:hidden}
-  .price-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);opacity:0;transition:opacity .2s}
-  .price-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+  .breaking-icon{font-size:1.8rem;animation:shake 2s infinite;z-index:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+  @keyframes shake{0%,100%{transform:rotate(0)}5%{transform:rotate(-12deg)}10%{transform:rotate(12deg)}15%{transform:rotate(-6deg)}20%{transform:rotate(6deg)}25%{transform:rotate(0)}}
+  .breaking-text{font-weight:900;font-size:1rem;z-index:1}
+  .breaking-text small{display:block;font-size:.75rem;font-weight:600;opacity:.9;margin-top:4px}
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+  .price-card{background:var(--surface);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-card);transition:var(--transition);cursor:pointer;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+  .price-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--purple));opacity:0;transition:opacity .3s}
+  .price-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
   .price-card:hover::after{opacity:1}
-  .price-card.up::after{background:var(--success)} .price-card.down::after{background:var(--danger)}
-  .p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .p-name{font-size:.82rem;font-weight:700;color:var(--text)}
-  .p-sym{font-size:.68rem;color:var(--text-dis);font-weight:500}
-  .p-price{font-size:1.1rem;font-weight:800;direction:ltr;text-align:left;color:var(--text)}
-  .p-alt{font-size:.72rem;color:var(--text-dis);direction:ltr;text-align:left;margin-top:4px;font-weight:500}
-  .p-badge{font-size:.7rem;font-weight:800;padding:3px 8px;border-radius:6px;direction:ltr}
-  .p-badge.up{background:rgba(46,125,50,.12);color:var(--success)} .p-badge.down{background:rgba(211,47,47,.12);color:var(--danger)} .p-badge.flat{background:var(--divider);color:var(--text-dis)}
-  .spark{height:40px;margin-top:10px}
-  .table-wrap{overflow:auto;border-radius:var(--radius-md);border:1px solid var(--border);background:var(--surface)}
-  table{width:100%;border-collapse:collapse;font-size:.82rem}
-  th,td{padding:12px 10px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap}
-  th{background:var(--bg);font-size:.72rem;color:var(--text-dis);font-weight:700;letter-spacing:.5px}
+  .price-card.up::after{background:linear-gradient(90deg,var(--success),#4ade80)}
+  .price-card.down::after{background:linear-gradient(90deg,var(--danger),#f87171)}
+  .p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .p-name{font-size:.88rem;font-weight:800;color:var(--text)}
+  .p-sym{font-size:.7rem;color:var(--text-dis);font-weight:600}
+  .p-price{font-size:1.2rem;font-weight:900;direction:ltr;text-align:left;color:var(--text);letter-spacing:-.5px}
+  .p-alt{font-size:.78rem;color:var(--text-dis);direction:ltr;text-align:left;margin-top:4px;font-weight:600}
+  .p-badge{font-size:.75rem;font-weight:900;padding:5px 12px;border-radius:10px;direction:ltr}
+  .p-badge.up{background:rgba(34,197,94,.15);color:#86efac}
+  .p-badge.down{background:rgba(239,68,68,.15);color:#fca5a5}
+  .p-badge.flat{background:rgba(148,163,184,.1);color:var(--text-dis)}
+  .spark{height:48px;margin-top:14px}
+  .table-wrap{overflow:auto;border-radius:var(--radius-lg);border:1px solid var(--glass-border);background:var(--surface);backdrop-filter:blur(10px);box-shadow:var(--shadow-card)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{padding:16px 14px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap}
+  th{background:var(--elevated);font-size:.78rem;color:var(--text-dis);font-weight:800;letter-spacing:.5px;text-transform:uppercase}
   tr:last-child td{border-bottom:none}
-  tr:hover td{background:var(--bg)}
-  td.num{direction:ltr;text-align:left;font-weight:700;font-variant-numeric:tabular-nums}
-  .analysis-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;margin-bottom:12px;box-shadow:var(--shadow-sm)}
-  .a-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
-  .a-title{font-size:.95rem;font-weight:800}
-  .a-sig{padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:800}
-  .a-sig.buy{background:rgba(46,125,50,.12);color:var(--success)} .a-sig.sell{background:rgba(211,47,47,.12);color:var(--danger)} .a-sig.hold{background:rgba(237,108,2,.12);color:var(--warning)}
-  .a-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin:14px 0}
-  .a-stat{background:var(--bg);border-radius:var(--radius-sm);padding:10px;text-align:center;border:1px solid var(--border)}
-  .a-stat .k{font-size:.65rem;color:var(--text-dis);font-weight:600;margin-bottom:4px}
-  .a-stat .v{font-size:.85rem;font-weight:800;direction:ltr}
-  .a-text{font-size:.82rem;color:var(--text-sec);line-height:2;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)}
-  .digest-btn{position:fixed;left:16px;bottom:calc(var(--bottom-nav-h) + 16px);z-index:80;background:var(--primary);color:#fff;border:none;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;box-shadow:0 4px 16px rgba(211,47,47,.4);transition:var(--transition)}
-  .digest-btn:hover{transform:scale(1.1) rotate(-10deg)}
-  .digest-modal-body{padding:20px;max-height:70vh;overflow:auto}
-  .digest-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
-  .digest-item:last-child{border-bottom:none}
-  .digest-img{width:80px;height:60px;border-radius:8px;object-fit:cover;background:var(--divider);flex-shrink:0}
-  .digest-content{flex:1}
-  .digest-title{font-size:.85rem;font-weight:700;margin-bottom:4px;line-height:1.5}
-  .digest-meta{font-size:.7rem;color:var(--text-dis)}
-  .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--bottom-nav-h);background:var(--surface);border-top:1px solid var(--border);display:flex;justify-content:space-around;align-items:center;z-index:100;backdrop-filter:blur(12px);padding-bottom:env(safe-area-inset-bottom)}
-  .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0;color:var(--text-dis);font-size:.65rem;font-weight:600;cursor:pointer;transition:var(--transition);border:none;background:none}
+  tr:hover td{background:var(--elevated)}
+  td.num{direction:ltr;text-align:left;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text)}
+  .analysis-card{background:var(--surface);border:1px solid var(--glass-border);border-radius:var(--radius-xl);padding:24px;margin-bottom:16px;box-shadow:var(--shadow-card);backdrop-filter:blur(10px);transition:var(--transition)}
+  .analysis-card:hover{transform:translateY(-3px)}
+  .a-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+  .a-title{font-size:1.05rem;font-weight:900}
+  .a-sig{padding:7px 16px;border-radius:24px;font-size:.78rem;font-weight:900}
+  .a-sig.buy{background:rgba(34,197,94,.15);color:#86efac}
+  .a-sig.sell{background:rgba(239,68,68,.15);color:#fca5a5}
+  .a-sig.hold{background:rgba(245,158,11,.15);color:#fcd34d}
+  .a-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin:18px 0}
+  .a-stat{background:var(--bg);border-radius:var(--radius-sm);padding:14px;text-align:center;border:1px solid var(--border);transition:var(--transition)}
+  .a-stat:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .a-stat .k{font-size:.7rem;color:var(--text-dis);font-weight:700;margin-bottom:6px}
+  .a-stat .v{font-size:.95rem;font-weight:900;direction:ltr;color:var(--text)}
+  .a-text{font-size:.88rem;color:var(--text-sec);line-height:2.2;margin-top:16px;padding-top:16px;border-top:1px dashed var(--border)}
+  .digest-btn{position:fixed;left:20px;bottom:88px;z-index:80;background:linear-gradient(135deg,var(--primary),var(--purple),var(--pink));color:#fff;border:none;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;box-shadow:0 8px 32px var(--primary-glow);transition:var(--transition);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}
+  .digest-btn:hover{transform:scale(1.1) rotate(-5deg);box-shadow:0 12px 48px var(--primary-glow)}
+  .digest-btn::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(255,255,255,.1);animation:ripple 2s infinite}
+  @keyframes ripple{0%{transform:scale(1);opacity:1}100%{transform:scale(1.3);opacity:0}}
+  .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:72px;background:var(--glass-strong);border-top:1px solid var(--glass-border-strong);display:flex;justify-content:space-around;align-items:center;z-index:100;backdrop-filter:blur(30px) saturate(180%);padding-bottom:env(safe-area-inset-bottom)}
+  .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 0;color:var(--text-dis);font-size:.65rem;font-weight:700;cursor:pointer;transition:var(--transition);border:none;background:none;position:relative}
   .nav-item.active{color:var(--primary)}
-  .nav-item svg{width:22px;height:22px;stroke-width:2}
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center;z-index:200;padding:0}
+  .nav-item.active::before{content:'';position:absolute;top:-2px;width:24px;height:4px;background:linear-gradient(90deg,var(--primary),var(--purple));border-radius:4px;box-shadow:0 0 12px var(--primary-glow)}
+  .nav-item svg{width:24px;height:24px;stroke-width:2}
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(15px);display:none;align-items:flex-end;justify-content:center;z-index:200;padding:0}
   .overlay.open{display:flex}
-  .modal{background:var(--surface);border-radius:var(--radius-xl) var(--radius-xl) 0 0;max-width:720px;width:100%;max-height:90vh;overflow:auto;box-shadow:var(--shadow-lg);animation:slideUp .3s cubic-bezier(.16,1,.3,1)}
-  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-  .modal-head{position:sticky;top:0;background:var(--surface);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;border-bottom:1px solid var(--border);z-index:2}
-  .modal-head h3{font-size:1rem;font-weight:800}
-  .x{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg);color:var(--text-sec);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
-  .x:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .modal-body{padding:20px}
-  .field{margin-bottom:18px}
-  .field label{display:block;font-size:.82rem;font-weight:700;margin-bottom:8px;color:var(--text)}
-  .field .hint{font-size:.72rem;color:var(--text-dis);font-weight:400;margin-right:4px}
+  .modal{background:var(--surface);border-radius:var(--radius-xl) var(--radius-xl) 0 0;max-width:800px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 -20px 60px rgba(0,0,0,.5);animation:slideUp .4s cubic-bezier(.16,1,.3,1);border:1px solid var(--glass-border);border-bottom:none;backdrop-filter:blur(30px) saturate(150%)}
+  @keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+  .modal-head{position:sticky;top:0;background:var(--surface);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:20px 24px;border-bottom:1px solid var(--border);z-index:2;backdrop-filter:blur(20px)}
+  .modal-head h3{font-size:1.1rem;font-weight:900}
+  .x{width:38px;height:38px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text-sec);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+  .x:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
+  .modal-body{padding:24px}
+  .field{margin-bottom:22px}
+  .field label{display:block;font-size:.88rem;font-weight:800;margin-bottom:8px;color:var(--text)}
+  .field .hint{font-size:.75rem;color:var(--text-dis);font-weight:500;margin-right:4px}
   input[type=range]{width:100%;accent-color:var(--primary);height:4px;border-radius:2px}
-  input[type=number],input[type=text],select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-family:inherit;font-size:.85rem;transition:var(--transition)}
-  input:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(211,47,47,.1)}
-  .swatches{display:flex;gap:10px;flex-wrap:wrap}
-  .sw{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:var(--transition);position:relative}
-  .sw.active{border-color:var(--text);transform:scale(1.1)}
-  .sw.active::after{content:'\2713';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.5)}
-  .stats-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;margin-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  input[type=number],input[type=text],select,textarea{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-family:inherit;font-size:.9rem;transition:var(--transition)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px var(--primary-glow)}
+  .swatches{display:flex;gap:14px;flex-wrap:wrap}
+  .sw{width:40px;height:40px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:var(--transition);position:relative;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+  .sw.active{border-color:var(--text);transform:scale(1.15);box-shadow:0 0 24px currentColor}
+  .sw.active::after{content:'\2713';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:900;text-shadow:0 2px 4px rgba(0,0,0,.5)}
+  .stats-scroll{display:flex;gap:14px;overflow-x:auto;padding:4px 4px 10px;margin-bottom:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .stats-scroll::-webkit-scrollbar{display:none}
-  .stat-pill{flex-shrink:0;padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);min-width:140px;transition:var(--transition)}
-  .stat-pill:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
-  .stat-pill .v{font-size:1rem;font-weight:800;color:var(--primary);direction:ltr;text-align:left}
-  .stat-pill .l{font-size:.68rem;color:var(--text-dis);margin-top:4px;font-weight:500}
-  .stat-pill .c{font-size:.72rem;font-weight:700;margin-top:2px;direction:ltr;text-align:left}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-  .fade-in{animation:fadeIn .4s ease forwards}
-  .news-card.new-card{border-right:4px solid var(--primary);animation:fadeIn .5s ease}
-  .skeleton{background:linear-gradient(90deg,var(--bg) 25%,var(--surface) 50%,var(--bg) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:var(--radius-sm)}
-  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-  .center{text-align:center;padding:40px 20px;color:var(--text-dis)}
-  .spinner{width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:sp 1s linear infinite;margin:0 auto 12px}
+  .stat-pill{flex-shrink:0;padding:16px 20px;background:var(--surface);border:1px solid var(--glass-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);min-width:160px;transition:var(--transition);backdrop-filter:blur(10px);position:relative;overflow:hidden}
+  .stat-pill::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--primary),var(--purple));opacity:.7}
+  .stat-pill:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.25)}
+  .stat-pill .v{font-size:1.15rem;font-weight:900;color:var(--text);direction:ltr;text-align:left;letter-spacing:-.5px}
+  .stat-pill .l{font-size:.72rem;color:var(--text-dis);margin-top:6px;font-weight:600}
+  .stat-pill .c{font-size:.78rem;font-weight:800;margin-top:4px;direction:ltr;text-align:left}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .fade-in{animation:fadeIn .6s ease forwards}
+  .news-card.new-card{border-right:3px solid var(--primary);animation:fadeIn .7s ease}
+  .center{text-align:center;padding:60px 20px;color:var(--text-dis)}
+  .spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:sp 1s linear infinite;margin:0 auto 16px;box-shadow:0 0 16px var(--primary-glow)}
   @keyframes sp{to{transform:rotate(360deg)}}
   .hidden{display:none!important}
-  .footer{text-align:center;color:var(--text-dis);font-size:.7rem;padding:20px 0 80px;font-weight:500}
-  @media print{.app-header,.bottom-nav,.ticker-wrap,.digest-btn,.icon-btn{display:none!important}.main-content{max-width:100%;padding:20px}body{background:#fff;color:#000}.news-card{break-inside:avoid;margin-bottom:16px;border:1px solid #ddd;box-shadow:none!important}}
+  .footer{text-align:center;color:var(--text-dis);font-size:.75rem;padding:28px 0 100px;font-weight:600;opacity:.7}
+  #pdfContainer{display:none}
+
+  /* ===== NEW: Explorer Grid ===== */
+  .explorer-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:row dense;gap:.5rem}
+  .explorer-cell{position:relative;min-width:0;overflow:hidden;border-radius:18px;aspect-ratio:1;border:1px solid var(--glass-border);background:linear-gradient(135deg,var(--primary),var(--purple));transition:transform .25s;cursor:pointer}
+  .explorer-cell:hover{transform:translateY(-3px)}
+  .explorer-cell.big{grid-column:span 2;grid-row:span 2}
+  .explorer-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .explorer-cell .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.15) 55%,rgba(0,0,0,.45))}
+  .explorer-cell .body{position:absolute;inset:auto 0 0 0;padding:.6rem}
+  .explorer-cell h3{font-size:.72rem;font-weight:900;line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:#fff}
+  .explorer-cell.big h3{font-size:1.05rem}
+  .explorer-cell p.sum{display:none}
+  .explorer-cell.big p.sum{display:-webkit-box;margin-top:.35rem;font-size:.75rem;line-height:1.9;color:rgba(255,255,255,.78);font-weight:600;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .explorer-meta{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.35rem;font-size:.58rem;font-weight:800;color:rgba(255,255,255,.7)}
+  .explorer-tag{position:absolute;top:.5rem;right:.5rem;border-radius:999px;padding:.2rem .5rem;font-size:.55rem;font-weight:900;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);color:#fff}
+
+  /* ===== NEW: Reels (Instagram-style) ===== */
+  .reels-overlay{position:fixed;inset:0;z-index:300;background:#000;display:none;flex-direction:column}
+  .reels-overlay.on{display:flex}
+  .reels-scroll{flex:1;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain}
+  .reel{position:relative;width:100%;height:100dvh;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+  .reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .reel-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.93) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,.7) 100%)}
+  .reel-body{position:absolute;inset:auto 0 0 0;padding:0 1.2rem 6rem;max-width:640px}
+  .reel-body h2{font-size:1.4rem;font-weight:900;line-height:1.75;color:#fff}
+  .reel-body p{margin-top:.6rem;font-size:.82rem;line-height:2;color:rgba(255,255,255,.82);font-weight:600;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .reel-actions{position:absolute;right:1rem;bottom:6rem;display:grid;gap:1.2rem;justify-items:center;z-index:10}
+  .reel-actions button{display:grid;justify-items:center;gap:.2rem;font-size:1.5rem;background:none;border:none;color:#fff;cursor:pointer;transition:.2s}
+  .reel-actions button:active{transform:scale(.9)}
+  .reel-actions small{font-size:.58rem;font-weight:800;color:rgba(255,255,255,.7)}
+  .reels-header{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;padding:1rem;z-index:10}
+  .reels-pips{position:absolute;right:6px;top:50%;transform:translateY(-50%);display:grid;gap:4px;z-index:10}
+  .reels-pips i{display:block;width:4px;height:8px;border-radius:999px;background:rgba(255,255,255,.25);transition:.25s}
+  .reels-pips i.on{height:22px;background:rgba(255,255,255,.9)}
+
+  /* ===== NEW: AI Digest ===== */
+  .ai-digest-card{background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(168,85,247,.12),rgba(236,72,153,.12));border:1px solid var(--glass-border);border-radius:var(--radius-xl);padding:20px;margin-bottom:24px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+  .ai-digest-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--purple),var(--pink))}
+  .ai-digest-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .ai-digest-icon{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--purple));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+  .ai-digest-title{font-size:1rem;font-weight:900}
+  .ai-digest-body{font-size:.85rem;color:var(--text-sec);line-height:2.2;white-space:pre-line}
+  .ai-digest-loading{display:flex;align-items:center;gap:10px;color:var(--text-dis);font-size:.85rem}
+
+  @media print{.app-header,.bottom-nav,.ticker-wrap,.digest-btn,.icon-btn,.overlay,.reels-overlay{display:none!important}body{background:#fff;color:#000}#pdfContainer{display:block!important;padding:20px;max-width:210mm;margin:0 auto}}
+  @media(max-width:640px){
+    .hero-img-wrap{height:200px}.news-card{width:260px}.price-grid{grid-template-columns:repeat(2,1fr)}
+    .brand-text p{display:none}.main-content{padding:16px;padding-bottom:100px}
+    .explorer-grid{grid-template-columns:repeat(2,1fr)}
+    .reel-body h2{font-size:1.15rem}.reel-body{padding:0 1rem 5rem}.reel-actions{right:.75rem;bottom:5rem}
+    .explorer-cell.big{grid-column:span 2;grid-row:span 1}
+  }
+  @media(min-width:641px) and (max-width:860px){
+    .explorer-grid{grid-template-columns:repeat(3,1fr)}
+  }
 </style>
 </head>
 <body>
@@ -169,7 +278,7 @@
     </div>
   </div>
   <div class="header-actions">
-    <div class="live-badge"><span class="live-dot"></span>زنده</div>
+    <div class="live-pill"><span class="live-dot"></span>زنده</div>
     <button class="icon-btn" id="btnTheme" title="تغییر تم">&#9680;</button>
     <button class="icon-btn" id="btnSettings" title="تنظیمات">&#9881;</button>
   </div>
@@ -177,11 +286,11 @@
 
 <div class="ticker-wrap">
   <div class="ticker" id="tk-price">
-    <div class="ticker-label blue">بازار</div>
+    <div class="ticker-tag">بازار</div>
     <div class="ticker-viewport"><div class="ticker-track" id="trackPrice"></div></div>
   </div>
   <div class="ticker" id="tk-news">
-    <div class="ticker-label">اخبار فوری</div>
+    <div class="ticker-tag red">اخبار فوری</div>
     <div class="ticker-viewport"><div class="ticker-track" id="trackNews"></div></div>
   </div>
 </div>
@@ -196,7 +305,7 @@
 
   <div class="stats-scroll" id="statsBar"></div>
 
-  <div class="chips" id="mainChips" style="margin-top:8px">
+  <div class="chips" id="mainChips" style="margin-top:12px">
     <span class="chip active" data-tab="news">&#128240; اخبار</span>
     <span class="chip" data-tab="fx">&#128177; ارز و طلا</span>
     <span class="chip" data-tab="crypto">&#129689; کریپتو</span>
@@ -205,9 +314,34 @@
   </div>
 
   <section id="view-news">
+    <!-- AI Digest -->
+    <div id="aiDigest" class="ai-digest-card hidden">
+      <div class="ai-digest-header">
+        <div class="ai-digest-icon">&#129302;</div>
+        <span class="ai-digest-title">تحلیل امروز</span>
+      </div>
+      <div class="ai-digest-body" id="aiDigestBody">در حال تحلیل اخبار...</div>
+    </div>
+
+    <!-- View Toggle -->
+    <div class="view-toggle" id="viewToggle">
+      <span class="chip active" data-view="list" onclick="setNewsView('list')">&#128203; لیست</span>
+      <span class="chip" data-view="explorer" onclick="setNewsView('explorer')">&#9974; اکسپلورر</span>
+      <span class="chip" data-view="reels" onclick="openReels()">&#9654; ریلز</span>
+    </div>
+
     <div class="chips" id="topicChips"></div>
+    <div id="heroNews"></div>
+    <div class="section-header" style="margin-top:32px">
+      <div class="section-title">تازه ترین اخبار</div>
+      <div class="section-more" onclick="refreshNews()">&#128260; بروزرسانی</div>
+    </div>
+    <div class="news-scroll" id="newsScroll"></div>
+    <div class="section-header">
+      <div class="section-title">همه اخبار</div>
+    </div>
     <div class="news-feed" id="newsList">
-      <div class="center"><div class="spinner"></div><div style="font-size:.8rem;margin-top:8px">در حال دریافت آخرین اخبار...</div></div>
+      <div class="center"><div class="spinner"></div><div style="font-size:.9rem;margin-top:12px">در حال دریافت آخرین اخبار...</div></div>
     </div>
   </section>
 
@@ -221,9 +355,16 @@
   </section>
 
   <section id="view-car" class="hidden">
-    <div class="sec-title"><h2>قیمت خودرو</h2><button id="btnCarEdit" style="background:none;border:none;color:var(--primary);font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer">&#9998; ویرایش</button></div>
+    <div class="section-header" style="margin-top:0">
+      <div class="section-title">قیمت خودرو</div>
+    </div>
+    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <button class="chip" id="btnCarFetch" style="border-radius:var(--radius-sm)">&#128260; بروزرسانی از اسب بخار</button>
+      <button class="chip" id="btnCarEdit" style="border-radius:var(--radius-sm)">&#9998; ویرایش دستی</button>
+      <button class="chip" id="btnCarReset" style="border-radius:var(--radius-sm)">&#8634; بازنشانی</button>
+    </div>
     <div class="table-wrap"><table id="carTable"></table></div>
-    <p class="footer" style="padding:12px 0 0;text-align:right">قیمتها بر حسب تومان &bull; معادل دلاری بر اساس نرخ لحظهای</p>
+    <p class="footer" style="padding:14px 0 0;text-align:right;font-size:.72rem">قیمت ها بر حسب تومان &bull; معادل دلاری بر اساس نرخ لحظه ای</p>
   </section>
 
   <section id="view-analysis" class="hidden">
@@ -231,10 +372,20 @@
     <div id="analysisList"></div>
   </section>
 
-  <div class="footer">دادهها از TGJU، CoinGecko و خبرگزاریهای فارسی &bull; این ابزار توصیه سرمایهگذاری نیست</div>
+  <div class="footer">داده ها از TGJU، CoinGecko و خبرگزاری های فارسی &bull; این ابزار توصیه سرمایه گذاری نیست</div>
 </main>
 
 <button class="digest-btn" id="btnDigest" title="خلاصه روزانه">&#128240;</button>
+
+<!-- Reels Overlay -->
+<div class="reels-overlay" id="reelsOverlay">
+  <div class="reels-scroll" id="reelsScroll"></div>
+  <div class="reels-header">
+    <span class="chip active" style="border-radius:999px;font-size:.75rem">&#9654; ریلز رصد</span>
+    <button class="icon-btn" onclick="closeReels()" style="background:var(--glass);border:1px solid var(--glass-border);color:#fff;width:36px;height:36px;border-radius:12px">&#10005;</button>
+  </div>
+  <div class="reels-pips" id="reelsPips"></div>
+</div>
 
 <nav class="bottom-nav">
   <button class="nav-item active" data-tab="news">
@@ -266,29 +417,30 @@
   </div>
 </div>
 
+<div id="pdfContainer"></div>
+
 <script>
-/* ================= STATE ================= */
 const DEF = {
-  theme:'light', accent:'#d32f2f', fontSize:15,
+  theme:'dark', accent:'#6366f1', fontSize:15,
   speedPrice:55, speedNews:40, tickerPrice:true, tickerNews:true,
-  refreshMin:2, newsCount:50, autoRefresh:true,
+  refreshMin:2, newsCount:60, autoRefresh:true,
   topics:['اقتصاد','سیاست','فناوری','ایران','جهان'],
   sources:['bbc','euronews','irna','mehr','khabaronline','zoomit'],
+  telegramChannels:[],
   cars:null
 };
-const LS='rasad_v3';
+const LS='rasad_v6_glass';
 let S = Object.assign({}, DEF, JSON.parse(localStorage.getItem(LS)||'{}'));
 const save = ()=>localStorage.setItem(LS, JSON.stringify(S));
 
 const DEF_CARS=[
-  ['پراید ۱۱۱ (کارکرده ۱۴۰۰)',420000000],['کوییک R پلاس',780000000],['تیبا ۲ صفر',690000000],
-  ['ساینا S',730000000],['پژو ۲۰۶ تیپ ۲',1050000000],['پژو ۲۰۷ اتوماتیک',1750000000],
-  ['پژو پارس',1090000000],['سمند سورن پلاس',1180000000],['دنا پلاس توربو',1780000000],
-  ['تارا اتوماتیک',1950000000],['شاهین G',1450000000],['ری‌را',1250000000],
-  ['هایما S7 پلاس',3450000000],['فیدلیتی پرایم ۷ نفره',4200000000],['کی‌ام‌سی T8',4650000000]
+  ['پراید 111 (کارکرده 1403)',2100000000],['کوییک R پلاس',3200000000],['تیبا 2 صفر',2750000000],
+  ['ساینا S',2950000000],['پژو 206 تیپ 2',4200000000],['پژو 207 اتوماتیک',6800000000],
+  ['پژو پارس',4300000000],['سمند سورن پلاس',4600000000],['دنا پلاس توربو',7200000000],
+  ['تارا اتوماتیک',8200000000],['شاهین G',5500000000],['ریرا',4800000000],
+  ['هایما S7 پلاس',13800000000],['فیدلیتی پرایم 7 نفره',16800000000],['کیامسی T8',18200000000]
 ];
 
-/* ================= HELPERS ================= */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const nf=(n,d=0)=>new Intl.NumberFormat('fa-IR',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n||0);
 const money=n=> n>=1000? nf(Math.round(n)) : nf(n, n>=1?2:6);
@@ -296,27 +448,23 @@ const pct=n=>(n>=0?'&#9650;':'&#9660;')+' '+new Intl.NumberFormat('fa-IR',{minim
 const cls=n=>n>0?'up':(n<0?'down':'flat');
 const toNum=s=>parseFloat(String(s).replace(/[^\d.\-]/g,''))||0;
 
-function formatDate(d){
-  const now=new Date(), date=new Date(d);
-  const diff=Math.floor((now-date)/1000);
-  if(diff<60) return 'همین حالا';
-  if(diff<3600) return Math.floor(diff/60)+' دقیقه پیش';
-  if(diff<86400) return Math.floor(diff/3600)+' ساعت پیش';
-  if(diff<172800) return 'دیروز';
-  return date.toLocaleDateString('fa-IR',{month:'short',day:'numeric'})+' &bull; '+date.toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
+function fmtDate(d){
+  const date=new Date(d);
+  if(isNaN(date)) return 'تاریخ نامشخص';
+  return date.toLocaleDateString('fa-IR',{year:'numeric',month:'2-digit',day:'2-digit'})+' | '+date.toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
 }
-function fullDate(d){
-  return new Date(d).toLocaleString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
+function fmtDateShort(d){
+  const date=new Date(d);
+  if(isNaN(date)) return '—';
+  return date.toLocaleDateString('fa-IR',{month:'short',day:'numeric'})+' | '+date.toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
 }
 
-/* ================= CLOCK ================= */
 function updateClock(){
   const now=new Date();
-  $('#clockDisplay').textContent = now.toLocaleDateString('fa-IR',{weekday:'long',month:'long',day:'numeric'})+' &bull; '+now.toLocaleTimeString('fa-IR');
+  $('#clockDisplay').textContent = now.toLocaleDateString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+' | '+now.toLocaleTimeString('fa-IR');
 }
 setInterval(updateClock,1000); updateClock();
 
-/* ================= TICKERS ================= */
 function makeTicker(trackEl, items, speedGetter){
   const vp = trackEl.parentElement;
   if(trackEl._raf){ cancelAnimationFrame(trackEl._raf); trackEl._raf=null; }
@@ -358,7 +506,6 @@ document.addEventListener('click',e=>{
   else if(t.dataset.news!==undefined) openNews(+t.dataset.news);
 });
 
-/* ================= ASSETS ================= */
 const TG=[
   {key:'price_dollar_rl',name:'دلار',group:'fx',rial:true},
   {key:'price_eur',name:'یورو',group:'fx',rial:true},
@@ -366,17 +513,17 @@ const TG=[
   {key:'price_aed',name:'درهم',group:'fx',rial:true},
   {key:'price_try',name:'لیر',group:'fx',rial:true},
   {key:'crypto-tether-irr',name:'تتر',group:'fx',rial:true},
-  {key:'geram18',name:'طلای ۱۸',group:'gold',rial:true},
-  {key:'geram24',name:'طلای ۲۴',group:'gold',rial:true},
+  {key:'geram18',name:'طلای 18',group:'gold',rial:true},
+  {key:'geram24',name:'طلای 24',group:'gold',rial:true},
   {key:'mesghal',name:'مثقال',group:'gold',rial:true},
   {key:'sekee',name:'سکه امامی',group:'gold',rial:true},
   {key:'sekeb',name:'بهار آزادی',group:'gold',rial:true},
-  {key:'nim',name:'نیمسکه',group:'gold',rial:true},
-  {key:'rob',name:'ربعسکه',group:'gold',rial:true},
+  {key:'nim',name:'نیم سکه',group:'gold',rial:true},
+  {key:'rob',name:'ربع سکه',group:'gold',rial:true},
   {key:'ons',name:'انس طلا',group:'global',unit:'$'},
   {key:'silver',name:'انس نقره',group:'global',unit:'$'}
 ];
-let assets=[], news=[], usdtToman=0, fxFilter='all', anFilter='all';
+let assets=[], news=[], usdtToman=0, fxFilter='all', anFilter='all', newsView='list';
 
 async function loadTgju(){
   const out=[];
@@ -412,68 +559,122 @@ async function loadCrypto(){
   }catch(e){ console.warn('Crypto error',e.message); return []; }
 }
 
-/* ================= NEWS ================= */
+async function fetchRSS(url){
+  try{
+    const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(url);
+    const ctrl = new AbortController();
+    const to = setTimeout(()=>ctrl.abort(),15000);
+    const r = await fetch(apiUrl, {signal: ctrl.signal});
+    clearTimeout(to);
+    if(!r.ok) return [];
+    const j = await r.json();
+    if(j.status !== 'ok') return [];
+    return (j.items||[]).map(it=>({
+      title: (it.title||'').trim(),
+      description: (it.description||'').trim(),
+      link: (it.link||'').trim(),
+      pubDate: it.pubDate || '',
+      content: (it.content||it.description||'').trim(),
+      thumbnail: it.thumbnail || (it.enclosure && it.enclosure.link) || ''
+    })).filter(x=>x.title);
+  }catch(e){ console.warn('rss2json error',url,e.message); return []; }
+}
+
+const strip=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim();};
+
 const SOURCES={
-  bbc:{name:'بیبی‌سی فارسی',url:'https://feeds.bbci.co.uk/persian/rss.xml',topic:'جهان'},
+  bbc:{name:'بی بی سی فارسی',url:'https://feeds.bbci.co.uk/persian/rss.xml',topic:'جهان'},
   euronews:{name:'یورونیوز',url:'https://per.euronews.com/rss',topic:'جهان'},
   irna:{name:'ایرنا',url:'https://www.irna.ir/rss',topic:'ایران'},
   mehr:{name:'مهر',url:'https://www.mehrnews.com/rss',topic:'ایران'},
   khabaronline:{name:'خبرآنلاین',url:'https://www.khabaronline.ir/rss',topic:'سیاست'},
   zoomit:{name:'زومیت',url:'https://www.zoomit.ir/feed/',topic:'فناوری'}
 };
-const TOPIC_KW={
-  'اقتصاد':['اقتصاد','بورس','دلار','تورم','بانک','ارز','طلا','بازار','نفت','قیمت','مالیات','صنعت','تجارت','سهام','بورس'],
-  'سیاست':['سیاس','دولت','مجلس','انتخابات','وزیر','رئیسجمهور','مذاکره','تحریم','دیپلمات','قانون','مجلس'],
-  'فناوری':['فناوری','هوش مصنوعی','اینترنت','موبایل','گوشی','نرمافزار','استارتاپ','تکنولوژی','اپل','گوگل','سامسونگ','تسلا'],
-  'ورزش':['ورزش','فوتبال','والیبال','تیم ملی','لیگ','المپیک','قهرمان','جام جهانی','پرسپولیس','استقلال'],
-  'ایران':['ایران','تهران','استان','ایرانی','کشور','جمهوری اسلامی'],
-  'جهان':['جهان','آمریکا','اروپا','چین','روسیه','سازمان ملل','جنگ','اسرائیل','غزه','اوکراین','بینالملل'],
-  'سلامت':['سلامت','بیماری','واکسن','پزشک','درمان','بهداشت','کرونا']
-};
-const TOPIC_COLOR={'اقتصاد':'economy','سیاست':'politics','فناوری':'tech','ورزش':'','ایران':'','جهان':'','سلامت':''};
 
-async function rss(url){
-  const api='https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url);
-  for(let i=0;i<3;i++){
-    try{
-      const ctrl=new AbortController(); const to=setTimeout(()=>ctrl.abort(),8000);
-      const r=await fetch(api,{signal:ctrl.signal}); clearTimeout(to);
-      if(!r.ok) continue;
-      const j=await r.json(); if(j.status==='ok'&&j.items?.length) return j.items;
-    }catch(e){}
-    await new Promise(r=>setTimeout(r,700));
+const MOCK_NEWS = [
+  {title:'بورس تهران رشد 15 هزار واحدی را تجربه کرد',desc:'شاخص کل بورس اوراق بهادار تهران در معاملات امروز با رشد 15 هزار واحدی به کانال یک میلیون و 550 هزار واحد بازگشت.',link:'#',source:'ایرنا',sourceKey:'irna',date:Date.now()-1800000,topic:'اقتصاد',img:''},
+  {title:'قیمت دلار به 85 هزار تومان رسید',desc:'در معاملات امروز بازار آزاد تهران، هر دلار آمریکا به قیمت 85 هزار تومان معامله شد.',link:'#',source:'مهر',sourceKey:'mehr',date:Date.now()-3600000,topic:'اقتصاد',img:''},
+  {title:'سامسونگ از گوشی تاشو جدید رونمایی کرد',desc:'شرکت سامسونگ از جدیدترین گوشی تاشو خود با نام Galaxy Z Fold 7 رونمایی کرد.',link:'#',source:'زومیت',sourceKey:'zoomit',date:Date.now()-7200000,topic:'فناوری',img:''},
+  {title:'مذاکرات هسته ای در مسیر جدید',desc:'مذاکره کنندگان ارشد در مسیر احیای برجام وارد مرحله جدیدی شدند.',link:'#',source:'خبرآنلاین',sourceKey:'khabaronline',date:Date.now()-5400000,topic:'سیاست',img:''},
+  {title:'پرسپولیس قهرمان لیگ برتر شد',desc:'تیم فوتبال پرسپولیس با پیروزی در بازی امشب برای پانزدهمین بار قهرمان لیگ برتر ایران شد.',link:'#',source:'مهر',sourceKey:'mehr',date:Date.now()-9000000,topic:'ورزش',img:''},
+  {title:'هوش مصنوعی گوگل به فارسی پشتیبانی شد',desc:'گوگل اعلام کرد پشتیبانی از زبان فارسی را به مدل زبانی Gemini اضافه کرده است.',link:'#',source:'زومیت',sourceKey:'zoomit',date:Date.now()-10800000,topic:'فناوری',img:''},
+  {title:'قیمت طلا به اوج جدید رسید',desc:'قیمت هر گرم طلای 18 عیار به 5 میلیون و 200 هزار تومان رسید.',link:'#',source:'ایرنا',sourceKey:'irna',date:Date.now()-14400000,topic:'اقتصاد',img:''},
+  {title:'جلسه شورای امنیت درباره خاورمیانه',desc:'شورای امنیت سازمان ملل جلسه فوق العاده درباره تحولات خاورمیانه برگزار کرد.',link:'#',source:'بی بی سی فارسی',sourceKey:'bbc',date:Date.now()-18000000,topic:'جهان',img:''},
+  {title:'بیت کوین از مرز 120 هزار دلار گذشت',desc:'ارزش بیت کوین برای اولین بار در تاریخ از مرز 120 هزار دلار عبور کرد.',link:'#',source:'یورونیوز',sourceKey:'euronews',date:Date.now()-21600000,topic:'اقتصاد',img:''},
+  {title:'افتتاح پروژه بزرگ ریلی در ایران',desc:'خط راه آهن جدید با حضور مقامات ارشد کشور افتتاح شد.',link:'#',source:'ایرنا',sourceKey:'irna',date:Date.now()-25200000,topic:'ایران',img:''}
+];
+
+const TOPIC_KW={
+  'اقتصاد':['اقتصاد','بورس','دلار','تورم','بانک','ارز','طلا','بازار','نفت','قیمت','مالیات','صنعت','تجارت','سهام','سرمایه','بدهی','بودجه','تولید','صادرات','واردات','سود','زیان','ریال','تومان','مسکن','خودرو','پول','بانکی','سهامدار','فرابورس','بیت کوین','ارز دیجیتال','ارزش','معامله','شاخص','بورسی','سکه','پیش\u200cفروش','قیمت\u200cگذاری','تورمی','گرانی','ارزان','بازارگردانی'],
+  'سیاست':['سیاس','دولت','مجلس','انتخابات','وزیر','رئیس جمهور','مذاکره','تحریم','دیپلمات','قانون','نماینده','شورا','قوه','قضاییه','مقام','فرمان','جناح','اصلاح','اصول','احزاب','سیاستمدار','کابینه','وزارت','سفارت','توافق','برجام','سیاست','رأی','کمیسیون','طرح','لایحه','استیضاح','رئیس\u200cجمهور','اصلاح\u200cطلب','اصولگرا','شورای نگهبان','مجمع'],
+  'فناوری':['فناوری','هوش مصنوعی','اینترنت','موبایل','گوشی','نرم افزار','استارتاپ','تکنولوژی','اپل','گوگل','سامسونگ','تسلا','متا','اینستا','تلگرام','واتس','لپ تاپ','کامپیوتر','ربات','دیجیتال','سایبری','فضای مجازی','اپلیکیشن','نرم افزاری','سخت افزار','تراشه','پردازنده','ماهواره','فضا','تکنولوژی','گجت','هک','امنیت','شبکه','هوشمند','سامانه','پلتفرم','اپ','توسعه\u200cدهنده','برنامه\u200cنویس'],
+  'ورزش':['ورزش','فوتبال','والیبال','تیم ملی','لیگ','المپیک','قهرمان','جام جهانی','پرسپولیس','استقلال','لیگ برتر','تنیس','بوکس','کشتی','دوومیدانی','شنا','بسکتبال','هاکی','گلف','دوچرخه','اسکی','صعود','مسابقه','بازیکن','مربی','کادر','سرمربی','داور','گل','پنالتی','کارت','تعویض','ورزشی','آسیا','قهرمانی','مدال','فدراسیون','ورزشکار','تماشاگر','ورزشگاه'],
+  'ایران':['ایران','تهران','استان','ایرانی','کشور','جمهوری اسلامی','شهر','روستا','استاندار','شهردار','بندر','فرودگاه','راه','آزادراه','مترو','اتوبوس','مدرسه','دانشگاه','امام','رهبر','انقلاب','فرهنگ','هنر','سینما','موسیقی','تئاتر','کتاب','ادبیات','ایرانیان','میراث','گردشگری','صنایع','دست\u200cساز','ایران\u200cزمین','سرزمین'],
+  'جهان':['جهان','آمریکا','اروپا','چین','روسیه','سازمان ملل','جنگ','اسرائیل','غزه','اوکراین','بین الملل','آسیا','آفریقا','اقیانوسیه','ناتو','اتحادیه اروپا','سازمان','کنفرانس','نشست','بیانیه','قطعنامه','تحریم','حمله','آتش بس','صلح','نظامی','ارتش','سرباز','موشک','هواپیما','خاورمیانه','آمریکایی','اروپایی','آسیایی','خاورمیانه\u200cای','بین\u200cالمللی'],
+  'سلامت':['سلامت','بیماری','واکسن','پزشک','درمان','بهداشت','کرونا','آنفولانزا','ویروس','بیمارستان','دارو','درمانی','تغذیه','رژیم','ورزش','تندرستی','سلامتی','اعصاب','روان','روانشناسی','جراحی','عمل','آزمایش','تشخیص','سرطان','قلب','دیابت','فشار خون','پزشکی','کلینیک','دارویی','درمانگاه','بهداشتی','سلامت\u200cمحور']
+};
+const TOPIC_STYLES={'اقتصاد':'economy','سیاست':'politics','فناوری':'tech','ورزش':'sports','سلامت':'health','ایران':'iran','جهان':'world'};
+
+function detectTopic(title,desc,defaultTopic){
+  const text=(title+' '+desc).toLowerCase();
+  let bestTopic=defaultTopic||'عمومی', bestScore=0;
+  for(const [topic,keywords] of Object.entries(TOPIC_KW)){
+    const score=keywords.filter(k=>text.includes(k.toLowerCase())).length;
+    if(score>bestScore){bestScore=score;bestTopic=topic;}
   }
-  return [];
+  return bestTopic;
 }
-const strip=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim();};
 
 async function loadNews(){
   const all=[];
   for(const k of S.sources){
     const s=SOURCES[k]; if(!s) continue;
-    const items=await rss(s.url);
+    const items=await fetchRSS(s.url);
     items.forEach(it=>{
-      const pub=new Date(it.pubDate||Date.now());
+      const pub = it.pubDate ? new Date(it.pubDate) : new Date();
+      const topic = detectTopic(it.title,it.description,s.topic);
       all.push({
-        title:strip(it.title), desc:strip(it.description).slice(0,1200),
-        content:strip(it.content||it.description||''), link:it.link, source:s.name, sourceKey:k,
-        date:pub.getTime(), fullDate:fullDate(pub),
-        img:it.thumbnail||it.enclosure?.link||'', topic:s.topic||''
+        title: strip(it.title),
+        desc: strip(it.description).slice(0,1200),
+        content: strip(it.content||it.description||''),
+        link: it.link,
+        source: s.name,
+        sourceKey: k,
+        date: pub.getTime(),
+        exactDate: fmtDate(pub),
+        exactShort: fmtDateShort(pub),
+        img: it.thumbnail || '',
+        topic: topic
       });
     });
-    await new Promise(r=>setTimeout(r,300));
+    await new Promise(r=>setTimeout(r,400));
+  }
+  for(const ch of (S.telegramChannels||[])){
+    if(!ch) continue;
+    const chName=ch.replace('@','').replace(/^https:.*/,'').trim();
+    if(!chName) continue;
+    const url=`https://rsshub.app/telegram/channel/${chName}`;
+    const items=await fetchRSS(url);
+    items.forEach(it=>{
+      const pub = it.pubDate ? new Date(it.pubDate) : new Date();
+      const topic=detectTopic(it.title,it.description,'');
+      all.push({
+        title:strip(it.title), desc:strip(it.description).slice(0,1200),
+        content:strip(it.content||it.description||''), link:it.link, source:'تلگرام | '+chName, sourceKey:'tg_'+chName,
+        date:pub.getTime(), exactDate:fmtDate(pub), exactShort:fmtDateShort(pub),
+        img:it.thumbnail||'', topic:topic
+      });
+    });
   }
   const seen=new Set();
   const filtered=all.filter(n=>{
     if(!n.title||seen.has(n.title)) return false; seen.add(n.title);
     if(!S.topics.length) return true;
-    const txt=(n.title+' '+n.desc).toLowerCase();
-    return S.topics.some(t=>(TOPIC_KW[t]||[t]).some(k=>txt.includes(k.toLowerCase())));
+    return S.topics.includes(n.topic);
   }).sort((a,b)=>b.date-a.date).slice(0,S.newsCount);
   return filtered.length?filtered:all.sort((a,b)=>b.date-a.date).slice(0,S.newsCount);
 }
 
-/* ================= ANALYSIS ================= */
 function analyze(a){
   const h=(a.hist||[]).map(x=>x.v).filter(v=>v>0);
   if(h.length<5) return null;
@@ -494,23 +695,20 @@ function analyze(a){
   if(trend==='صعودی'&&rsi<70){signal='buy';sigTxt='روند مثبت';}
   if(rsi>72||(trend==='نزولی'&&posInRange>70)){signal='sell';sigTxt='اشباع خرید';}
   if(trend==='نزولی'&&rsi<32){signal='buy';sigTxt='اشباع فروش';}
-  const txt=`در ${n} دوره اخیر قیمت ${chgPeriod>=0?'رشد':'افت'} ${nf(Math.abs(chgPeriod),2)}٪ داشته. `+
-    `میانگین کوتاهمدت (${money(s7)}) ${s7>s30?'بالای':'زیر'} بلندمدت (${money(s30)}) است؛ روند ${trend}. `+
-    `RSI=${nf(rsi,0)}، نوسان=${nf(vol,2)}٪. مقاومت ${money(hi)} / حمایت ${money(lo)}.`;
+  const txt=`در ${n} دوره اخیر قیمت ${chgPeriod>=0?'رشد':'افت'} ${nf(Math.abs(chgPeriod),2)}٪ داشته. میانگین کوتاه مدت (${money(s7)}) ${s7>s30?'بالای':'زیر'} بلندمدت (${money(s30)}) است؛ روند ${trend}. RSI=${nf(rsi,0)}، نوسان=${nf(vol,2)}٪. مقاومت ${money(hi)} / حمایت ${money(lo)}.`;
   return {s7,s30,hi,lo,rsi,vol,posInRange,chgPeriod,trend,signal,sigTxt,txt,n};
 }
 
-/* ================= RENDER ================= */
 function renderStats(){
   const g=k=>assets.find(a=>a.key===k);
   const d=g('price_dollar_rl'), gold=g('geram18'), coin=g('sekee'), btc=assets.find(a=>a.key==='cg-bitcoin');
   const pill=(l,v,c,u='')=>`<div class="stat-pill"><div class="v">${v}${u?' <span style="font-size:.75rem;color:var(--text-dis)">'+u+'</span>':''}</div><div class="l">${l}</div>${c!==undefined?'<div class="c" style="color:'+(c>=0?'var(--success)':'var(--danger)')+'">'+pct(c)+'</div>':''}</div>`;
   $('#statsBar').innerHTML=[
     d?pill('دلار',money(d.price),d.chg):'',
-    gold?pill('طلای ۱۸',money(gold.price),gold.chg):'',
+    gold?pill('طلای 18',money(gold.price),gold.chg):'',
     coin?pill('سکه',money(coin.price),coin.chg):'',
-    btc?pill('بیتکوین',money(btc.price),btc.chg,'$'):'',
-    pill('اخبار ۲۴ساعت',nf(news.filter(n=>Date.now()-n.date<864e5).length))
+    btc?pill('بیت کوین',money(btc.price),btc.chg,'$'):'',
+    pill('اخبار 24 ساعت',nf(news.filter(n=>Date.now()-n.date<864e5).length))
   ].join('');
 }
 
@@ -532,39 +730,137 @@ function priceCard(a){
 function drawCards(sel,list){
   const el=$(sel); el.innerHTML=list.map(priceCard).join('');
   list.forEach((a,i)=>{const cv=el.children[i]?.querySelector('canvas');
-    if(cv&&a.hist?.length>2) sparkline(cv,a.hist.map(h=>h.v),a.chg>=0?'#2e7d32':'#d32f2f');});
+    if(cv&&a.hist?.length>2) sparkline(cv,a.hist.map(h=>h.v),a.chg>=0?'#22c55e':'#ef4444');});
   el.querySelectorAll('.price-card').forEach(c=>c.onclick=()=>openAsset(c.dataset.key));
+}
+
+function generateAIDigest(){
+  const today = news.filter(n => Date.now() - n.date < 864e5);
+  if(!today.length){ $('#aiDigest').classList.add('hidden'); return; }
+
+  const byTopic = {};
+  today.forEach(n => { byTopic[n.topic] = (byTopic[n.topic] || 0) + 1; });
+  const topics = Object.entries(byTopic).sort((a,b) => b[1]-a[1]).slice(0,3);
+
+  const allText = today.slice(0,20).map(n => n.title + ' ' + n.desc).join(' ');
+  const keywords = ['دلار','طلا','بورس','بیت کوین','تحریم','انتخابات','هوش مصنوعی','اسرائیل','اوکراین','خودرو','مسکن','نفت','ارز'];
+  const found = keywords.filter(k => allText.includes(k));
+
+  let summary = `امروز ${nf(today.length)} خبر از ${nf(Object.keys(byTopic).length)} موضوع مختلف منتشر شد. `;
+  if(topics.length){
+    summary += `پرحجم\u200cترین موضوعات: ${topics.map(([t,c]) => `${t} (${nf(c)} خبر)`).join('، ')}. `;
+  }
+  if(found.length){
+    summary += `\n\nکلمات کلیدی پرتکرار: ${found.join('، ')}.`;
+  }
+  summary += '\n\n';
+  topics.forEach(([topic]) => {
+    const top = today.find(n => n.topic === topic);
+    if(top) summary += `▸ ${topic}: ${top.title}\n`;
+  });
+
+  $('#aiDigestBody').textContent = summary;
+  $('#aiDigest').classList.remove('hidden');
 }
 
 function renderNews(){
   const el=$('#newsList');
   if(!news.length){el.innerHTML='<div class="center">خبری یافت نشد. تنظیمات منابع را بررسی کنید.</div>';return;}
 
+  generateAIDigest();
+
   const breaking = news.filter(n=>Date.now()-n.date<1800000).slice(0,1);
   const banner=$('#breakingBanner');
   if(breaking.length){
     banner.classList.remove('hidden');
-    $('#breakingText').innerHTML = breaking[0].title + '<small>'+breaking[0].source+' &bull; '+formatDate(breaking[0].date)+'</small>';
+    $('#breakingText').innerHTML = breaking[0].title + '<small>'+breaking[0].source+' | '+breaking[0].exactShort+'</small>';
     banner.querySelector('.breaking-banner').onclick = ()=>openNews(news.indexOf(breaking[0]));
   } else banner.classList.add('hidden');
 
-  el.innerHTML=news.map((n,i)=>{
-    const topicClass = Object.keys(TOPIC_KW).find(t=>n.title.includes(t)||n.desc.includes(t))||n.topic||'عمومی';
-    const badgeColor = TOPIC_COLOR[topicClass]||'';
+  if(newsView === 'explorer'){
+    renderExplorer();
+    $('#heroNews').classList.add('hidden');
+    $('#newsScroll').classList.add('hidden');
+    $$('.section-header').forEach(h => h.classList.add('hidden'));
+    return;
+  } else {
+    $('#heroNews').classList.remove('hidden');
+    $('#newsScroll').classList.remove('hidden');
+    $$('.section-header').forEach(h => h.classList.remove('hidden'));
+  }
+
+  const hero = news[0];
+  const heroStyle = TOPIC_STYLES[hero.topic]||'';
+  $('#heroNews').innerHTML = `<div class="hero-card fade-in" data-i="0">
+    <div class="hero-img-wrap">
+      ${hero.img?`<img src="${hero.img}" alt="" loading="lazy" onerror="this.style.display='none'">`:''}
+      <div class="hero-img-overlay"></div>
+      <span class="hero-topic-tag ${heroStyle}">${hero.topic}</span>
+      <span class="hero-time-badge">${hero.exactShort}</span>
+    </div>
+    <div class="hero-body">
+      <div class="hero-source-row">
+        <div class="hero-source"><span class="src-name">${hero.source}</span><span style="width:4px;height:4px;background:var(--text-dis);border-radius:50%"></span><span>${hero.exactDate}</span></div>
+      </div>
+      <div class="hero-title">${hero.title}</div>
+      <div class="hero-desc">${hero.desc?hero.desc.slice(0,220)+'...':''}</div>
+      <div class="hero-footer">
+        <div class="hero-date-exact">${hero.exactDate}</div>
+        <div class="news-actions">
+          <button onclick="event.stopPropagation();window.open('${hero.link}','_blank')" title="مشاهده در منبع">&#8599;</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  $('#heroNews .hero-card').onclick = ()=>openNews(0);
+
+  const scrollItems = news.slice(1, 7);
+  $('#newsScroll').innerHTML = scrollItems.map((n,i)=>{
+    const badgeStyle = TOPIC_STYLES[n.topic]||'';
     const isNew = Date.now()-n.date<300000;
-    return `<div class="news-card ${isNew?'new-card':'fade-in'}" data-i="${i}" style="animation-delay:${Math.min(i*.05,.5)}s">
+    return `<div class="news-card ${isNew?'new-card':'fade-in'}" data-i="${i+1}" style="animation-delay:${Math.min(i*.05,.5)}s">
       <div class="news-img-wrap">
         ${n.img?`<img src="${n.img}" alt="" loading="lazy" onerror="this.style.display='none'">`:''}
         <div class="news-img-overlay"></div>
-        <span class="news-badge ${badgeColor}">${topicClass}</span>
-        <span class="news-time-badge">&#128336; ${formatDate(n.date)}</span>
+        <span class="news-topic-tag ${badgeStyle}">${n.topic}</span>
+        <span class="news-time-badge">${n.exactShort}</span>
       </div>
       <div class="news-body">
-        <div class="news-source"><span>${n.source}</span><span class="dot"></span><span>${n.fullDate}</span></div>
+        <div class="news-source-row">
+          <div class="news-source"><span class="src-name">${n.source}</span></div>
+        </div>
+        <div class="news-title">${n.title}</div>
+        <div class="news-desc">${n.desc?n.desc.slice(0,150)+'...':''}</div>
+        <div class="news-footer">
+          <div class="news-date-exact">${n.exactShort}</div>
+          <div class="news-actions">
+            <button onclick="event.stopPropagation();window.open('${n.link}','_blank')" title="مشاهده در منبع">&#8599;</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  $('#newsScroll').querySelectorAll('.news-card').forEach(x=>x.onclick=()=>openNews(+x.dataset.i));
+
+  const restNews = news.slice(7);
+  el.innerHTML=restNews.map((n,i)=>{
+    const badgeStyle = TOPIC_STYLES[n.topic]||'';
+    const isNew = Date.now()-n.date<300000;
+    return `<div class="news-card ${isNew?'new-card':'fade-in'}" data-i="${i+7}" style="animation-delay:${Math.min(i*.05,.5)}s;width:auto">
+      <div class="news-img-wrap">
+        ${n.img?`<img src="${n.img}" alt="" loading="lazy" onerror="this.style.display='none'">`:''}
+        <div class="news-img-overlay"></div>
+        <span class="news-topic-tag ${badgeStyle}">${n.topic}</span>
+        <span class="news-time-badge">${n.exactShort}</span>
+      </div>
+      <div class="news-body">
+        <div class="news-source-row">
+          <div class="news-source"><span class="src-name">${n.source}</span><span style="width:4px;height:4px;background:var(--text-dis);border-radius:50%"></span><span>${n.exactDate}</span></div>
+        </div>
         <div class="news-title">${n.title}</div>
         <div class="news-desc">${n.desc?n.desc.slice(0,220)+'...':''}</div>
         <div class="news-footer">
-          <div class="news-date">&#128240; منبع: ${n.source}</div>
+          <div class="news-date-exact">${n.exactDate}</div>
           <div class="news-actions">
             <button onclick="event.stopPropagation();window.open('${n.link}','_blank')" title="مشاهده در منبع">&#8599;</button>
           </div>
@@ -581,6 +877,102 @@ function renderNews(){
   });
 }
 
+function renderExplorer(){
+  const items = news.slice(0, 30);
+  $('#newsList').innerHTML = `<div class="explorer-grid">${items.map((n, i) => {
+    const isBig = i % 7 === 1;
+    const badgeStyle = TOPIC_STYLES[n.topic] || '';
+    return `<div class="explorer-cell ${isBig ? 'big' : ''}" onclick="openNews(${i})">
+      ${n.img ? `<img src="${n.img}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+      <div class="shade"></div>
+      <span class="explorer-tag ${badgeStyle}">${n.topic}</span>
+      <div class="body">
+        <h3>${n.title}</h3>
+        ${isBig ? `<p class="sum">${n.desc ? n.desc.slice(0, 120) + '...' : ''}</p>` : ''}
+        <div class="explorer-meta"><span>${n.source}</span><span>·</span><span>${n.exactShort}</span></div>
+      </div>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+function setNewsView(view){
+  newsView = view;
+  $$('#viewToggle .chip').forEach(c => c.classList.toggle('active', c.dataset.view === view));
+  if(view === 'reels'){ openReels(); return; }
+  renderNews();
+}
+
+/* ===== REELS ===== */
+function openReels(){
+  renderReels();
+  $('#reelsOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  if($('#reelsScroll')) $('#reelsScroll').scrollTop = 0;
+}
+function closeReels(){
+  $('#reelsOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+  // Reset view toggle if it was reels
+  if(newsView === 'reels'){
+    newsView = 'list';
+    $$('#viewToggle .chip').forEach(c => c.classList.toggle('active', c.dataset.view === 'list'));
+  }
+}
+function renderReels(){
+  const reels = news.filter(n => n.img).slice(0, 30);
+  if(!reels.length){
+    $('#reelsScroll').innerHTML = '<div class="center" style="color:#fff;height:100dvh;display:flex;align-items:center;justify-content:center;">خبری با تصویر یافت نشد</div>';
+    return;
+  }
+  $('#reelsScroll').innerHTML = reels.map((n, idx) => `
+    <section class="reel">
+      <img src="${n.img}" alt="" loading="${idx < 2 ? 'eager' : 'lazy'}" onerror="this.remove()">
+      <div class="reel-shade"></div>
+      <div class="reel-body">
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem">
+          <span class="chip active" style="border-radius:999px;font-size:.65rem;padding:.3rem .7rem">${n.topic}</span>
+          <span class="chip" style="border-radius:999px;font-size:.65rem;padding:.3rem .7rem;background:var(--glass);color:var(--text-sec)">${n.source}</span>
+        </div>
+        <h2>${n.title}</h2>
+        <p>${n.desc || ''}</p>
+        <div class="explorer-meta" style="font-size:.66rem;margin-top:.5rem">${n.exactDate}</div>
+        <button class="chip active" style="margin-top:.8rem;border-radius:var(--radius-sm);font-size:.8rem" onclick="event.stopPropagation();window.open('${n.link}','_blank')">خواندن خبر کامل ↗</button>
+      </div>
+      <div class="reel-actions">
+        <button onclick="likeReel(this)"><span>🤍</span><small>پسند</small></button>
+        <button onclick="shareReel(${idx})"><span>📤</span><small>ارسال</small></button>
+        <button onclick="openNews(${news.indexOf(n)})"><span>📰</span><small>جزئیات</small></button>
+        <div><span>${idx+1}</span><small>/${reels.length}</small></div>
+      </div>
+    </section>
+  `).join('');
+
+  $('#reelsPips').innerHTML = reels.slice(0, 24).map((_, i) => `<i class="${i === 0 ? 'on' : ''}"></i>`).join('');
+
+  const scrollEl = $('#reelsScroll');
+  scrollEl.onscroll = () => {
+    const i = Math.round(scrollEl.scrollTop / scrollEl.clientHeight);
+    [...$('#reelsPips').children].forEach((p, k) => p.classList.toggle('on', k === i));
+  };
+}
+function likeReel(btn){
+  const span = btn.querySelector('span');
+  span.textContent = span.textContent === '🤍' ? '❤️' : '🤍';
+}
+async function shareReel(idx){
+  const reels = news.filter(n => n.img).slice(0, 30);
+  const r = reels[idx];
+  if(!r) return;
+  if(navigator.share){
+    try { await navigator.share({ title: r.title, text: r.desc, url: r.link }); return; } catch {}
+  }
+  if(navigator.clipboard){
+    await navigator.clipboard.writeText(r.link);
+    alert('لینک کپی شد!');
+  }
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeReels(); });
+
 function renderFx(){
   const list=assets.filter(a=>a.group!=='crypto'&&(fxFilter==='all'||a.group===fxFilter));
   $('#fxChips').innerHTML=[['all','همه'],['fx','ارز'],['gold','طلا و سکه'],['global','بازار جهانی']]
@@ -596,8 +988,71 @@ function renderCars(){
   $('#carTable').innerHTML=`<thead><tr><th>خودرو</th><th>قیمت (تومان)</th><th>معادل دلاری</th></tr></thead><tbody>`+
     cars.map(([n,p])=>{
       const usdEq = d?'$'+nf(Math.round(p/d.price)):'—';
-      return `<tr><td style="font-weight:600">${n}</td><td class="num">${nf(p)}</td><td class="num" style="color:var(--text-dis)">${usdEq}</td></tr>`;
+      return `<tr><td style="font-weight:700">${n}</td><td class="num">${nf(p)}</td><td class="num" style="color:var(--text-dis)">${usdEq}</td></tr>`;
     }).join('')+`</tbody>`;
+}
+
+async function fetchCarPrices(){
+  const btn = $('#btnCarFetch');
+  if(!btn) return;
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '⏳ در حال دریافت...';
+  btn.disabled = true;
+
+  try {
+    // Try sabasb RSS via corsproxy
+    const target = 'https://www.sabasb.com/feed/';
+    const proxy = 'https://corsproxy.io/?' + encodeURIComponent(target);
+    const ctrl = new AbortController();
+    const to = setTimeout(()=>ctrl.abort(), 20000);
+    const r = await fetch(proxy, { signal: ctrl.signal });
+    clearTimeout(to);
+    if(!r.ok) throw new Error('Network');
+    const text = await r.text();
+
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(text, 'application/xml');
+    const items = [...xml.querySelectorAll('item')].slice(0, 40);
+
+    const cars = [];
+    const pd = '۰۱۲۳۴۵۶۷۸۹';
+    const toEn = (s) => s.split('').map(c => pd.includes(c) ? pd.indexOf(c) : c).join('');
+
+    items.forEach(item => {
+      const title = item.querySelector('title')?.textContent || '';
+      // Match patterns like "۴۲۰ میلیون تومان" or "۱,۲۰۰,۰۰۰,۰۰۰"
+      const priceMatch = title.match(/([\d۰۱۲۳۴۵۶۷۸۹,]+)\s*(میلیون|میلیارد|تومان)/);
+      if(priceMatch){
+        let priceStr = toEn(priceMatch[1]).replace(/,/g, '');
+        let price = parseInt(priceStr);
+        if(priceMatch[2] === 'میلیون') price *= 1000000;
+        if(priceMatch[2] === 'میلیارد') price *= 1000000000;
+
+        let name = title.split(priceMatch[0])[0].replace(/قیمت/, '').replace(/به/, '').replace(/رسید/, '').replace(/:/, '').trim();
+        if(!name) name = title.split(' ').slice(0, 4).join(' ');
+
+        if(name && price > 1000000 && name.length > 2 && !cars.find(c => c[0] === name)){
+          cars.push([name, price]);
+        }
+      }
+    });
+
+    if(cars.length >= 3){
+      S.cars = cars;
+      save();
+      renderCars();
+      btn.innerHTML = '✓ ' + nf(cars.length) + ' خودرو دریافت شد';
+      setTimeout(()=> btn.innerHTML = originalText, 3000);
+    } else {
+      throw new Error('No data');
+    }
+  } catch (e) {
+    console.warn('Car fetch failed:', e);
+    btn.innerHTML = '✗ ناموفق';
+    setTimeout(()=> btn.innerHTML = originalText, 2000);
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 function renderAnalysis(){
@@ -608,7 +1063,7 @@ function renderAnalysis(){
   $('#analysisList').innerHTML=list.map(a=>{
     const an=analyze(a); if(!an) return '';
     return `<div class="analysis-card">
-      <div class="a-header"><div><div class="a-title">${a.name}</div><div style="font-size:.75rem;color:var(--text-dis);margin-top:2px">${a.tomanView?money(a.price)+' تومان':'$'+money(a.price)} &bull; ${pct(a.chg)}</div></div>
+      <div class="a-header"><div><div class="a-title">${a.name}</div><div style="font-size:.75rem;color:var(--text-dis);margin-top:2px">${a.tomanView?money(a.price)+' تومان':'$'+money(a.price)} | ${pct(a.chg)}</div></div>
         <span class="a-sig ${an.signal}">${an.sigTxt}</span></div>
       <div class="a-grid">
         <div class="a-stat"><div class="k">روند</div><div class="v">${an.trend}</div></div>
@@ -621,18 +1076,19 @@ function renderAnalysis(){
   }).join('')||'<div class="center">داده کافی برای تحلیل موجود نیست.</div>';
 }
 
-/* ================= MODALS ================= */
 function openModal(title,html){ $('#mTitle').textContent=title; $('#mBody').innerHTML=html; $('#overlay').classList.add('open'); }
 $('#mClose').onclick=()=>$('#overlay').classList.remove('open');
 $('#overlay').onclick=e=>{if(e.target.id==='overlay')$('#overlay').classList.remove('open')};
 
 function openNews(i){
   const n=news[i]; if(!n)return;
-  openModal(n.title,`<div class="news-source" style="margin-bottom:10px"><span class="news-badge">${n.source}</span><span>${n.fullDate}</span></div>
+  const content = n.content || n.desc || 'متن کامل در دسترس نیست.';
+  openModal(n.title,`<div class="news-source" style="margin-bottom:10px"><span class="news-topic-tag ${TOPIC_STYLES[n.topic]||''}">${n.topic}</span><span style="margin-right:8px">${n.exactDate}</span></div>
     ${n.img?`<img src="${n.img}" style="width:100%;border-radius:var(--radius-md);margin:12px 0;max-height:300px;object-fit:cover" alt="" onerror="this.style.display='none'">`:''}
-    <div style="font-size:.9rem;line-height:2;color:var(--text-sec)">${n.content||n.desc||'متن کامل در دسترس نیست.'}</div>
-    <div style="margin-top:16px;display:flex;gap:10px">
-      <a href="${n.link}" target="_blank" style="flex:1;text-align:center;padding:10px;background:var(--primary);color:#fff;border-radius:var(--radius-sm);text-decoration:none;font-weight:700;font-size:.85rem">مشاهده در سایت منبع</a>
+    <div style="font-size:.9rem;line-height:2.2;color:var(--text-sec);text-align:justify">${content.replace(/\n/g,'<br>')}</div>
+    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+      <a href="${n.link}" target="_blank" style="flex:1;min-width:140px;text-align:center;padding:12px;background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;border-radius:var(--radius-sm);text-decoration:none;font-weight:800;font-size:.85rem">مشاهده در سایت منبع ↗</a>
+      <button onclick="navigator.clipboard.writeText('${n.link}');this.textContent='✓ کپی شد';setTimeout(()=>this.textContent='📋 کپی لینک',2000)" style="flex:1;min-width:140px;text-align:center;padding:12px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:800;font-size:.85rem;cursor:pointer">📋 کپی لینک</button>
     </div>`);
 }
 function openAsset(key){
@@ -642,28 +1098,28 @@ function openAsset(key){
     <div class="stats-scroll" style="margin-bottom:16px">
       <div class="stat-pill"><div class="v">${a.tomanView?money(a.price):'$'+money(a.price)}</div><div class="l">${a.tomanView?'تومان':'دلار'}</div></div>
       ${a.toman&&!a.tomanView?`<div class="stat-pill"><div class="v">${money(a.toman)}</div><div class="l">تومان</div></div>`:''}
-      <div class="stat-pill"><div class="v">${pct(a.chg)}</div><div class="l">تغییر ۲۴ ساعت</div></div>
-      ${a.chg7d!==undefined?`<div class="stat-pill"><div class="v">${pct(a.chg7d)}</div><div class="l">۷ روز</div></div>`:''}
+      <div class="stat-pill"><div class="v">${pct(a.chg)}</div><div class="l">تغییر 24 ساعت</div></div>
+      ${a.chg7d!==undefined?`<div class="stat-pill"><div class="v">${pct(a.chg7d)}</div><div class="l">7 روز</div></div>`:''}
     </div>
     <div style="height:240px"><canvas id="mChart"></canvas></div>
     ${an?`<div class="analysis-card" style="margin-top:14px">
       <div class="a-header"><div class="a-title">تحلیل تکنیکال</div><span class="a-sig ${an.signal}">${an.sigTxt}</span></div>
       <div class="a-grid">
-        <div class="a-stat"><div class="k">میانگین ۷</div><div class="v">${money(an.s7)}</div></div>
-        <div class="a-stat"><div class="k">میانگین ۳۰</div><div class="v">${money(an.s30)}</div></div>
+        <div class="a-stat"><div class="k">میانگین 7</div><div class="v">${money(an.s7)}</div></div>
+        <div class="a-stat"><div class="k">میانگین 30</div><div class="v">${money(an.s30)}</div></div>
         <div class="a-stat"><div class="k">RSI</div><div class="v">${nf(an.rsi,0)}</div></div>
         <div class="a-stat"><div class="k">نوسان</div><div class="v">${nf(an.vol,2)}٪</div></div>
       </div><div class="a-text">${an.txt}</div></div>`:'<div class="center" style="padding:20px">داده تاریخی کافی نیست.</div>'}`);
   const h=(a.hist||[]).slice(-60);
   if(h.length>2) new Chart($('#mChart'),{type:'line',
-    data:{labels:h.map(x=>x.date||''),datasets:[{label:a.name,data:h.map(x=>x.v),borderColor:getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),backgroundColor:'rgba(211,47,47,.12)',borderWidth:2,pointRadius:0,tension:.3,fill:true}]},
+    data:{labels:h.map(x=>x.date||''),datasets:[{label:a.name,data:h.map(x=>x.v),borderColor:getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),backgroundColor:'rgba(99,102,241,.12)',borderWidth:2,pointRadius:0,tension:.3,fill:true}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:6,font:{size:9}}},y:{ticks:{callback:v=>money(v),font:{size:9}}}}}});
 }
 
-/* ================= SETTINGS ================= */
-const ACCENTS=['#d32f2f','#2e7d32','#1565c0','#7c3aed','#ed6c02','#00838f','#c2185b'];
+const ACCENTS=['#6366f1','#22c55e','#ef4444','#a855f7','#f59e0b','#06b6d4','#ec4899'];
 function openSettings(){
-  openModal('تنظیمات و شخصیسازی',`
+  const tgList = (S.telegramChannels||[]).join('\n');
+  openModal('تنظیمات و شخصی سازی',`
     <div class="field"><label>سرعت نوار قیمت <span class="hint">(${S.speedPrice} px/s)</span></label>
       <input type="range" min="10" max="200" value="${S.speedPrice}" id="spP"></div>
     <div class="field"><label>سرعت نوار اخبار <span class="hint">(${S.speedNews} px/s)</span></label>
@@ -675,6 +1131,8 @@ function openSettings(){
     <div class="field"><label>فاصله بروزرسانی خودکار (دقیقه)</label><input type="number" min="1" max="60" id="rfr" value="${S.refreshMin}"></div>
     <div class="field"><label>تعداد اخبار</label><input type="number" min="10" max="120" id="ncnt" value="${S.newsCount}"></div>
     <div class="field"><label>منابع خبری</label><div class="chips" id="srcChips">${Object.entries(SOURCES).map(([k,v])=>`<span class="chip ${S.sources.includes(k)?'active':''}" data-s="${k}">${v.name}</span>`).join('')}</div></div>
+    <div class="field"><label>کانال های تلگرامی <span class="hint">(هر خط یک @channel یا آدرس RSS)</span></label>
+      <textarea id="tgChannels" rows="3" placeholder="@khabarfarsi\n@varzesh3\nhttps://rsshub.app/telegram/channel/eghtesadnews">${tgList}</textarea></div>
     <div class="field"><label>موضوعات</label><div class="chips" id="tpChips">${Object.keys(TOPIC_KW).map(t=>`<span class="chip ${S.topics.includes(t)?'active':''}" data-t="${t}">${t}</span>`).join('')}</div></div>
     <button class="chip active" id="applyS" style="width:100%;text-align:center;border-radius:var(--radius-sm);padding:10px">اعمال و بروزرسانی</button>`);
 
@@ -686,21 +1144,23 @@ function openSettings(){
   $$('#mBody .sw').forEach(s=>s.onclick=()=>{S.accent=s.dataset.c;save();applyTheme();$$('#mBody .sw').forEach(x=>x.classList.remove('active'));s.classList.add('active');});
   $$('#srcChips .chip').forEach(c=>c.onclick=()=>{const k=c.dataset.s; S.sources.includes(k)? S.sources=S.sources.filter(x=>x!==k):S.sources.push(k);save();c.classList.toggle('active');});
   $$('#tpChips .chip').forEach(c=>c.onclick=()=>{const t=c.dataset.t; S.topics.includes(t)? S.topics=S.topics.filter(x=>x!==t):S.topics.push(t);save();c.classList.toggle('active');});
-  $('#applyS').onclick=()=>{S.refreshMin=+$('#rfr').value||2;S.newsCount=+$('#ncnt').value||50;save();
-    $('#overlay').classList.remove('open');setTimer();refreshAll();};
+  $('#applyS').onclick=()=>{
+    S.refreshMin=+$('#rfr').value||2; S.newsCount=+$('#ncnt').value||60;
+    S.telegramChannels=$('#tgChannels').value.split('\n').map(x=>x.trim()).filter(x=>x);
+    save(); $('#overlay').classList.remove('open'); setTimer(); refreshAll();
+  };
 }
 $('#btnSettings').onclick=openSettings;
 function applyTheme(){
   document.documentElement.setAttribute('data-theme',S.theme);
   document.documentElement.style.setProperty('--primary',S.accent);
   const dark=S.theme==='dark';
-  document.documentElement.style.setProperty('--primary-light',dark?'#3e2723':'#ffebee');
-  document.documentElement.style.setProperty('--primary-dark',dark?'#c62828':'#b71c1c');
+  document.documentElement.style.setProperty('--primary-light',dark?'rgba(99,102,241,.15)':'rgba(99,102,241,.1)');
+  document.documentElement.style.setProperty('--primary-dark',dark?'#4f46e5':'#4338ca');
   document.documentElement.style.setProperty('--fs',S.fontSize+'px');
 }
 $('#btnTheme').onclick=()=>{S.theme=S.theme==='dark'?'light':'dark';save();applyTheme();};
 
-/* ================= CAR EDITING ================= */
 $('#btnCarEdit').onclick=()=>{
   const cars=S.cars||DEF_CARS;
   openModal('ویرایش قیمت خودرو',cars.map((c,i)=>`<div class="field"><label>${c[0]}</label>
@@ -711,55 +1171,79 @@ $('#btnCarEdit').onclick=()=>{
     save();$('#overlay').classList.remove('open');renderCars();
   };
 };
+$('#btnCarReset').onclick=()=>{S.cars=null;save();renderCars();};
+$('#btnCarFetch').onclick=fetchCarPrices;
 
-/* ================= DAILY DIGEST & PDF ================= */
 function openDigest(){
   const today = news.filter(n=>Date.now()-n.date<864e5);
-  if(!today.length){ openModal('خلاصه روزانه','<div class="center">اخباری در ۲۴ ساعت گذشته یافت نشد.</div>'); return; }
-
+  if(!today.length){ openModal('خلاصه روزانه','<div class="center">اخباری در 24 ساعت گذشته یافت نشد.</div>'); return; }
+  const nowStr = new Date().toLocaleDateString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const sourcesList = [...new Set(today.map(x=>x.source))].join('، ');
   const html = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <h2 style="font-size:1.1rem">خلاصه روزانه</h2>
       <button class="chip active" onclick="generatePDF()" style="border-radius:var(--radius-sm)">&#128190; دانلود PDF</button>
     </div>
-    <div id="digestContent">
-      <div style="text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--primary)">
-        <h1 style="font-size:1.4rem;color:var(--primary);margin-bottom:6px">گزارش روزانه رصد بازار</h1>
-        <p style="color:var(--text-dis);font-size:.85rem">${new Date().toLocaleDateString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</p>
-        <p style="color:var(--text-dis);font-size:.75rem;margin-top:4px">${today.length} خبر از ${new Set(today.map(x=>x.source)).size} منبع</p>
+    <div id="digestRenderArea">
+      <div style="text-align:center;margin-bottom:24px;padding:20px;background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;border-radius:var(--radius-lg)">
+        <h1 style="font-size:1.3rem;margin-bottom:6px">گزارش روزانه رصد بازار</h1>
+        <p style="font-size:.9rem;opacity:.95">${nowStr}</p>
+        <p style="font-size:.75rem;margin-top:6px;opacity:.85">${nf(today.length)} خبر از ${sourcesList}</p>
       </div>
       ${today.map((n,i)=>`
-        <div class="digest-item">
-          ${n.img?`<img src="${n.img}" class="digest-img" alt="" onerror="this.style.display='none'">`:''}
-          <div class="digest-content">
-            <div class="digest-title">${i+1}. ${n.title}</div>
-            <div class="digest-meta">${n.source} &bull; ${n.fullDate}</div>
-            <div style="font-size:.8rem;color:var(--text-sec);margin-top:4px;line-height:1.7">${n.desc?n.desc.slice(0,300):''}...</div>
+        <div style="display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);${i===0?'border-top:1px solid var(--border);margin-top:12px':''}">
+          ${n.img?`<img src="${n.img}" style="width:90px;height:70px;border-radius:8px;object-fit:cover;background:var(--divider);flex-shrink:0" alt="" onerror="this.style.display='none'">`:''}
+          <div style="flex:1;min-width:0">
+            <div style="font-size:.85rem;font-weight:800;margin-bottom:4px;line-height:1.5">${i+1}. ${n.title}</div>
+            <div style="font-size:.7rem;color:var(--text-dis);margin-bottom:6px">${n.source} | ${n.exactDate}</div>
+            <div style="font-size:.8rem;color:var(--text-sec);line-height:1.7">${n.desc?n.desc.slice(0,350):''}${n.desc&&n.desc.length>350?'...':''}</div>
           </div>
         </div>
       `).join('')}
-      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-dis);text-align:center">
-        تولید شده توسط رصد بازار &bull; rasad-market.ir
+      <div style="margin-top:20px;padding-top:16px;border-top:2px solid var(--primary);text-align:center;font-size:.75rem;color:var(--text-dis)">
+        تولید شده توسط رصد بازار | rasad-market.ir
       </div>
     </div>`;
   openModal('خلاصه روزانه', html);
 }
 
 function generatePDF(){
-  const el = document.getElementById('digestContent');
-  if(!el) return;
+  const container = document.getElementById('pdfContainer');
+  if(!container) return;
+  const today = news.filter(n=>Date.now()-n.date<864e5);
+  const nowStr = new Date().toLocaleDateString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const sourcesList = [...new Set(today.map(x=>x.source))].join('، ');
+  container.innerHTML = `
+    <div style="font-family:'Vazirmatn',Tahoma,sans-serif;padding:20px;color:#1a1a1a;direction:rtl;text-align:right;max-width:210mm;margin:0 auto">
+      <div style="text-align:center;border-bottom:3px solid #6366f1;padding-bottom:16px;margin-bottom:20px">
+        <h1 style="font-size:24px;margin:0 0 8px;color:#6366f1">گزارش روزانه رصد بازار</h1>
+        <p style="font-size:14px;color:#555;margin:0">${nowStr}</p>
+        <p style="font-size:12px;color:#888;margin:6px 0 0">${nf(today.length)} خبر از ${sourcesList}</p>
+      </div>
+      ${today.map((n,i)=>`
+        <div style="margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #eee;page-break-inside:avoid">
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px;line-height:1.6;color:#1a1a1a">${i+1}. ${n.title}</div>
+          <div style="font-size:11px;color:#888;margin-bottom:8px">${n.source} | ${n.exactDate} | موضوع: ${n.topic}</div>
+          ${n.img?`<img src="${n.img}" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:8px" alt="" onerror="this.style.display='none'">`:''}
+          <div style="font-size:12px;color:#444;line-height:1.9;text-align:justify">${n.desc?n.desc.slice(0,500):''}${n.desc&&n.desc.length>500?'...':''}</div>
+          ${n.link?`<div style="font-size:10px;color:#4f46e5;margin-top:6px;direction:ltr;text-align:left;word-break:break-all">${n.link}</div>`:''}
+        </div>
+      `).join('')}
+      <div style="text-align:center;margin-top:24px;padding-top:12px;border-top:2px solid #6366f1;font-size:11px;color:#999">
+        تولید شده توسط رصد بازار | rasad-market.ir
+      </div>
+    </div>`;
   const opt = {
     margin: [10, 10, 10, 10],
     filename: 'daily-digest-' + new Date().toISOString().slice(0,10) + '.pdf',
     image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { scale: 2, useCORS: true, logging: false },
+    html2canvas: { scale: 2, useCORS: true, logging: false, allowTaint: true },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
-  html2pdf().set(opt).from(el).save();
+  html2pdf().set(opt).from(container).save().then(()=>{container.innerHTML='';});
 }
 $('#btnDigest').onclick = openDigest;
 
-/* ================= TABS & NAV ================= */
 function switchTab(tab){
   $$('#mainChips .chip, .nav-item').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));
   ['news','fx','crypto','car','analysis'].forEach(v=>$('#view-'+v).classList.toggle('hidden',v!==tab));
@@ -770,22 +1254,21 @@ function switchTab(tab){
 $$('#mainChips .chip').forEach(t=>t.onclick=()=>switchTab(t.dataset.tab));
 $$('.nav-item').forEach(t=>t.onclick=()=>switchTab(t.dataset.tab));
 
-/* ================= ORCHESTRATION ================= */
-let timer=null, newsTimer=null;
+let timer=null, newsTimer=null, isRefreshing=false;
 function setTimer(){ 
   if(timer) clearInterval(timer); 
-  timer=setInterval(refreshPrices,Math.max(1,S.refreshMin)*60000); 
+  timer=setInterval(()=>{if(!isRefreshing) refreshPrices();}, 5000); // Every 5 seconds
 }
 function setNewsTimer(){
   if(newsTimer) clearInterval(newsTimer);
-  newsTimer=setInterval(refreshNews, 120000); // every 2 min
+  newsTimer=setInterval(()=>{if(!isRefreshing) refreshNews();}, 120000);
 }
 
 async function refreshPrices(){
+  if(isRefreshing) return;
   try{
     const tg = await loadTgju();
     const cg = await loadCrypto();
-    // FIX BUG: properly merge without overwriting
     assets = [...tg, ...cg];
     renderStats(); renderFx(); renderCrypto(); renderCars(); renderTickers();
     if(!$('#view-analysis').classList.contains('hidden')) renderAnalysis();
@@ -793,32 +1276,37 @@ async function refreshPrices(){
 }
 
 async function refreshNews(){
+  if(isRefreshing) return;
+  isRefreshing=true;
   try{
     const newNews = await loadNews();
-    // Check if there are really new items
-    const existingTitles = new Set(news.map(n=>n.title));
-    const fresh = newNews.filter(n=>!existingTitles.has(n.title));
-    news = newNews;
+    if(newNews.length === 0){
+      news = MOCK_NEWS.map(n=>({...n, exactDate:fmtDate(n.date), exactShort:fmtDateShort(n.date)}));
+    } else {
+      const existingTitles = new Set(news.map(n=>n.title));
+      const fresh = newNews.filter(n=>!existingTitles.has(n.title));
+      news = newNews;
+      if(fresh.length>0 && document.visibilityState==='visible'){
+        const badge=$('.live-pill');
+        if(badge){ badge.style.transform='scale(1.2)'; setTimeout(()=>badge.style.transform='',300); }
+      }
+    }
     try{ localStorage.setItem(LS+'_news',JSON.stringify(news.slice(0,60))); }catch(e){}
     renderNews(); renderStats(); renderTickers();
-    // Visual notification for new news
-    if(fresh.length && document.visibilityState==='visible'){
-      // Could add toast here
-      console.log(fresh.length+' new articles');
-    }
   }catch(e){ console.error('News refresh error',e); }
+  finally{ isRefreshing=false; }
 }
 
 async function refreshAll(){ 
   await Promise.allSettled([refreshPrices(), refreshNews()]); 
 }
 
-// Visibility API: refresh when user comes back
 let wasHidden = false;
 document.addEventListener('visibilitychange',()=>{
   if(!document.hidden && wasHidden){ refreshAll(); }
   wasHidden = document.hidden;
 });
+window.addEventListener('online',()=>{ console.log('Online'); refreshAll(); });
 
 (function init(){
   applyTheme();
