@@ -1,0 +1,19 @@
+{
+  "name": "rasad-news",
+  "version": "2.0.0",
+  "private": true,
+  "description": "رصد | اینستاگرامِ اخبار و بازار ایران",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "collect": "node scripts/collect.mjs",
+    "serve": "node scripts/serve.mjs",
+    "check": "npm test && node scripts/lint-html.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.0"
+  }
+}

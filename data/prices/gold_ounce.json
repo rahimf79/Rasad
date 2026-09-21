@@ -1,0 +1,22 @@
+{
+  "key": "gold_ounce",
+  "meta": {
+    "key": "gold_ounce",
+    "name": "انس طلا",
+    "unit": "usd",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000001901",
+    "updatedAt": 1790000425447,
+    "seeded": true
+  },
+  "series": [
+    {
+      "t": 1789885560000,
+      "v": 4383.45,
+      "o": 4383.45,
+      "h": 4383.45,
+      "l": 4383.45,
+      "src": "ثروتمندی"
+    }
+  ]
+}
