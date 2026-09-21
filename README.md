@@ -122,6 +122,9 @@ RETENTION = { newsDays: 120, priceDays: 1095, commentsDays: 3650 }
 4. اگر می‌خواهید روی دامنهٔ اختصاصی منتشر شود، فایل `CNAME` را در ریشه اضافه کنید (ورک‌فلو خودش آن را به خروجی اضافه می‌کند).
 
 ### اجرای محلی
+> نیازمند **Node ۲۲.۱۹ یا بالاتر** (وابستگی jsdom یعنی undici به `worker_threads.markAsUncloneable` نیاز دارد).
+> روی Node ۲۰ تست یکپارچهٔ jsdom با خطای `markAsUncloneable is not a function` می‌افتد.
+
 ```bash
 npm install
 npm run serve     # http://localhost:4173

@@ -32,7 +32,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # jsdom → undici به Node >= 22.19 نیاز دارد (markAsUncloneable در worker_threads)
+          node-version: '22'
+          cache: npm
 
       - name: Run collector
         run: |

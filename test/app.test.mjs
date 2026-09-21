@@ -7,7 +7,15 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { JSDOM } from 'jsdom';
+// jsdom وابستگی undici دارد که به Node >= 22.19 نیاز دارد؛ اگر بارگذاری نشد
+// به‌جای «markAsUncloneable is not a function» پیام خوانا می‌دهیم.
+let JSDOM = null;
+let jsdomError = null;
+try {
+  ({ JSDOM } = await import('jsdom'));
+} catch (err) {
+  jsdomError = err;
+}
 
 import { Store, createMemoryBackend, AuthError } from '../assets/js/db.js';
 import { PRICE_ENTITIES, AGENCIES } from '../assets/js/config.js';
@@ -69,6 +77,12 @@ function makeFetch() {
 }
 
 async function setup() {
+  if (!JSDOM) {
+    throw new Error(
+      `jsdom روی Node ${process.version} بارگذاری نشد: ${jsdomError?.message}\n` +
+      'وابستگی jsdom (undici) به Node >= 22.19 نیاز دارد — در ورک‌فلو node-version را روی 22 بگذارید.'
+    );
+  }
   const dom = new JSDOM(HTML, { url: 'http://localhost:4173/', pretendToBeVisual: true });
   const { window } = dom;
   window.scrollTo = () => {};

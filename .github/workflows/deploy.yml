@@ -25,7 +25,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # jsdom → undici به Node >= 22.19 نیاز دارد (markAsUncloneable در worker_threads)
+          node-version: '22'
+          cache: npm
 
       - name: Install dev dependencies
         run: npm ci || npm install --no-audit --no-fund
@@ -52,7 +54,10 @@ jobs:
           [ -f README.md ] && cp README.md dist/ || true
           [ -f CNAME ] && cp CNAME dist/ || true
 
+      # enablement: true → اگر Pages هنوز فعال نباشد، خودش روی منبع «GitHub Actions» فعال می‌شود
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
