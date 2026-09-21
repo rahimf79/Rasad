@@ -21,9 +21,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           # jsdom → undici به Node >= 22.19 نیاز دارد (markAsUncloneable در worker_threads)
           node-version: '22'
@@ -53,15 +53,33 @@ jobs:
           [ -f LICENSE ] && cp LICENSE dist/ || true
           [ -f README.md ] && cp README.md dist/ || true
           [ -f CNAME ] && cp CNAME dist/ || true
+          echo "$(find dist -type f | wc -l) فایل، $(du -sh dist | cut -f1)"
 
-      # enablement: true → اگر Pages هنوز فعال نباشد، خودش روی منبع «GitHub Actions» فعال می‌شود
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+      # فعال‌سازی Pages نیاز به دسترسی admin دارد و با توکن ورک‌فلو ممکن نیست (403)؛
+      # پس به‌جای خطای مبهم «Resource not accessible by integration»، پیش از دیپلوی بررسی می‌کنیم.
+      - name: بررسی فعال بودن GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          code=$(curl -s -o /tmp/pages.json -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages")
+          if [ "$code" != "200" ]; then
+            echo "::error title=GitHub Pages فعال نیست::در ریپو به Settings → Pages → Build and deployment بروید و Source را روی «GitHub Actions» بگذارید، سپس این ورک‌فلو را دوباره اجرا کنید."
+            exit 1
+          fi
+          if ! grep -q '"build_type" *: *"workflow"' /tmp/pages.json; then
+            echo "::error title=منبع Pages اشتباه است::Source باید «GitHub Actions» باشد، نه «Deploy from a branch»."
+            exit 1
+          fi
+          echo "GitHub Pages با منبع «GitHub Actions» فعال است ✓"
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
