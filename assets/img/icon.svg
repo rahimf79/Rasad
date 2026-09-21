@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="رصد">
+  <defs>
+    <linearGradient id="ig" x1="14%" y1="100%" x2="86%" y2="0%">
+      <stop offset="0%" stop-color="#FEDA75"/>
+      <stop offset="22%" stop-color="#FA7E1E"/>
+      <stop offset="50%" stop-color="#D62976"/>
+      <stop offset="76%" stop-color="#962FBF"/>
+      <stop offset="100%" stop-color="#4F5BD5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="4" y="4" width="120" height="120" rx="34" fill="url(#ig)"/>
+  <rect x="4" y="4" width="120" height="120" rx="34" fill="url(#glow)"/>
+  <rect x="9.5" y="9.5" width="109" height="109" rx="29" fill="none" stroke="#ffffff" stroke-opacity=".45" stroke-width="2.5"/>
+
+  <!-- نماد «رصد»: رادار + نبض بازار -->
+  <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="64" r="34" stroke-opacity=".55" stroke-width="5"/>
+    <path d="M64 64 L88 46" stroke-width="6"/>
+    <path d="M32 78 L46 78 L54 58 L66 90 L74 70 L96 70" stroke-width="6.5"/>
+  </g>
+  <circle cx="88" cy="46" r="7.5" fill="#fff"/>
+  <circle cx="64" cy="64" r="4.5" fill="#fff" fill-opacity=".9"/>
+</svg>

@@ -1,0 +1,56 @@
+name: Collect news and prices
+
+# این ورک‌فلو نقش «پایگاه داده» را بازی می‌کند: هر ۳۰ دقیقه اخبار و قیمت‌ها را
+# از منابع جمع می‌کند و نتیجه را به‌صورت JSON در خود مخزن کامیت می‌کند.
+# توجه: schedule فقط روی شاخهٔ پیش‌فرض (main) اجرا می‌شود؛ پس از مرج، خودکار فعال است.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'محدودسازی به یک منبع'
+        required: false
+        default: 'all'
+        type: choice
+        options: [all, news, prices, cars]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run collector
+        run: |
+          case "${{ inputs.only || 'all' }}" in
+            news)   node scripts/collect.mjs --news-only ;;
+            prices) node scripts/collect.mjs --prices-only ;;
+            cars)   node scripts/collect.mjs --cars-only ;;
+            *)      node scripts/collect.mjs ;;
+          esac
+
+      - name: Commit archive
+        run: |
+          git config user.name "rasad-bot"
+          git config user.email "rasad-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "هیچ تغییر جدیدی در آرشیو نبود."
+          else
+            git commit -m "chore(data): archive update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git push
+          fi

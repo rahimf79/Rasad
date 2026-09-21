@@ -1,0 +1,62 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, arena/01a0c426-rasad]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dev dependencies
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Tests
+        run: npm test
+
+      - name: Static consistency check
+        run: node scripts/lint-html.mjs
+
+      - name: Seed archive (only if empty)
+        run: |
+          if [ ! -f data/index.json ]; then
+            node scripts/seed.mjs
+          else
+            echo "archive already present — skipping seed"
+          fi
+
+      - name: Prepare Pages artifact
+        run: |
+          rm -rf dist && mkdir -p dist
+          cp -r index.html assets data dist/
+          [ -f LICENSE ] && cp LICENSE dist/ || true
+          [ -f README.md ] && cp README.md dist/ || true
+          [ -f CNAME ] && cp CNAME dist/ || true
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
