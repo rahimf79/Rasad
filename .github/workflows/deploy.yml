@@ -7,19 +7,15 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # ── تست روی هر شاخه‌ای اجرا می‌شود (چکِ PR) ────────────────────────────────
+  test:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
 
@@ -38,6 +34,28 @@ jobs:
       - name: Static consistency check
         run: node scripts/lint-html.mjs
 
+  # ── دیپلوی فقط از شاخهٔ پیش‌فرض ────────────────────────────────────────────
+  # environment «github-pages» یک branch policy دارد که فقط به main اجازه می‌دهد؛
+  # و actions/deploy-pages برای توکن OIDC حتماً به همان environment نیاز دارد
+  # (POST /repos/{owner}/{repo}/pages/deployments). پس از شاخه‌های دیگر فقط تست می‌گیریم.
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
       - name: Seed archive (only if empty)
         run: |
           if [ ! -f data/index.json ]; then
@@ -53,9 +71,9 @@ jobs:
           [ -f LICENSE ] && cp LICENSE dist/ || true
           [ -f README.md ] && cp README.md dist/ || true
           [ -f CNAME ] && cp CNAME dist/ || true
-          echo "$(find dist -type f | wc -l) فایل، $(du -sh dist | cut -f1)"
+          echo "artifact: $(find dist -type f | wc -l) فایل، $(du -sh dist | cut -f1)"
 
-      # فعال‌سازی Pages نیاز به دسترسی admin دارد و با توکن ورک‌فلو ممکن نیست (403)؛
+      # فعال‌سازی Pages به دسترسی admin نیاز دارد و با توکن ورک‌فلو ممکن نیست (403)؛
       # پس به‌جای خطای مبهم «Resource not accessible by integration»، پیش از دیپلوی بررسی می‌کنیم.
       - name: بررسی فعال بودن GitHub Pages
         env:
