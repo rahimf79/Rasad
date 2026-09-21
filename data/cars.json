@@ -6,7 +6,21 @@
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/dena",
       "at": 1790021165354
+    },
+    {
+      "name": "تهران، کیانشهر",
+      "price": 998000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/quick",
+      "at": 1790033327589
+    },
+    {
+      "name": "تهران، ولنجک",
+      "price": 1350000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/peugeot",
+      "at": 1790033321678
     }
   ],
-  "updatedAt": 1790021169973
+  "updatedAt": 1790033329741
 }

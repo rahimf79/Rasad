@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "2.0.0",
-  "generatedAt": 1790021171754,
-  "generatedAtJalali": "۱۴۰۵/۰۶/۳۰ - ۲۰:۰۶:۱۱",
+  "generatedAt": 1790033331839,
+  "generatedAtJalali": "۱۴۰۵/۰۶/۳۰ - ۲۳:۲۸:۵۱",
   "news": {
     "files": [
       "2026-09-21.json",
@@ -69,13 +69,19 @@
     "errors": 1
   },
   "cars": {
-    "count": 1
+    "count": 3
   },
   "discovery": {
     "total": 492,
     "fresh": 442
   },
   "sources": [
+    {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
     {
       "id": "mehr",
       "name": "مهر",
@@ -85,12 +91,6 @@
     {
       "id": "isna",
       "name": "ایسنا",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "irna",
-      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -107,14 +107,14 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
@@ -125,15 +125,21 @@
       "ok": true
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
+      "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -146,12 +152,6 @@
       "id": "euronews",
       "name": "یورونیوز",
       "count": 50,
-      "ok": true
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
       "ok": true
     },
     {
@@ -178,5 +178,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 59135
+  "durationMs": 52823
 }
