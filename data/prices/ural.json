@@ -1,0 +1,21 @@
+{
+  "key": "ural",
+  "series": [
+    {
+      "t": 1789976040000,
+      "v": 113.41,
+      "o": 113.41,
+      "h": 113.41,
+      "l": 113.41,
+      "src": "ثروتمندی"
+    }
+  ],
+  "meta": {
+    "key": "ural",
+    "name": "نفت اورال",
+    "unit": "usd",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002013",
+    "updatedAt": 1790021153144
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "key": "usd_gov",
+  "series": [
+    {
+      "t": 1789977540000,
+      "v": 167598.8,
+      "o": 167598.8,
+      "h": 167598.8,
+      "l": 167598.8,
+      "src": "ثروتمندی"
+    }
+  ],
+  "meta": {
+    "key": "usd_gov",
+    "name": "دلار حواله دولتی",
+    "unit": "rial",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/200000000001",
+    "updatedAt": 1790021153139
+  }
+}

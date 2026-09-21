@@ -1,0 +1,21 @@
+{
+  "key": "natgas_de",
+  "series": [
+    {
+      "t": 1789976040000,
+      "v": 80.54,
+      "o": 80.54,
+      "h": 80.54,
+      "l": 80.54,
+      "src": "ثروتمندی"
+    }
+  ],
+  "meta": {
+    "key": "natgas_de",
+    "name": "گاز طبیعی آلمان",
+    "unit": "usd",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002014",
+    "updatedAt": 1790021153142
+  }
+}

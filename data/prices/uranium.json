@@ -1,0 +1,21 @@
+{
+  "key": "uranium",
+  "series": [
+    {
+      "t": 1789976040000,
+      "v": 89.7,
+      "o": 89.7,
+      "h": 89.7,
+      "l": 89.7,
+      "src": "ثروتمندی"
+    }
+  ],
+  "meta": {
+    "key": "uranium",
+    "name": "اورانیوم",
+    "unit": "usd",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002011",
+    "updatedAt": 1790021153144
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "key": "methanol",
+  "series": [
+    {
+      "t": 1789988100000,
+      "v": 3433,
+      "src": "ثروتمندی/سقف روز"
+    },
+    {
+      "t": 1789991700000,
+      "v": 3387,
+      "o": 3433,
+      "h": 3433,
+      "l": 3387,
+      "src": "ثروتمندی"
+    }
+  ],
+  "meta": {
+    "key": "methanol",
+    "name": "متانول",
+    "unit": "usd",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002012",
+    "updatedAt": 1790021153144
+  }
+}

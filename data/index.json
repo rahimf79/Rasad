@@ -1,33 +1,182 @@
 {
   "app": "رصد",
   "version": "2.0.0",
-  "generatedAt": 1790000425449,
-  "generatedAtJalali": "۱۴۰۵/۰۶/۳۰ - ۱۴:۲۰:۲۵",
+  "generatedAt": 1790021171754,
+  "generatedAtJalali": "۱۴۰۵/۰۶/۳۰ - ۲۰:۰۶:۱۱",
   "news": {
-    "files": [],
-    "days": 0
+    "files": [
+      "2026-09-21.json",
+      "2026-09-20.json",
+      "2026-09-19.json",
+      "2026-09-18.json",
+      "2026-09-17.json",
+      "2026-09-16.json",
+      "2026-07-30.json",
+      "2026-07-18.json"
+    ],
+    "days": 8
   },
   "prices": {
     "assets": [
-      "usd",
+      "aed",
+      "afn",
+      "aud",
+      "azn",
+      "brent",
+      "btc",
+      "cad",
+      "chf",
+      "cny",
+      "coal",
+      "coke",
+      "diesel",
+      "eth",
+      "ethanol",
+      "eur",
+      "fueloil",
+      "gasoline",
+      "gbp",
       "gold18",
-      "gold_ounce"
+      "gold_ounce",
+      "iqd",
+      "jpy",
+      "kwd",
+      "lng_jk",
+      "mesghal",
+      "methanol",
+      "natgas",
+      "natgas_de",
+      "natgas_nl",
+      "natgas_uk",
+      "paxg",
+      "propane",
+      "qar",
+      "rub",
+      "sar",
+      "sekeh_emami",
+      "silver999",
+      "silver_ounce",
+      "try",
+      "ural",
+      "uranium",
+      "usd",
+      "usd_gov",
+      "usdt",
+      "wti",
+      "xaut"
     ],
-    "collected": 3,
-    "errors": 0
+    "collected": 46,
+    "errors": 1
   },
   "cars": {
-    "count": 0
+    "count": 1
   },
   "discovery": {
-    "total": 0,
-    "fresh": 0
+    "total": 492,
+    "fresh": 442
   },
-  "sources": [],
+  "sources": [
+    {
+      "id": "mehr",
+      "name": "مهر",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "isna",
+      "name": "ایسنا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
+      "ok": true
+    },
+    {
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 27,
+      "ok": true
+    },
+    {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
+    }
+  ],
   "retention": {
     "newsDays": 120,
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "note": "دادهٔ اولیه؛ با اولین اجرای GitHub Actions جایگزین/تکمیل می‌شود."
+  "durationMs": 59135
 }

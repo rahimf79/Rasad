@@ -1,0 +1,21 @@
+{
+  "key": "ethanol",
+  "series": [
+    {
+      "t": 1789976040000,
+      "v": 2.025,
+      "o": 2.025,
+      "h": 2.025,
+      "l": 2.025,
+      "src": "ثروتمندی"
+    }
+  ],
+  "meta": {
+    "key": "ethanol",
+    "name": "اتانول",
+    "unit": "usd",
+    "source": "ثروتمندی",
+    "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002008",
+    "updatedAt": 1790021153144
+  }
+}
