@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /**
- * جمع‌آوری خودکار رصد — در GitHub Actions اجرا می‌شود و خروجی را در پوشهٔ data/
- * همان مخزن کامیت می‌کند. مخزن گیت نقش «پایگاه داده» را بازی می‌کند:
+ * جمع‌آوری خودکار رصد — در GitHub Actions (هر ۳۰ دقیقه) اجرا می‌شود و خروجی را در پوشهٔ data/
+ * همان مخزن کامیت می‌کند. مخزن گیت نقش «پایگاه داده» را بازی می‌کند و مرورگر کاربر فقط می‌خواند:
+ *   - data/latest.json           → «بستهٔ آماده»: هر چیزی که صفحهٔ اول لازم دارد در یک فایل (پست‌های تازه،
+ *                                   آخرین قیمت همهٔ دارایی‌ها + اسپارک‌لاین، خودرو، وضعیت منابع)
  *   - data/news/YYYY-MM-DD.json  → آرشیو اخبار با تاریخ دقیق انتشار
- *   - data/prices/<key>.json     → سری زمانی قیمت‌ها (ثروتمندی)
+ *   - data/prices/<key>.json     → سری زمانی فشرده‌شدهٔ قیمت‌ها (ثروتمندی)
  *   - data/cars.json             → قیمت خودرو (باما)
  *   - data/index.json            → فهرست و وضعیت جمع‌آوری
  *
@@ -11,6 +13,7 @@
  *   node scripts/collect.mjs                 # همهٔ منابع
  *   node scripts/collect.mjs --news-only
  *   node scripts/collect.mjs --prices-only --cars-only
+ *   node scripts/collect.mjs --bundle-only   # فقط بازسازی data/latest.json از فایل‌های موجود
  *   node scripts/collect.mjs --dry           # بدون نوشتن روی دیسک
  */
 
@@ -23,8 +26,10 @@ import { AGENCIES, PRICE_ENTITIES, SERVATMANDI, CAR_SOURCES, APP, ENTITY_BY_KEY 
 import { parseRss, parseServatmandiSummary, parseBamaPrices, parseServatmandiEntities } from '../assets/js/lib/parsers.js';
 import { normalizeItem } from '../assets/js/posts.js';
 import { normalizeSnapshot } from '../assets/js/prices.js';
-import { formatJalali, dateToJalali } from '../assets/js/lib/jalali.js';
+import { formatJalali } from '../assets/js/lib/jalali.js';
+import { compactSeries, slimPost } from '../assets/js/lib/bundle.js';
 import { fetchText } from './lib/http.mjs';
+import { writeLatestBundle, listNewsFiles } from './lib/bundle-disk.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -33,9 +38,11 @@ const PRICE_DIR = path.join(DATA, 'prices');
 
 const args = new Set(process.argv.slice(2));
 const DRY = args.has('--dry');
-const doNews = !args.has('--prices-only') && !args.has('--cars-only') || args.has('--news-only');
-const doPrices = !args.has('--news-only') && !args.has('--cars-only') || args.has('--prices-only');
-const doCars = !args.has('--news-only') && !args.has('--prices-only') || args.has('--cars-only');
+const BUNDLE_ONLY = args.has('--bundle-only');
+const doNews = !BUNDLE_ONLY && (!args.has('--prices-only') && !args.has('--cars-only') || args.has('--news-only'));
+const doPrices = !BUNDLE_ONLY && (!args.has('--news-only') && !args.has('--cars-only') || args.has('--prices-only'));
+const doCars = !BUNDLE_ONLY && (!args.has('--news-only') && !args.has('--prices-only') || args.has('--cars-only'));
+const doDiscover = doPrices && !args.has('--no-discover');
 
 const log = (...a) => console.log('[collect]', ...a);
 
@@ -99,7 +106,7 @@ async function collectNews() {
     const file = path.join(NEWS_DIR, `${day}.json`);
     const existing = await readJson(file, []);
     const merged = new Map(existing.map((p) => [p.id, p]));
-    for (const [id, post] of map) if (!merged.has(id)) merged.set(id, post);
+    for (const [id, post] of map) if (!merged.has(id)) merged.set(id, slimPost(post, { contentMax: 4000, descMax: 1000 }) || post);
     const rows = [...merged.values()].sort((a, b) => b.date - a.date);
     await writeJson(file, rows);
     total += rows.length;
@@ -125,12 +132,6 @@ async function pruneNews() {
   return removed;
 }
 
-async function listNewsFiles() {
-  if (!existsSync(NEWS_DIR)) return [];
-  const files = (await readdir(NEWS_DIR)).filter((f) => f.endsWith('.json')).sort().reverse();
-  return files;
-}
-
 /* ------------------------------------------------------------------ */
 /* قیمت‌ها از ثروتمندی                                                 */
 /* ------------------------------------------------------------------ */
@@ -140,37 +141,43 @@ async function collectPrices() {
   const results = [];
   const errors = [];
   const points = {};
+  const queue = [...PRICE_ENTITIES];
+  const concurrency = 3;
 
-  for (const ent of PRICE_ENTITIES) {
-    const url = `${SERVATMANDI.base}/Entity/Summary/${ent.code}`;
-    try {
-      const html = await fetchText(url, { timeout: 20000 });
-      const parsed = parseServatmandiSummary(html, ent.code);
-      if (!parsed) { errors.push(`${ent.name}: پارس نشد`); continue; }
-      const snap = normalizeSnapshot({ ...parsed, key: ent.key });
-      if (!snap) { errors.push(`${ent.name}: نگاشت نشد`); continue; }
+  const worker = async () => {
+    while (queue.length) {
+      const ent = queue.shift();
+      const url = `${SERVATMANDI.base}/Entity/Summary/${ent.code}`;
+      try {
+        const html = await fetchText(url, { timeout: 20000 });
+        const parsed = parseServatmandiSummary(html, ent.code);
+        if (!parsed) { errors.push(`${ent.name}: پارس نشد`); continue; }
+        const snap = normalizeSnapshot({ ...parsed, key: ent.key });
+        if (!snap) { errors.push(`${ent.name}: نگاشت نشد`); continue; }
 
-      const t = parsed.time || Date.now();
-      const row = { t, v: snap.last, o: snap.first, h: snap.high, l: snap.low, src: 'ثروتمندی' };
-      points[ent.key] = [row];
-      if (snap.high && snap.high !== snap.last) points[ent.key].push({ t: t - 3600e3, v: snap.high, src: 'ثروتمندی/سقف روز' });
-      if (snap.low && snap.low !== snap.last) points[ent.key].push({ t: t - 7200e3, v: snap.low, src: 'ثروتمندی/کف روز' });
-      results.push(snap);
-      log(`${ent.name} = ${snap.last} ${snap.unitLabel} (${formatJalali(t)})`);
-    } catch (e) {
-      errors.push(`${ent.name}: ${e.message}`);
+        const t = parsed.time || Date.now();
+        const row = { t, v: snap.last, o: snap.first, h: snap.high, l: snap.low, src: 'ثروتمندی' };
+        points[ent.key] = [row];
+        if (snap.high && snap.high !== snap.last) points[ent.key].push({ t: t - 3600e3, v: snap.high, src: 'ثروتمندی/سقف روز' });
+        if (snap.low && snap.low !== snap.last) points[ent.key].push({ t: t - 7200e3, v: snap.low, src: 'ثروتمندی/کف روز' });
+        results.push(snap);
+        log(`${ent.name} = ${snap.last} ${snap.unitLabel} (${formatJalali(t)})`);
+      } catch (e) {
+        errors.push(`${ent.name}: ${e.message}`);
+      }
+      await new Promise((r) => setTimeout(r, 200));
     }
-    await new Promise((r) => setTimeout(r, 250));
-  }
+  };
+  await Promise.all(Array.from({ length: concurrency }, worker));
 
-  // نوشتن سری‌ها
+  // نوشتن سری‌ها (فشرده‌شده تا با گذشت ماه‌ها حجم فایل‌ها منفجر نشود)
   for (const [key, pts] of Object.entries(points)) {
     const file = path.join(PRICE_DIR, `${key}.json`);
     const rec = await readJson(file, { key, series: [] });
     const map = new Map((rec.series || []).map((p) => [p.t, p]));
     for (const p of pts) map.set(p.t, p);
     const cutoff = Date.now() - APP.RETENTION.priceDays * 864e5;
-    rec.series = [...map.values()].filter((p) => p.t >= cutoff).sort((a, b) => a.t - b.t);
+    rec.series = compactSeries([...map.values()].filter((p) => p.t >= cutoff));
     const last = results.find((r) => r.key === key);
     rec.meta = {
       key,
@@ -237,16 +244,30 @@ async function discoverEntities() {
 
 /* ------------------------------------------------------------------ */
 
+/** هر مرحله جدا خطاگیری می‌شود تا شکست یک منبع، انتشار بقیهٔ داده‌ها را متوقف نکند */
+async function step(name, fn, fallback) {
+  try { return await fn(); } catch (e) { console.error(`[collect] مرحلهٔ ${name} ناموفق:`, e.message); return fallback; }
+}
+
 async function main() {
   const started = Date.now();
-  log(`شروع جمع‌آوری — ${formatJalali(started)}`);
+  log(`شروع جمع‌آوری — ${formatJalali(started)}${BUNDLE_ONLY ? ' (فقط بسته)' : ''}`);
 
-  const news = doNews ? await collectNews() : { report: [], total: 0 };
-  const prices = doPrices ? await collectPrices() : { results: [], errors: [], count: 0 };
-  const cars = doCars ? await collectCarPrices() : { count: 0, errors: [] };
-  const discovery = doPrices ? await discoverEntities() : { total: 0, fresh: 0 };
+  const news = doNews ? await step('اخبار', collectNews, { report: [], total: 0 }) : { report: [], total: 0 };
+  const prices = doPrices ? await step('قیمت‌ها', collectPrices, { results: [], errors: ['اجرا نشد'], count: 0 }) : { results: [], errors: [], count: 0 };
+  const cars = doCars ? await step('خودرو', collectCarPrices, { count: 0, errors: [] }) : { count: 0, errors: [] };
+  const discovery = doDiscover ? await step('کشف دارایی', discoverEntities, { total: 0, fresh: 0 }) : { total: 0, fresh: 0 };
 
-  const files = await listNewsFiles();
+  // بستهٔ آماده — تنها فایلی که مرورگر برای نمایش صفحهٔ اول می‌خواند
+  const bundle = await step('بستهٔ آماده', () => writeLatestBundle({
+    dataDir: DATA,
+    snapshots: prices.results,
+    sources: news.report.map((r) => ({ id: r.id, name: r.name, count: r.count, ok: r.count > 0 })),
+    dry: DRY,
+    log
+  }), null);
+
+  const files = await listNewsFiles(NEWS_DIR);
   const index = {
     app: APP.name,
     version: APP.version,
@@ -261,17 +282,19 @@ async function main() {
     },
     cars: { count: cars.count },
     discovery,
+    bundle: bundle ? { file: APP.BUNDLE_FILE, posts: bundle.counts.posts, assets: bundle.counts.assets, generatedAt: bundle.generatedAt } : null,
+    intervalMinutes: APP.COLLECT_INTERVAL_MIN,
     sources: news.report.map((r) => ({ id: r.id, name: r.name, count: r.count, ok: r.count > 0 })),
     retention: APP.RETENTION,
     durationMs: Date.now() - started
   };
 
-  await writeJson(path.join(DATA, 'index.json'), index);
+  if (!BUNDLE_ONLY) await writeJson(path.join(DATA, 'index.json'), index);
 
   log(`پایان: ${news.report.reduce((a, r) => a + r.count, 0)} خبر، ${prices.count} قیمت، ${cars.count} خودرو در ${index.durationMs}ms`);
   const okSources = news.report.filter((r) => r.count > 0).length;
-  log(`منابع خبری موفق: ${okSources}/${news.report.length}`);
-  if (!okSources && !prices.count && !DRY) {
+  if (doNews) log(`منابع خبری موفق: ${okSources}/${news.report.length}`);
+  if (doNews && doPrices && !okSources && !prices.count && !DRY) {
     console.warn('[collect] هشدار: هیچ منبعی داده برنگرداند — خروجی قبلی دست‌نخورده باقی می‌ماند.');
   }
 }

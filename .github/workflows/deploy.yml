@@ -1,21 +1,23 @@
 name: Deploy to GitHub Pages
 
+# انتشار سایت پس از تغییر کد. دادهٔ خبری/قیمتی را ورک‌فلوی collect.yml هر ۳۰ دقیقه جمع می‌کند
+# و خودش هم Pages را دوباره منتشر می‌کند؛ این‌جا فقط کد + آخرین دادهٔ کامیت‌شده منتشر می‌شود.
+
 on:
   push:
-    branches: [main, arena/01a0c426-rasad]
+    branches: [main, 'arena/**']
   workflow_dispatch:
 
 permissions:
   contents: read
 
-concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   # ── تست روی هر شاخه‌ای اجرا می‌شود (چکِ PR) ────────────────────────────────
   test:
     runs-on: ubuntu-latest
+    concurrency:
+      group: test-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v7
 
@@ -42,6 +44,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # همان گروهی که collect.yml استفاده می‌کند تا دو انتشار روی هم نیفتند
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       contents: read
       pages: write
@@ -56,13 +63,34 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Seed archive (only if empty)
+      # اگر هنوز هیچ اجرای جمع‌آوری‌ای انجام نشده (بسته خالی یا فقط دادهٔ اولیه است)، همین‌جا یک بار داده
+      # جمع می‌کنیم تا کاربر با صفحهٔ خالی روبه‌رو نشود. این داده کامیت نمی‌شود؛ اجرای بعدی collect.yml آن را کامیت می‌کند.
+      - name: Check existing bundle
+        id: bundle
         run: |
-          if [ ! -f data/index.json ]; then
-            node scripts/seed.mjs
-          else
-            echo "archive already present — skipping seed"
+          if [ -f data/latest.json ] && node -e '
+            const b = JSON.parse(require("fs").readFileSync("data/latest.json", "utf8"));
+            process.exit((b.counts && b.counts.posts > 0) ? 0 : 1);
+          '; then echo "fresh=true" >> "$GITHUB_OUTPUT"; else echo "fresh=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Collect fresh data for the first deploy (best effort)
+        if: steps.bundle.outputs.fresh != 'true'
+        timeout-minutes: 8
+        continue-on-error: true
+        env:
+          TZ: Asia/Tehran
+        run: node scripts/collect.mjs
+
+      - name: Ensure a bundle exists
+        run: |
+          if [ ! -f data/latest.json ]; then
+            [ -f data/index.json ] || node scripts/seed.mjs
+            node scripts/collect.mjs --bundle-only
           fi
+          node -e '
+            const b = JSON.parse(require("fs").readFileSync("data/latest.json", "utf8"));
+            console.log("bundle:", JSON.stringify(b.counts), "generatedAt:", b.generatedAtJalali);
+          '
 
       - name: Prepare Pages artifact
         run: |

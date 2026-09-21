@@ -1,5 +1,7 @@
 /** روتر هش‌بنیاد - مسیرها را به {name, params, query} تبدیل می‌کند */
 
+export const ROUTE_NAMES = ['home', 'post', 'agency', 'price', 'prices', 'search', 'reels', 'archive', 'settings', 'me', 'activity', 'inbox'];
+
 export function parseHash(hash = (typeof location !== 'undefined' ? location.hash : '')) {
   const raw = String(hash || '').replace(/^#\/?/, '');
   const [pathPart, queryPart = ''] = raw.split('?');
@@ -14,9 +16,11 @@ export function parseHash(hash = (typeof location !== 'undefined' ? location.has
     case 'prices': return { name: 'prices', params: {}, query };
     case 'search': return { name: 'search', params: {}, query };
     case 'reels': return { name: 'reels', params: {}, query };
-    case 'archive': return { name: 'archive', params: {}, query };
+    case 'archive': return { name: 'archive', params: { day: parts[1] || '' }, query };
     case 'settings': return { name: 'settings', params: {}, query };
     case 'me': return { name: 'me', params: {}, query };
+    case 'activity': return { name: 'activity', params: {}, query };
+    case 'inbox': return { name: 'inbox', params: {}, query };
     default: return { name: 'home', params: {}, query };
   }
 }
@@ -30,9 +34,11 @@ export function href(name, params = {}, query = {}) {
     prices: ['prices'],
     search: ['search'],
     reels: ['reels'],
-    archive: ['archive'],
+    archive: ['archive', params.day],
     settings: ['settings'],
-    me: ['me']
+    me: ['me'],
+    activity: ['activity'],
+    inbox: ['inbox']
   };
   const path = (map[name] || []).filter(Boolean).map(encodeURIComponent).join('/');
   const q = new URLSearchParams(query).toString();

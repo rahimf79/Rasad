@@ -7,16 +7,22 @@ export const APP = {
   name: 'رصد',
   latin: 'Rasad',
   tagline: 'اینستاگرامِ اخبار و بازار ایران',
-  version: '2.0.0',
+  version: '3.0.0',
   /** استوری ۲۴ ساعت زنده می‌ماند، پست‌ها تاریخ انقضا ندارند */
   STORY_TTL_MS: 24 * 60 * 60 * 1000,
-  /** فاصلهٔ جمع‌آوری خودکار در مرورگر */
+  /**
+   * جمع‌آوری فقط در GitHub Actions انجام می‌شود (collect.yml) — هر COLLECT_INTERVAL_MIN دقیقه.
+   * مرورگر هرگز خودش خبر جمع نمی‌کند؛ فقط هر REFRESH_MS یک بار بستهٔ آمادهٔ data/latest.json را
+   * دوباره می‌خواند تا اگر اجرای جدیدی منتشر شده باشد، پیل «پست‌های جدید» نشان داده شود.
+   */
+  COLLECT_INTERVAL_MIN: 30,
   REFRESH_MS: 5 * 60 * 1000,
-  PRICE_REFRESH_MS: 60 * 1000,
   /** سیاست نگهداری آرشیو (روز) */
   RETENTION: { newsDays: 120, priceDays: 1095, commentsDays: 3650 },
   /** مسیر دادهٔ آرشیوشدهٔ منتشرشده روی GitHub Pages */
-  DATA_BASE: 'data'
+  DATA_BASE: 'data',
+  /** نام فایل بستهٔ آماده */
+  BUNDLE_FILE: 'latest.json'
 };
 
 /**

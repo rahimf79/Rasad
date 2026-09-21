@@ -3,7 +3,7 @@
  *
  * GitHub Pages یک میزبان استاتیک است و دیتابیس ندارد؛ بنابراین سه لایه داریم:
  *  1) IndexedDB مرورگر        → ذخیرهٔ دائمی روی دستگاه کاربر (با رفرش پاک نمی‌شود)
- *  2) فایل‌های JSON مخزن گیت   → آرشیو مشترک که GitHub Actions هر ۳۰ دقیقه می‌سازد
+ *  2) فایل‌های JSON مخزن گیت   → آرشیو مشترک که GitHub Actions در فواصل مشخص می‌سازد (data/latest.json + آرشیو)
  *  3) GitHub Contents API     → همگام‌سازی اختیاری حساب‌ها/دنبال‌شونده‌ها/کامنت‌ها روی ریپو
  *
  * همهٔ توابع این ماژول async هستند و به DOM دست نمی‌زنند (قابل تست در Node).
@@ -34,6 +34,7 @@ export function createMemoryBackend(seed = {}) {
     id: 'memory',
     async get(name, key) { return map.has(k(name, key)) ? JSON.parse(map.get(k(name, key))) : undefined; },
     async set(name, key, value) { map.set(k(name, key), JSON.stringify(value)); },
+    async bulkSet(name, entries) { for (const [key, value] of entries) map.set(k(name, key), JSON.stringify(value)); },
     async del(name, key) { map.delete(k(name, key)); },
     async all(name) {
       const prefix = name + sep;
@@ -58,6 +59,7 @@ export function createLocalStorageBackend(storage, ns = 'rasad_db') {
     id: 'localstorage',
     async get(name, key) { return readAll()[k(name, key)]; },
     async set(name, key, value) { const o = readAll(); o[k(name, key)] = value; writeAll(o); },
+    async bulkSet(name, entries) { const o = readAll(); for (const [key, value] of entries) o[k(name, key)] = value; writeAll(o); },
     async del(name, key) { const o = readAll(); delete o[k(name, key)]; writeAll(o); },
     async all(name) {
       const prefix = name + sep;
@@ -110,6 +112,10 @@ export function createIndexedDBBackend(dbName = 'rasad', version = 1) {
     id: 'indexeddb',
     async get(name, key) { return tx('readonly', (s) => wrap(s.get(k(name, key)))); },
     async set(name, key, value) { await tx('readwrite', (s) => wrap(s.put(value, k(name, key)))); },
+    /** درج دسته‌ای در یک تراکنش — برای ذخیرهٔ صدها پستِ بسته بدون کند کردن رابط */
+    async bulkSet(name, entries) {
+      await tx('readwrite', (s) => { for (const [key, value] of entries) s.put(value, k(name, key)); });
+    },
     async del(name, key) { await tx('readwrite', (s) => wrap(s.delete(k(name, key)))); },
     async all(name) {
       const db = await open();
@@ -227,6 +233,10 @@ export function createMirrorBackend(primary, secondary) {
     async set(name, key, value) {
       await primary.set(name, key, value);
       await safe(() => secondary.set(name, key, value));
+    },
+    async bulkSet(name, entries) {
+      if (primary.bulkSet) await primary.bulkSet(name, entries);
+      else for (const [key, value] of entries) await primary.set(name, key, value);
     },
     async del(name, key) {
       await primary.del(name, key);
@@ -459,6 +469,22 @@ export class Store {
       exists ? updated++ : added++;
     }
     return { added, updated, total: (items || []).length };
+  }
+
+  /**
+   * ذخیرهٔ دسته‌ای پست‌های بستهٔ آماده (کش آفلاین). فقط پست‌های تازه نوشته می‌شوند
+   * و در صورت پشتیبانی بک‌اند، همه در یک تراکنش.
+   */
+  async putPostsBulk(items) {
+    const list = (items || []).filter((p) => p?.id);
+    if (!list.length) return 0;
+    const existing = new Set((await this.backend.all(S.posts)).map((p) => p.id));
+    const now = this.now();
+    const entries = list.filter((p) => !existing.has(p.id)).map((p) => [p.id, { ...p, archivedAt: now, firstSeenAt: now }]);
+    if (!entries.length) return 0;
+    if (this.backend.bulkSet) await this.backend.bulkSet(S.posts, entries);
+    else for (const [id, p] of entries) await this.backend.set(S.posts, id, p);
+    return entries.length;
   }
 
   async getPost(id) { return this.backend.get(S.posts, id); }
