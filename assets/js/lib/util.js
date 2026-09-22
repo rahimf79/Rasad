@@ -53,6 +53,31 @@ export function timeAgo(ts, now = Date.now()) {
   return toFaDigits(Math.floor(mo / 12)) + ' سال پیش';
 }
 
+/** نسخهٔ فشرده برای هدر پست اینستاگرام: «۵ ساعت»، «۳ دقیقه»، «۲ روز» */
+export function timeShort(ts, now = Date.now()) {
+  const d = Math.max(0, now - Number(ts));
+  const m = Math.floor(d / 60000);
+  if (m < 1) return 'اکنون';
+  if (m < 60) return toFaDigits(m) + ' دقیقه';
+  const h = Math.floor(m / 60);
+  if (h < 24) return toFaDigits(h) + ' ساعت';
+  const days = Math.floor(h / 24);
+  if (days < 7) return toFaDigits(days) + ' روز';
+  const w = Math.floor(days / 7);
+  if (days < 30) return toFaDigits(w) + ' هفته';
+  const mo = Math.floor(days / 30);
+  if (mo < 12) return toFaDigits(mo) + ' ماه';
+  return toFaDigits(Math.floor(mo / 12)) + ' سال';
+}
+
+/** اعداد بزرگ به سبک اینستاگرام: ۱٫۲ هزار / ۳٫۴ میلیون */
+export function compactNum(n) {
+  const v = Number(n) || 0;
+  if (Math.abs(v) >= 1e6) return nf(v / 1e6, 1) + ' میلیون';
+  if (Math.abs(v) >= 10000) return nf(v / 1000, 1) + ' هزار';
+  return nf(v);
+}
+
 export const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
 export function uid(prefix = 'id') {

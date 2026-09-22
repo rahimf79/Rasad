@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { ENTITY_BY_KEY, APP } from '../assets/js/config.js';
 import { normalizeSnapshot } from '../assets/js/prices.js';
 import { parseJalaliDateTime, formatJalali } from '../assets/js/lib/jalali.js';
+import { writeLatestBundle } from './lib/bundle-disk.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRICE_DIR = path.join(ROOT, 'data', 'prices');
@@ -74,6 +75,9 @@ async function main() {
   };
   await writeFile(path.join(ROOT, 'data', 'index.json'), JSON.stringify(index, null, 2), 'utf8');
   console.log('data/index.json نوشته شد ✓');
+
+  // بستهٔ آماده هم ساخته می‌شود تا صفحه حتی پیش از اولین اجرای خودکار خالی نباشد
+  await writeLatestBundle({ dataDir: path.join(ROOT, 'data'), log: (m) => console.log(m) });
 }
 
 main().catch((e) => { console.error(e); process.exitCode = 1; });

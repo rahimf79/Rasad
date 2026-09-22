@@ -1,12 +1,20 @@
 name: Collect news and prices
 
-# این ورک‌فلو نقش «پایگاه داده» را بازی می‌کند: هر ۳۰ دقیقه اخبار و قیمت‌ها را
-# از منابع جمع می‌کند و نتیجه را به‌صورت JSON در خود مخزن کامیت می‌کند.
-# توجه: schedule فقط روی شاخهٔ پیش‌فرض (main) اجرا می‌شود؛ پس از مرج، خودکار فعال است.
+# «پایگاه دادهٔ» رصد همین ورک‌فلو است:
+#   ۱) هر ۳۰ دقیقه اخبار خبرگزاری‌ها و قیمت‌های ثروتمندی/باما را جمع می‌کند
+#   ۲) خروجی را در پوشهٔ data/ همین مخزن کامیت می‌کند (آرشیو + data/latest.json)
+#   ۳) همان لحظه سایت را روی GitHub Pages دوباره منتشر می‌کند
+#
+# چرا انتشار Pages همین‌جا انجام می‌شود؟ کامیتی که با GITHUB_TOKEN پوش می‌شود، ورک‌فلوی deploy.yml را
+# فعال نمی‌کند (قانون گیت‌هاب برای جلوگیری از حلقهٔ بی‌نهایت). اگر این‌جا دیپلوی نکنیم، دادهٔ تازه هرگز
+# به کاربر نمی‌رسد. مرورگر کاربر فقط data/latest.json را می‌خواند و هیچ جمع‌آوری‌ای انجام نمی‌دهد.
+#
+# توجه: schedule فقط روی شاخهٔ پیش‌فرض (main) اجرا می‌شود.
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    # دقیقهٔ ۷ و ۳۷ (نه سر ساعت) تا تأخیر صف‌های شلوغ گیت‌هاب کمتر باشد
+    - cron: '7,37 * * * *'
   workflow_dispatch:
     inputs:
       only:
@@ -18,25 +26,33 @@ on:
 
 permissions:
   contents: write
-
-concurrency:
-  group: collect
-  cancel-in-progress: false
+  pages: write
+  id-token: write
 
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    # دو جمع‌آوری هم‌زمان اجرا نشوند (اگر اجرای قبلی طول کشید، بعدی صبر می‌کند)
+    concurrency:
+      group: collect
+      cancel-in-progress: false
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-node@v7
         with:
           # jsdom → undici به Node >= 22.19 نیاز دارد (markAsUncloneable در worker_threads)
           node-version: '22'
-          cache: npm
 
+      # جمع‌کننده فقط از ماژول‌های داخلی Node استفاده می‌کند؛ نصب وابستگی لازم نیست.
       - name: Run collector
+        env:
+          TZ: Asia/Tehran
         run: |
           case "${{ inputs.only || 'all' }}" in
             news)   node scripts/collect.mjs --news-only ;;
@@ -45,14 +61,70 @@ jobs:
             *)      node scripts/collect.mjs ;;
           esac
 
+      - name: Verify bundle
+        run: |
+          test -f data/latest.json || { echo "::error::data/latest.json ساخته نشد"; exit 1; }
+          node -e '
+            const b = JSON.parse(require("fs").readFileSync("data/latest.json", "utf8"));
+            console.log("bundle:", JSON.stringify(b.counts), "generatedAt:", b.generatedAtJalali);
+          '
+
       - name: Commit archive
+        id: commit
         run: |
           git config user.name "rasad-bot"
           git config user.email "rasad-bot@users.noreply.github.com"
           git add data
           if git diff --cached --quiet; then
             echo "هیچ تغییر جدیدی در آرشیو نبود."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "chore(data): archive update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            git push
+            git commit -m "chore(data): auto-collect $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            # اگر در این فاصله کسی روی شاخه پوش کرده بود، روی آن سوار می‌شویم (فقط پوشهٔ data تغییر کرده)
+            pushed=0
+            for i in 1 2 3; do
+              if git pull --rebase -X theirs origin "${{ github.ref_name }}" && git push; then pushed=1; break; fi
+              echo "push ناموفق (تلاش $i) — دوباره..."; sleep 5
+            done
+            [ "$pushed" = "1" ] || echo "::warning::کامیت دادهٔ جدید پوش نشد؛ سایت با دادهٔ تازه منتشر می‌شود و اجرای بعدی دوباره کامیت می‌کند."
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # همان آرتیفکتی که deploy.yml می‌سازد — تا سایت دقیقاً همین دادهٔ تازه را نشان دهد
+      - name: Prepare Pages artifact
+        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+        run: |
+          rm -rf dist && mkdir -p dist
+          cp -r index.html assets data dist/
+          [ -f LICENSE ] && cp LICENSE dist/ || true
+          [ -f README.md ] && cp README.md dist/ || true
+          [ -f CNAME ] && cp CNAME dist/ || true
+          echo "artifact: $(find dist -type f | wc -l) فایل، $(du -sh dist | cut -f1)"
+
+      - uses: actions/configure-pages@v6
+        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+
+      - uses: actions/upload-pages-artifact@v5
+        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+        with:
+          path: dist
+
+  # انتشار روی Pages — فقط وقتی دادهٔ جدیدی وجود داشته باشد
+  deploy:
+    needs: collect
+    if: needs.collect.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # همان گروهی که deploy.yml استفاده می‌کند تا دو انتشار روی هم نیفتند
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

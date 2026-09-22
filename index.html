@@ -3,97 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>رصد | اینستاگرامِ اخبار و بازار ایران</title>
-<meta name="description" content="رصد — اخبار خبرگزاری‌های ایران به سبک اینستاگرام: صفحهٔ اختصاصی هر خبرگزاری، استوری ۲۴ ساعته، ریلز، جست‌وجو، و قیمت لحظه‌ای ارز، طلا، نفت و گاز از ثروتمندی با نمودار و کامنت.">
-<meta name="theme-color" content="#07080f">
-<meta property="og:title" content="رصد | اینستاگرامِ اخبار و بازار ایران">
+<title>رصد | اخبار و بازار ایران</title>
+<meta name="description" content="رصد — اخبار خبرگزاری‌های ایران به سبک اینستاگرام: صفحهٔ اختصاصی هر خبرگزاری، استوری ۲۴ ساعته، ریلز، جست‌وجو، و قیمت لحظه‌ای ارز، طلا، نفت و گاز از ثروتمندی با نمودار و نظر.">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="رصد | اخبار و بازار ایران">
 <meta property="og:description" content="خبرگزاری‌ها به‌صورت صفحه، پست و استوری. قیمت ارز، طلا، نفت و گاز از ثروتمندی با نمودار کامل.">
-<meta property="og:image" content="assets/img/logo.svg">
+<meta property="og:image" content="assets/img/icon.svg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="assets/img/icon.svg">
 <link rel="apple-touch-icon" href="assets/img/icon.svg">
+<link rel="preload" href="data/latest.json" as="fetch" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Grand+Hotel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Grand+Hotel&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/app.css">
+<script>
+  // پوسته را قبل از بارگذاری اسکریپت اصلی از روی تنظیمات ذخیره‌شده/سیستم تنظیم می‌کنیم تا فلش سفید/سیاه نداشته باشیم
+  (function () {
+    try {
+      var t = localStorage.getItem('rasad_theme') || 'system';
+      var light = t === 'light' || (t === 'system' && matchMedia('(prefers-color-scheme: light)').matches);
+      document.documentElement.dataset.theme = light ? 'light' : 'dark';
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
 
-<!-- گرادیان مشترک برای آیکون‌های ناوبری -->
-<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-  <defs>
-    <linearGradient id="navgrad" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="100%" stop-color="#4f5bd5"/>
-    </linearGradient>
-    <linearGradient id="brandgrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FEDA75"/><stop offset="20%" stop-color="#FA7E1E"/>
-      <stop offset="48%" stop-color="#D62976"/><stop offset="74%" stop-color="#962FBF"/>
-      <stop offset="100%" stop-color="#4F5BD5"/>
-    </linearGradient>
-    <linearGradient id="tilegrad" x1="14%" y1="100%" x2="86%" y2="0%">
-      <stop offset="0%" stop-color="#FEDA75"/><stop offset="22%" stop-color="#FA7E1E"/>
-      <stop offset="50%" stop-color="#D62976"/><stop offset="76%" stop-color="#962FBF"/>
-      <stop offset="100%" stop-color="#4F5BD5"/>
-    </linearGradient>
-  </defs>
-</svg>
-
-<header class="topbar">
-  <a class="brand" href="#/" aria-label="رصد - خانه">
-    <svg class="tile" viewBox="0 0 128 128" aria-hidden="true">
-      <rect x="4" y="4" width="120" height="120" rx="34" fill="url(#tilegrad)"/>
-      <rect x="9.5" y="9.5" width="109" height="109" rx="29" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2.5"/>
-      <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="64" cy="64" r="34" stroke-opacity=".55" stroke-width="5"/>
-        <path d="M64 64 L88 46"/>
-        <path d="M32 78 L46 78 L54 58 L66 90 L74 70 L96 70" stroke-width="6.5"/>
-      </g>
-      <circle cx="88" cy="46" r="7.5" fill="#fff"/>
-    </svg>
-    <svg class="wordmark" viewBox="0 0 200 60" aria-label="Rasad">
-      <text x="4" y="44" font-size="46" fill="url(#brandgrad)" font-family="'Grand Hotel','Segoe Script','Brush Script MT',cursive">Rasad</text>
-    </svg>
-  </a>
-
-  <div class="searchbar">
-    <span aria-hidden="true">🔎</span>
-    <input id="globalSearch" type="search" placeholder="جست‌وجوی خبر، خبرگزاری یا قیمت…" autocomplete="off">
-  </div>
-
-  <div class="top-actions">
-    <div id="syncStatus"></div>
-    <a class="icon-btn" href="#/archive" title="آرشیو با تاریخ دقیق">🗂</a>
-    <button class="icon-btn" id="btnTheme" title="تغییر پوسته">◐</button>
-    <a class="icon-btn" href="#/settings" title="تنظیمات و پایگاه داده">⚙</a>
-    <button class="icon-btn" id="btnAuth" title="حساب کاربری">👤 ورود</button>
-  </div>
+<!-- نوار بالا (موبایل): لوگوتایپ + اعلان‌ها + پیام‌ها — دقیقاً چیدمان اینستاگرام. محتوا بر اساس مسیر توسط app.js عوض می‌شود -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#/" aria-label="رصد - خانه"><span class="wordmark">Rasad</span></a>
 </header>
 
-<div id="storyRail" class="story-rail-wrap"></div>
-
 <main id="view">
-  <div class="loading center pad"><div class="spinner"></div><p class="muted">در حال راه‌اندازی رصد…</p></div>
+  <div class="loading"><div class="spinner"></div></div>
 </main>
 
-<nav class="bottom-nav">
-  <button class="nav-item active" data-route="home" aria-label="خانه">
-    <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>خانه</span>
-  </button>
-  <button class="nav-item" data-route="search" aria-label="جست‌وجو">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>جست‌وجو</span>
-  </button>
-  <button class="nav-item" data-route="reels" aria-label="ریلز">
-    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M8 3l3 5M15 3l3 5"/><path d="M10.5 12.5v4l4-2z"/></svg><span>ریلز</span>
-  </button>
-  <button class="nav-item" data-route="prices" aria-label="بازار">
-    <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3.5-4 3 2.5L19 7"/></svg><span>بازار</span>
-  </button>
-  <button class="nav-item" data-route="me" aria-label="پروفایل">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg><span>پروفایل</span>
-  </button>
-</nav>
+<!-- ناوبری: پایین در موبایل، نوار کناری در دسکتاپ (مثل اینستاگرام). آیتم‌ها توسط app.js ساخته می‌شوند -->
+<nav class="bottom-nav" id="mainNav" aria-label="ناوبری اصلی"></nav>
 
 <div class="overlay" id="overlay" role="dialog" aria-modal="true"></div>
+<div class="sheet-wrap" id="sheet" role="dialog" aria-modal="true"></div>
 <div class="story-overlay" id="storyOverlay" role="dialog" aria-modal="true"></div>
 <div id="toasts" aria-live="polite"></div>
 
@@ -105,12 +56,12 @@
     .catch((err) => {
       console.error('[rasad] خطای راه‌اندازی:', err);
       document.getElementById('view').innerHTML =
-        `<div class="glass pad center"><h3>خطا در راه‌اندازی</h3>
+        `<div class="empty"><h2>خطا در راه‌اندازی</h2>
          <p class="muted small">${err.message}</p>
          <p class="muted small">اگر فایل را مستقیم از دیسک باز کرده‌اید، آن را با یک سرور محلی اجرا کنید (npm run serve).</p></div>`;
     });
 
-  window.addEventListener('offline', () => toast('اتصال قطع شد — داده‌های آرشیوشده نمایش داده می‌شود', 'err'));
+  window.addEventListener('offline', () => toast('اتصال قطع شد — دادهٔ ذخیره‌شده نمایش داده می‌شود', 'err'));
 </script>
 </body>
 </html>

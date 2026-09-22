@@ -1,14 +1,19 @@
 /**
- * جمع‌آوری زنده در مرورگر.
- * ترتیب تلاش برای هر منبع: درخواست مستقیم → پروکسی‌های CORS → آرشیو منتشرشده روی Pages.
- * همهٔ پارس‌ها از همان ماژول مشترک lib/parsers.js انجام می‌شود.
+ * دسترسی به داده در مرورگر.
+ *
+ * مسیر اصلی (پیش‌فرض): خواندن «بستهٔ آماده» data/latest.json که GitHub Actions در فواصل مشخص
+ * می‌سازد — یک درخواست، بدون هیچ جمع‌آوری‌ای در سمت کاربر.
+ *
+ * مسیر جایگزین (فقط با درخواست صریح کاربر از تنظیمات): جمع‌آوری زنده در مرورگر
+ * (درخواست مستقیم → پروکسی‌های CORS). همهٔ پارس‌ها از همان ماژول مشترک lib/parsers.js انجام می‌شود.
  */
 
 import { parseRss, parseServatmandiSummary, parseBamaPrices, toNumber } from './lib/parsers.js';
 import { normalizeItem } from './posts.js';
 import { normalizeSnapshot, rialToToman } from './prices.js';
-import { PRICE_ENTITIES, ENTITY_BY_KEY, SERVATMANDI, CAR_SOURCES, AGENCY_BY_ID } from './config.js';
+import { PRICE_ENTITIES, ENTITY_BY_KEY, SERVATMANDI, CAR_SOURCES, AGENCY_BY_ID, APP } from './config.js';
 import { stripHtml, sleep } from './lib/util.js';
+import { normalizeBundle } from './lib/bundle.js';
 
 const PROXIES = [
   (u) => u,
@@ -174,8 +179,21 @@ export async function collectCars({ sources = CAR_SOURCES, fetchImpl, log = () =
 }
 
 /* ------------------------------------------------------------------ */
-/* آرشیو منتشرشده روی GitHub Pages                                     */
+/* دادهٔ آمادهٔ منتشرشده روی GitHub Pages                               */
 /* ------------------------------------------------------------------ */
+
+/**
+ * بستهٔ آماده (data/latest.json): تنها درخواستی که برای نمایش صفحهٔ اول لازم است.
+ * @returns {object|null} خروجی normalizeBundle یا null اگر هنوز منتشر نشده باشد
+ */
+export async function loadLatestBundle({ base = 'data', fetchImpl, file = APP.BUNDLE_FILE } = {}) {
+  try {
+    const f = fetchImpl || globalThis.fetch;
+    const res = await f(`${base}/${file}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return normalizeBundle(await res.json());
+  } catch { return null; }
+}
 
 /** خواندن فهرست آرشیو (data/index.json) */
 export async function loadArchiveIndex({ base = 'data', fetchImpl } = {}) {
@@ -187,35 +205,46 @@ export async function loadArchiveIndex({ base = 'data', fetchImpl } = {}) {
   } catch { return null; }
 }
 
-/** خواندن فایل‌های اخبار آرشیوشده */
+/** خواندن فایل‌های اخبار آرشیوشده (موازی) */
 export async function loadArchivedPosts({ base = 'data', files = [], fetchImpl, limit = 8 } = {}) {
   const f = fetchImpl || globalThis.fetch;
-  const out = [];
-  for (const file of files.slice(0, limit)) {
+  const chunks = await Promise.all(files.slice(0, limit).map(async (file) => {
     try {
       const res = await f(`${base}/news/${file}`, { cache: 'no-store' });
-      if (!res.ok) continue;
+      if (!res.ok) return [];
       const j = await res.json();
-      if (Array.isArray(j)) out.push(...j);
-      else if (Array.isArray(j.posts)) out.push(...j.posts);
-    } catch { /* فایل در دسترس نیست */ }
-  }
-  return out;
+      if (Array.isArray(j)) return j;
+      if (Array.isArray(j.posts)) return j.posts;
+      return [];
+    } catch { return []; }
+  }));
+  return chunks.flat();
 }
 
-/** خواندن آرشیو قیمت‌ها */
+/** خواندن آرشیو قیمت‌ها (موازی) */
 export async function loadArchivedPrices({ base = 'data', keys = [], fetchImpl } = {}) {
   const f = fetchImpl || globalThis.fetch;
   const out = {};
-  for (const key of keys) {
+  await Promise.all(keys.map(async (key) => {
     try {
       const res = await f(`${base}/prices/${key}.json`, { cache: 'no-store' });
-      if (!res.ok) continue;
+      if (!res.ok) return;
       const j = await res.json();
       out[key] = Array.isArray(j.series) ? j.series : (Array.isArray(j) ? j : []);
     } catch { /* skip */ }
-  }
+  }));
   return out;
+}
+
+/** خواندن قیمت خودروی آرشیوشده */
+export async function loadArchivedCars({ base = 'data', fetchImpl } = {}) {
+  try {
+    const f = fetchImpl || globalThis.fetch;
+    const res = await f(`${base}/cars.json`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const j = await res.json();
+    return Array.isArray(j.rows) ? j.rows : [];
+  } catch { return []; }
 }
 
 /** تبدیل ردیف‌های خام قیمت خودرو به دارایی قابل نمایش */

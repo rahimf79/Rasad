@@ -13,7 +13,8 @@ import { readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { href, parseHash } from '../assets/js/router.js';
+import { href, parseHash, ROUTE_NAMES } from '../assets/js/router.js';
+import { NAV_ITEMS } from '../assets/js/render.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const problems = [];
@@ -68,18 +69,30 @@ for (const m of html.matchAll(/(?:src|href)="((?!https?:|#|data:)[^"]+)"/g)) {
 }
 
 /* ۴) روتر */
-const routes = ['home', 'post', 'agency', 'price', 'prices', 'search', 'reels', 'archive', 'settings', 'me'];
+const routes = ROUTE_NAMES;
 for (const name of routes) {
-  const h = href(name, { id: 'x', handle: 'y', key: 'z' }, { q: 'test' });
+  const h = href(name, { id: 'x', handle: 'y', key: 'z', day: '1405-06-30' }, { q: 'test' });
   const parsed = parseHash(h);
   if (parsed.name !== name) problems.push(`روتر: ${name} → ${parsed.name}`);
 }
+if (parseHash('#/archive/1405-06-30').params.day !== '1405-06-30') problems.push('روتر: پارامتر روز آرشیو خوانده نمی‌شود');
 notes.push(`${routes.length} مسیر روتر بررسی شد`);
 
-/* ۵) مسیرهای ناوبری پایین */
+/* ۵) مسیرهای ناوبری (آیتم‌ها در render.js ساخته می‌شوند) */
+for (const it of NAV_ITEMS) {
+  if (!routes.includes(it.route)) problems.push(`render.js → مسیر ناوبری ناشناخته: ${it.route}`);
+}
 for (const m of html.matchAll(/data-route="([\w-]+)"/g)) {
   if (!routes.includes(m[1])) problems.push(`index.html → مسیر ناوبری ناشناخته: ${m[1]}`);
 }
+const mobileNav = NAV_ITEMS.filter((it) => !it.desktop).length;
+if (mobileNav !== 5) problems.push(`ناوبری موبایل باید دقیقاً ۵ آیتم داشته باشد (مثل اینستاگرام)، الان ${mobileNav}`);
+
+/* ۶) ورک‌فلوها: جمع‌آوری زمان‌بندی‌شده و انتشار Pages پس از آن */
+const collectYml = existsSync(path.join(ROOT, '.github/workflows/collect.yml')) ? await readFile(path.join(ROOT, '.github/workflows/collect.yml'), 'utf8') : '';
+if (!/schedule:\s*\n(?:\s*#.*\n)*\s*-\s*cron:/.test(collectYml)) problems.push('collect.yml → زمان‌بندی (cron) ندارد');
+if (!/actions\/deploy-pages/.test(collectYml)) problems.push('collect.yml → پس از جمع‌آوری Pages را منتشر نمی‌کند (کامیت GITHUB_TOKEN ورک‌فلوی deploy را فعال نمی‌کند)');
+if (!/data\/latest\.json/.test(collectYml)) problems.push('collect.yml → بستهٔ آماده (data/latest.json) را بررسی نمی‌کند');
 
 console.log('[lint] ' + notes.join(' | '));
 if (problems.length) {
