@@ -1,8 +1,8 @@
 {
   "app": "رصد",
-  "version": "2.0.0",
-  "generatedAt": 1790041581138,
-  "generatedAtJalali": "۱۴۰۵/۰۶/۳۱ - ۰۱:۴۶:۲۱",
+  "version": "3.0.0",
+  "generatedAt": 1790072237705,
+  "generatedAtJalali": "۱۴۰۵/۰۶/۳۱ - ۱۳:۴۷:۱۷",
   "news": {
     "files": [
       "2026-09-22.json",
@@ -70,12 +70,19 @@
     "errors": 1
   },
   "cars": {
-    "count": 3
+    "count": 4
   },
   "discovery": {
     "total": 492,
     "fresh": 442
   },
+  "bundle": {
+    "file": "latest.json",
+    "posts": 400,
+    "assets": 46,
+    "generatedAt": 1790072237688
+  },
+  "intervalMinutes": 30,
   "sources": [
     {
       "id": "irna",
@@ -114,10 +121,10 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "zoomit",
@@ -126,16 +133,10 @@
       "ok": true
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "entekhab",
@@ -147,6 +148,12 @@
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
       "count": 27,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -179,5 +186,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 46657
+  "durationMs": 38950
 }

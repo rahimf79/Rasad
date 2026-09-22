@@ -2,6 +2,14 @@
   "key": "propane",
   "series": [
     {
+      "t": 1789963440000,
+      "v": 0.84,
+      "o": 0.84,
+      "h": 0.84,
+      "l": 0.84,
+      "src": "ثروتمندی"
+    },
+    {
       "t": 1789976040000,
       "v": 0.84,
       "o": 0.84,
@@ -16,6 +24,6 @@
     "unit": "usd",
     "source": "ثروتمندی",
     "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002010",
-    "updatedAt": 1790041565936
+    "updatedAt": 1790072217943
   }
 }

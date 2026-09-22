@@ -20,7 +20,14 @@
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/peugeot",
       "at": 1790041573020
+    },
+    {
+      "name": "شعبه مرکزیmvm(افتخار368)",
+      "price": 2729000000,
+      "source": "باما",
+      "page": "https://bama.ir/car",
+      "at": 1790072221443
     }
   ],
-  "updatedAt": 1790041579495
+  "updatedAt": 1790072235574
 }

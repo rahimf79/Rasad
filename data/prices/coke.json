@@ -2,6 +2,14 @@
   "key": "coke",
   "series": [
     {
+      "t": 1789963440000,
+      "v": 262,
+      "o": 262,
+      "h": 262,
+      "l": 262,
+      "src": "ثروتمندی"
+    },
+    {
       "t": 1789976040000,
       "v": 262,
       "o": 262,
@@ -16,6 +24,6 @@
     "unit": "usd",
     "source": "ثروتمندی",
     "sourceUrl": "https://servatmandi.com/Entity/Summary/10000000002015",
-    "updatedAt": 1790041565937
+    "updatedAt": 1790072217943
   }
 }
