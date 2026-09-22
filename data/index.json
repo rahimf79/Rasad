@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790072237705,
-  "generatedAtJalali": "۱۴۰۵/۰۶/۳۱ - ۱۳:۴۷:۱۷",
+  "generatedAt": 1790089725185,
+  "generatedAtJalali": "۱۴۰۵/۰۶/۳۱ - ۱۸:۳۸:۴۵",
   "news": {
     "files": [
       "2026-09-22.json",
@@ -70,7 +70,7 @@
     "errors": 1
   },
   "cars": {
-    "count": 4
+    "count": 6
   },
   "discovery": {
     "total": 492,
@@ -80,19 +80,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790072237688
+    "generatedAt": 1790089725148
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -133,14 +133,14 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "entekhab",
+      "name": "انتخاب",
       "count": 0,
       "ok": false
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
@@ -151,15 +151,15 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
       "id": "euronews",
       "name": "یورونیوز",
       "count": 50,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -186,5 +186,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 38950
+  "durationMs": 38313
 }

@@ -27,7 +27,21 @@
       "source": "باما",
       "page": "https://bama.ir/car",
       "at": 1790072221443
+    },
+    {
+      "name": "شمیرانات",
+      "price": 1820000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/samand",
+      "at": 1790089716065
+    },
+    {
+      "name": "تهران، شاهین",
+      "price": 930000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/quick",
+      "at": 1790089720841
     }
   ],
-  "updatedAt": 1790072235574
+  "updatedAt": 1790089722774
 }
