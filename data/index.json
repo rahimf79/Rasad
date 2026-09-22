@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "2.0.0",
-  "generatedAt": 1790033331839,
-  "generatedAtJalali": "۱۴۰۵/۰۶/۳۰ - ۲۳:۲۸:۵۱",
+  "generatedAt": 1790041581138,
+  "generatedAtJalali": "۱۴۰۵/۰۶/۳۱ - ۰۱:۴۶:۲۱",
   "news": {
     "files": [
+      "2026-09-22.json",
       "2026-09-21.json",
       "2026-09-20.json",
       "2026-09-19.json",
@@ -14,7 +15,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 8
+    "days": 9
   },
   "prices": {
     "assets": [
@@ -119,15 +120,21 @@
       "ok": false
     },
     {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
+      "ok": true
+    },
+    {
       "id": "shana",
       "name": "شانا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -135,12 +142,6 @@
       "name": "انتخاب",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
     },
     {
       "id": "bbc",
@@ -178,5 +179,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 52823
+  "durationMs": 46657
 }
