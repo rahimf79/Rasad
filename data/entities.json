@@ -2246,6 +2246,11 @@
       "group": "crypto"
     },
     {
+      "code": "920010",
+      "name": "هدرا هش‌گراف",
+      "group": "crypto"
+    },
+    {
       "code": "920023",
       "name": "اتریوم کلاسیک",
       "group": "crypto"
@@ -2273,11 +2278,6 @@
     {
       "code": "970002",
       "name": "مونرو",
-      "group": "crypto"
-    },
-    {
-      "code": "920010",
-      "name": "هدرا هش‌گراف",
       "group": "crypto"
     },
     {
@@ -2461,5 +2461,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1790089725147
+  "discoveredAt": 1790103850202
 }

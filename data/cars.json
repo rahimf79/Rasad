@@ -2,10 +2,10 @@
   "rows": [
     {
       "name": "اهواز، آریاشهر",
-      "price": 2700000000,
+      "price": 1260000000,
       "source": "باما (برندها)",
-      "page": "https://bama.ir/car/dena",
-      "at": 1790021165354
+      "page": "https://bama.ir/car/quick",
+      "at": 1790103845731
     },
     {
       "name": "تهران، کیانشهر",
@@ -33,7 +33,7 @@
       "price": 1820000000,
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/samand",
-      "at": 1790089716065
+      "at": 1790103840529
     },
     {
       "name": "تهران، شاهین",
@@ -41,7 +41,14 @@
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/quick",
       "at": 1790089720841
+    },
+    {
+      "name": "شاهین شهر",
+      "price": 745000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/peugeot",
+      "at": 1790103838174
     }
   ],
-  "updatedAt": 1790089722774
+  "updatedAt": 1790103848241
 }
