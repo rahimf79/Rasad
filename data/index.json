@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790122492190,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۱ - ۰۳:۴۴:۵۲",
+  "generatedAt": 1790139844609,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۱ - ۰۸:۳۴:۰۴",
   "news": {
     "files": [
       "2026-09-23.json",
@@ -81,7 +81,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790122492161
+    "generatedAt": 1790139844574
   },
   "intervalMinutes": 30,
   "sources": [
@@ -116,15 +116,15 @@
       "ok": true
     },
     {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
-      "ok": true
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
       "ok": true
     },
     {
@@ -146,21 +146,21 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
-      "ok": true
-    },
-    {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
       "count": 27,
+      "ok": true
+    },
+    {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
       "ok": true
     },
     {
@@ -170,16 +170,16 @@
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "euronews",
+      "name": "یورونیوز",
       "count": 0,
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -187,5 +187,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 36985
+  "durationMs": 40762
 }
