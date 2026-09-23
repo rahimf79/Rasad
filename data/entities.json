@@ -2211,6 +2211,11 @@
       "group": "crypto"
     },
     {
+      "code": "970001",
+      "name": "زدکش",
+      "group": "crypto"
+    },
+    {
       "code": "920019",
       "name": "آوه",
       "group": "crypto"
@@ -2218,11 +2223,6 @@
     {
       "code": "920012",
       "name": "بیت‌کوین کش",
-      "group": "crypto"
-    },
-    {
-      "code": "970001",
-      "name": "زدکش",
       "group": "crypto"
     },
     {
@@ -2461,5 +2461,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1790157182852
+  "discoveredAt": 1790175099534
 }
