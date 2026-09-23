@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790114354843,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۱ - ۰۱:۲۹:۱۴",
+  "generatedAt": 1790122492190,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۱ - ۰۳:۴۴:۵۲",
   "news": {
     "files": [
+      "2026-09-23.json",
       "2026-09-22.json",
       "2026-09-21.json",
       "2026-09-20.json",
@@ -15,7 +16,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 9
+    "days": 10
   },
   "prices": {
     "assets": [
@@ -80,7 +81,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790114354821
+    "generatedAt": 1790122492161
   },
   "intervalMinutes": 30,
   "sources": [
@@ -151,26 +152,26 @@
       "ok": false
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 27,
-      "ok": true
-    },
-    {
       "id": "euronews",
       "name": "یورونیوز",
       "count": 50,
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 27,
+      "ok": true
     },
     {
       "id": "dw",
       "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -186,5 +187,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 41921
+  "durationMs": 36985
 }
