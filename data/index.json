@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790279793191,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۲ - ۲۳:۲۶:۳۳",
+  "generatedAt": 1790291365466,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۳ - ۰۲:۳۹:۲۵",
   "news": {
     "files": [
       "2026-09-24.json",
@@ -73,7 +73,7 @@
     "errors": 1
   },
   "cars": {
-    "count": 7
+    "count": 8
   },
   "discovery": {
     "total": 492,
@@ -83,16 +83,10 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790279793156
+    "generatedAt": 1790291365427
   },
   "intervalMinutes": 30,
   "sources": [
-    {
-      "id": "mehr",
-      "name": "مهر",
-      "count": 30,
-      "ok": true
-    },
     {
       "id": "irna",
       "name": "ایرنا",
@@ -100,8 +94,8 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
@@ -118,16 +112,16 @@
       "ok": false
     },
     {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
       "ok": true
-    },
-    {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "shana",
@@ -136,16 +130,16 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "digiato",
@@ -160,15 +154,15 @@
       "ok": true
     },
     {
-      "id": "dw",
-      "name": "دویچه‌وله",
+      "id": "euronews",
+      "name": "یورونیوز",
       "count": 0,
       "ok": false
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
       "ok": true
     },
     {
@@ -178,10 +172,16 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -189,5 +189,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 55797
+  "durationMs": 44588
 }
