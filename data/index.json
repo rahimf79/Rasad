@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790265243824,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۲ - ۱۹:۲۴:۰۳",
+  "generatedAt": 1790279793191,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۲ - ۲۳:۲۶:۳۳",
   "news": {
     "files": [
       "2026-09-24.json",
@@ -83,10 +83,16 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790265243786
+    "generatedAt": 1790279793156
   },
   "intervalMinutes": 30,
   "sources": [
+    {
+      "id": "mehr",
+      "name": "مهر",
+      "count": 30,
+      "ok": true
+    },
     {
       "id": "irna",
       "name": "ایرنا",
@@ -94,8 +100,8 @@
       "ok": true
     },
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
@@ -112,12 +118,6 @@
       "ok": false
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
@@ -130,9 +130,9 @@
       "ok": false
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
       "ok": true
     },
     {
@@ -142,15 +142,9 @@
       "ok": false
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 28,
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
@@ -160,20 +154,26 @@
       "ok": true
     },
     {
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 28,
+      "ok": true
+    },
+    {
       "id": "dw",
       "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "euronews",
       "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -189,5 +189,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 44818
+  "durationMs": 55797
 }
