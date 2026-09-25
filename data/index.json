@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790358818665,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۳ - ۲۱:۲۳:۳۸",
+  "generatedAt": 1790371570824,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۰۰:۵۶:۱۰",
   "news": {
     "files": [
       "2026-09-25.json",
@@ -85,7 +85,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790358818621
+    "generatedAt": 1790371570788
   },
   "intervalMinutes": 30,
   "sources": [
@@ -96,14 +96,14 @@
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -120,16 +120,16 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
       "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "zoomit",
@@ -144,10 +144,10 @@
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "bbc",
@@ -156,9 +156,9 @@
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -168,16 +168,16 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "varzesh3",
@@ -191,5 +191,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 45697
+  "durationMs": 40762
 }
