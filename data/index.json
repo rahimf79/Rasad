@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790300977191,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۳ - ۰۵:۱۹:۳۷",
+  "generatedAt": 1790321670388,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۳ - ۱۱:۰۴:۳۰",
   "news": {
     "files": [
       "2026-09-25.json",
@@ -84,7 +84,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790300977157
+    "generatedAt": 1790321670345
   },
   "intervalMinutes": 30,
   "sources": [
@@ -119,6 +119,12 @@
       "ok": true
     },
     {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
@@ -135,12 +141,6 @@
       "name": "زومیت",
       "count": 300,
       "ok": true
-    },
-    {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "digiato",
@@ -167,16 +167,16 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
-    },
-    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
     },
     {
       "id": "fars",
@@ -190,5 +190,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 44575
+  "durationMs": 42523
 }
