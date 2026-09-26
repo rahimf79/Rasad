@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790445418075,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۲۱:۲۶:۵۸",
+  "generatedAt": 1790456295220,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۵ - ۰۰:۲۸:۱۵",
   "news": {
     "files": [
       "2026-09-26.json",
@@ -86,13 +86,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790445418053
+    "generatedAt": 1790456295180
   },
   "intervalMinutes": 30,
   "sources": [
     {
       "id": "mehr",
       "name": "مهر",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -109,8 +115,8 @@
       "ok": false
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
@@ -127,12 +133,6 @@
       "ok": false
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
@@ -145,15 +145,21 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
       "count": 28,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -166,12 +172,6 @@
       "id": "euronews",
       "name": "یورونیوز",
       "count": 50,
-      "ok": true
-    },
-    {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
       "ok": true
     },
     {
@@ -192,5 +192,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 53252
+  "durationMs": 46256
 }
