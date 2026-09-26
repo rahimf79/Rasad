@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790381184174,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۰۳:۳۶:۲۴",
+  "generatedAt": 1790398094273,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۰۸:۱۸:۱۴",
   "news": {
     "files": [
       "2026-09-26.json",
@@ -86,7 +86,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790381184145
+    "generatedAt": 1790398094234
   },
   "intervalMinutes": 30,
   "sources": [
@@ -127,12 +127,6 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "shana",
       "name": "شانا",
       "count": 30,
@@ -151,26 +145,32 @@
       "ok": false
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 28,
-      "ok": true
-    },
-    {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
     },
     {
-      "id": "dw",
-      "name": "دویچه‌وله",
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 28,
+      "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
     {
       "id": "euronews",
       "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
@@ -192,5 +192,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 40191
+  "durationMs": 55224
 }
