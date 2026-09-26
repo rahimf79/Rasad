@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790432351492,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۱۷:۴۹:۱۱",
+  "generatedAt": 1790445418075,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۲۱:۲۶:۵۸",
   "news": {
     "files": [
       "2026-09-26.json",
@@ -86,7 +86,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790432351437
+    "generatedAt": 1790445418053
   },
   "intervalMinutes": 30,
   "sources": [
@@ -103,32 +103,14 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -139,16 +121,34 @@
       "ok": false
     },
     {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
+    },
+    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "bbc",
@@ -163,20 +163,20 @@
       "ok": false
     },
     {
-      "id": "dw",
-      "name": "دویچه‌وله",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
@@ -192,5 +192,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 45352
+  "durationMs": 53252
 }

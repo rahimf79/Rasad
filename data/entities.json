@@ -2351,6 +2351,11 @@
       "group": "crypto"
     },
     {
+      "code": "931001",
+      "name": "صندوق نفت آمریکا",
+      "group": "crypto"
+    },
+    {
       "code": "5000000000007",
       "name": "کاردانو",
       "group": "crypto"
@@ -2383,11 +2388,6 @@
     {
       "code": "921008",
       "name": "سوئی",
-      "group": "crypto"
-    },
-    {
-      "code": "931001",
-      "name": "صندوق نفت آمریکا",
       "group": "crypto"
     },
     {
@@ -2461,5 +2461,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1790432351436
+  "discoveredAt": 1790445418052
 }
