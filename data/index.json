@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790398094273,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۰۸:۱۸:۱۴",
+  "generatedAt": 1790416130982,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۱۳:۱۸:۵۰",
   "news": {
     "files": [
       "2026-09-26.json",
@@ -86,25 +86,13 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790398094234
+    "generatedAt": 1790416130940
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "mehr",
       "name": "مهر",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "isna",
-      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -115,21 +103,33 @@
       "ok": false
     },
     {
+      "id": "isna",
+      "name": "ایسنا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
     {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
-      "ok": true
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
       "ok": true
     },
     {
@@ -139,8 +139,14 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -157,12 +163,6 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "euronews",
       "name": "یورونیوز",
       "count": 50,
@@ -175,16 +175,16 @@
       "ok": false
     },
     {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
       "ok": true
-    },
-    {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
     }
   ],
   "retention": {
@@ -192,5 +192,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 55224
+  "durationMs": 87397
 }
