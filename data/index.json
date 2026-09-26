@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790416130982,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۱۳:۱۸:۵۰",
+  "generatedAt": 1790432351492,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۴ - ۱۷:۴۹:۱۱",
   "news": {
     "files": [
       "2026-09-26.json",
@@ -86,7 +86,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790416130940
+    "generatedAt": 1790432351437
   },
   "intervalMinutes": 30,
   "sources": [
@@ -97,16 +97,22 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "isna",
       "name": "ایسنا",
       "count": 30,
       "ok": true
+    },
+    {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "khabaronline",
@@ -115,27 +121,9 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
-      "ok": true
-    },
-    {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
       "ok": true
     },
     {
@@ -145,8 +133,38 @@
       "ok": true
     },
     {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
+      "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 28,
+      "ok": true
+    },
+    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
@@ -157,28 +175,10 @@
       "ok": true
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 28,
-      "ok": true
-    },
-    {
       "id": "euronews",
       "name": "یورونیوز",
-      "count": 50,
-      "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
     },
     {
       "id": "varzesh3",
@@ -192,5 +192,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 87397
+  "durationMs": 45352
 }
