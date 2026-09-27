@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790544781572,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۶ - ۰۱:۰۳:۰۱",
+  "generatedAt": 1790553360068,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۶ - ۰۳:۲۶:۰۰",
   "news": {
     "files": [
       "2026-09-27.json",
@@ -87,13 +87,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790544781538
+    "generatedAt": 1790553360027
   },
   "intervalMinutes": 30,
   "sources": [
     {
       "id": "mehr",
       "name": "مهر",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -110,12 +116,6 @@
       "ok": false
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
@@ -126,6 +126,12 @@
       "name": "تجارت‌نیوز",
       "count": 99,
       "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "shana",
@@ -146,21 +152,15 @@
       "ok": false
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
       "count": 28,
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
       "ok": true
     },
     {
@@ -170,9 +170,15 @@
       "ok": false
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
       "ok": true
     },
     {
@@ -180,12 +186,6 @@
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
     }
   ],
   "retention": {
@@ -193,5 +193,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 40339
+  "durationMs": 95388
 }
