@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790473339083,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۵ - ۰۵:۱۲:۱۹",
+  "generatedAt": 1790495913535,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۵ - ۱۱:۲۸:۳۳",
   "news": {
     "files": [
       "2026-09-27.json",
@@ -87,7 +87,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790473339057
+    "generatedAt": 1790495913507
   },
   "intervalMinutes": 30,
   "sources": [
@@ -158,6 +158,12 @@
       "ok": true
     },
     {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
@@ -168,12 +174,6 @@
       "name": "دویچه‌وله",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
-      "ok": true
     },
     {
       "id": "varzesh3",
@@ -193,5 +193,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 41272
+  "durationMs": 53769
 }
