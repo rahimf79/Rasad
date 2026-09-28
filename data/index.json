@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790621029014,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۶ - ۲۲:۱۳:۴۹",
+  "generatedAt": 1790639271394,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۷ - ۰۳:۱۷:۵۱",
   "news": {
     "files": [
       "2026-09-28.json",
@@ -88,7 +88,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790621028973
+    "generatedAt": 1790639271356
   },
   "intervalMinutes": 30,
   "sources": [
@@ -99,10 +99,10 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "khabaronline",
@@ -111,10 +111,10 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "isna",
@@ -123,21 +123,15 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
     },
     {
       "id": "shana",
       "name": "شانا",
       "count": 30,
-      "ok": true
-    },
-    {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
       "ok": true
     },
     {
@@ -171,14 +165,20 @@
       "ok": true
     },
     {
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
     {
-      "id": "dw",
-      "name": "دویچه‌وله",
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
@@ -194,5 +194,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 57096
+  "durationMs": 34716
 }
