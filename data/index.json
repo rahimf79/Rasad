@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790701189998,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۷ - ۲۰:۲۹:۴۹",
+  "generatedAt": 1790716825601,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۰۰:۵۰:۲۵",
   "news": {
     "files": [
       "2026-09-29.json",
@@ -89,7 +89,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790701189956
+    "generatedAt": 1790716825564
   },
   "intervalMinutes": 30,
   "sources": [
@@ -112,22 +112,16 @@
       "ok": false
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "irna",
       "name": "ایرنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "entekhab",
@@ -136,10 +130,10 @@
       "ok": false
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "tejaratnews",
@@ -148,9 +142,15 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
@@ -172,16 +172,16 @@
       "ok": false
     },
     {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
+    },
+    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
     },
     {
       "id": "varzesh3",
@@ -195,5 +195,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 64058
+  "durationMs": 36272
 }
