@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790639271394,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۷ - ۰۳:۱۷:۵۱",
+  "generatedAt": 1790659612348,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۷ - ۰۸:۵۶:۵۲",
   "news": {
     "files": [
+      "2026-09-29.json",
       "2026-09-28.json",
       "2026-09-27.json",
       "2026-09-26.json",
@@ -23,7 +24,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 17
+    "days": 18
   },
   "prices": {
     "assets": [
@@ -88,7 +89,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790639271356
+    "generatedAt": 1790659612307
   },
   "intervalMinutes": 30,
   "sources": [
@@ -105,8 +106,8 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -117,8 +118,8 @@
       "ok": false
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
@@ -141,8 +142,8 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
@@ -151,6 +152,12 @@
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "bbc",
@@ -177,12 +184,6 @@
       "ok": false
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
@@ -194,5 +195,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 34716
+  "durationMs": 34551
 }
