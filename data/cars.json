@@ -16,10 +16,10 @@
     },
     {
       "name": "تهران، ولنجک",
-      "price": 28500000000,
-      "source": "باما",
-      "page": "https://bama.ir/car",
-      "at": 1790701178116
+      "price": 1950000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/peugeot",
+      "at": 1790807502155
     },
     {
       "name": "شعبه مرکزیmvm(افتخار368)",
@@ -75,8 +75,8 @@
       "price": 2750000000,
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/peugeot",
-      "at": 1790792506361
+      "at": 1790807502155
     }
   ],
-  "updatedAt": 1790792511470
+  "updatedAt": 1790807508257
 }
