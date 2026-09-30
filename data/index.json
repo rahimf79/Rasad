@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790750009753,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۱۰:۰۳:۲۹",
+  "generatedAt": 1790773013709,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۱۶:۲۶:۵۳",
   "news": {
     "files": [
       "2026-09-30.json",
@@ -80,7 +80,7 @@
     "errors": 1
   },
   "cars": {
-    "count": 10
+    "count": 11
   },
   "discovery": {
     "total": 492,
@@ -90,7 +90,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790750009726
+    "generatedAt": 1790773013660
   },
   "intervalMinutes": 30,
   "sources": [
@@ -137,22 +137,28 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
     },
     {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "bbc",
@@ -164,12 +170,6 @@
       "id": "euronews",
       "name": "یورونیوز",
       "count": 50,
-      "ok": true
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
       "ok": true
     },
     {
@@ -196,5 +196,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 30509
+  "durationMs": 32882
 }

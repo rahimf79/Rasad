@@ -47,7 +47,7 @@
       "price": 1670000000,
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/samand",
-      "at": 1790681546274
+      "at": 1790773008249
     },
     {
       "name": "آستارا",
@@ -69,7 +69,14 @@
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/peugeot",
       "at": 1790701180970
+    },
+    {
+      "name": "اتو آوانتی",
+      "price": 2750000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/peugeot",
+      "at": 1790773006976
     }
   ],
-  "updatedAt": 1790750008063
+  "updatedAt": 1790773011791
 }
