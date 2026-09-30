@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790716825601,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۰۰:۵۰:۲۵",
+  "generatedAt": 1790729000934,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۰۴:۱۳:۲۰",
   "news": {
     "files": [
+      "2026-09-30.json",
       "2026-09-29.json",
       "2026-09-28.json",
       "2026-09-27.json",
@@ -24,7 +25,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 18
+    "days": 19
   },
   "prices": {
     "assets": [
@@ -89,13 +90,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790716825564
+    "generatedAt": 1790729000892
   },
   "intervalMinutes": 30,
   "sources": [
     {
       "id": "mehr",
       "name": "مهر",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -112,28 +119,10 @@
       "ok": false
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
-    },
-    {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "tejaratnews",
@@ -154,9 +143,27 @@
       "ok": true
     },
     {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
       "count": 29,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -170,12 +177,6 @@
       "name": "دویچه‌وله",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
     },
     {
       "id": "eghtesadnews",
@@ -195,5 +196,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 36272
+  "durationMs": 33650
 }
