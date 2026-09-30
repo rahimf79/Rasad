@@ -44,10 +44,10 @@
     },
     {
       "name": "شاهین شهر",
-      "price": 1670000000,
-      "source": "باما (برندها)",
-      "page": "https://bama.ir/car/samand",
-      "at": 1790773008249
+      "price": 4000000000,
+      "source": "باما",
+      "page": "https://bama.ir/car",
+      "at": 1790792503842
     },
     {
       "name": "آستارا",
@@ -75,8 +75,8 @@
       "price": 2750000000,
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/peugeot",
-      "at": 1790773006976
+      "at": 1790792506361
     }
   ],
-  "updatedAt": 1790773011791
+  "updatedAt": 1790792511470
 }

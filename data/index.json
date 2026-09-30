@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790773013709,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۱۶:۲۶:۵۳",
+  "generatedAt": 1790792513878,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۸ - ۲۱:۵۱:۵۳",
   "news": {
     "files": [
       "2026-09-30.json",
@@ -90,10 +90,16 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790773013660
+    "generatedAt": 1790792513832
   },
   "intervalMinutes": 30,
   "sources": [
+    {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
     {
       "id": "mehr",
       "name": "مهر",
@@ -103,12 +109,6 @@
     {
       "id": "isna",
       "name": "ایسنا",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "irna",
-      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -125,24 +125,6 @@
       "ok": true
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
-    },
-    {
       "id": "entekhab",
       "name": "انتخاب",
       "count": 0,
@@ -155,9 +137,21 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
@@ -173,16 +167,22 @@
       "ok": true
     },
     {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "dw",
       "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "varzesh3",
@@ -196,5 +196,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 32882
+  "durationMs": 36627
 }
