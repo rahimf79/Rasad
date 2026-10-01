@@ -2246,6 +2246,11 @@
       "group": "crypto"
     },
     {
+      "code": "970002",
+      "name": "مونرو",
+      "group": "crypto"
+    },
+    {
       "code": "920022",
       "name": "نیر",
       "group": "crypto"
@@ -2273,11 +2278,6 @@
     {
       "code": "920014",
       "name": "لئو توکن",
-      "group": "crypto"
-    },
-    {
-      "code": "970002",
-      "name": "مونرو",
       "group": "crypto"
     },
     {
@@ -2461,5 +2461,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1790818076432
+  "discoveredAt": 1790840440589
 }
