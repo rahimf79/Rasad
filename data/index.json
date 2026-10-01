@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790840440630,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۰۹ - ۱۱:۱۰:۴۰",
+  "generatedAt": 1790868688906,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۰۹ - ۱۹:۰۱:۲۸",
   "news": {
     "files": [
       "2026-10-01.json",
@@ -91,7 +91,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790840440590
+    "generatedAt": 1790868688878
   },
   "intervalMinutes": 30,
   "sources": [
@@ -144,15 +144,15 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
+      "ok": true
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -168,14 +168,14 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
       "id": "dw",
       "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
       "count": 0,
       "ok": false
     },
@@ -197,5 +197,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 40724
+  "durationMs": 647004
 }
