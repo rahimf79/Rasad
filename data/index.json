@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790899915104,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۰۳:۴۱:۵۵",
+  "generatedAt": 1790918996493,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۰۸:۵۹:۵۶",
   "news": {
     "files": [
       "2026-10-02.json",
@@ -92,7 +92,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790899915068
+    "generatedAt": 1790918996458
   },
   "intervalMinutes": 30,
   "sources": [
@@ -145,21 +145,21 @@
       "ok": true
     },
     {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "entekhab",
       "name": "انتخاب",
       "count": 0,
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 29,
       "ok": true
     },
     {
@@ -169,9 +169,9 @@
       "ok": true
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -187,8 +187,8 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     }
@@ -198,5 +198,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 368083
+  "durationMs": 266397
 }
