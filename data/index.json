@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790887055578,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۰۰:۰۷:۳۵",
+  "generatedAt": 1790899915104,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۰۳:۴۱:۵۵",
   "news": {
     "files": [
+      "2026-10-02.json",
       "2026-10-01.json",
       "2026-09-30.json",
       "2026-09-29.json",
@@ -26,7 +27,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 20
+    "days": 21
   },
   "prices": {
     "assets": [
@@ -91,16 +92,10 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790887055518
+    "generatedAt": 1790899915068
   },
   "intervalMinutes": 30,
   "sources": [
-    {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
     {
       "id": "mehr",
       "name": "مهر",
@@ -108,8 +103,14 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -120,8 +121,8 @@
       "ok": false
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
@@ -144,10 +145,10 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "eghtesadnews",
@@ -156,15 +157,9 @@
       "ok": false
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -174,14 +169,14 @@
       "ok": true
     },
     {
-      "id": "dw",
-      "name": "دویچه‌وله",
-      "count": 0,
-      "ok": false
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 29,
+      "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
@@ -190,6 +185,12 @@
       "name": "ورزش سه",
       "count": 40,
       "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -197,5 +198,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 644329
+  "durationMs": 368083
 }
