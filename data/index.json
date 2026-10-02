@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790940017086,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۱۴:۵۰:۱۷",
+  "generatedAt": 1790959998070,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۲۰:۲۳:۱۸",
   "news": {
     "files": [
       "2026-10-02.json",
@@ -92,7 +92,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790940017039
+    "generatedAt": 1790959998021
   },
   "intervalMinutes": 30,
   "sources": [
@@ -121,12 +121,6 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
@@ -139,8 +133,8 @@
       "ok": false
     },
     {
-      "id": "shana",
-      "name": "شانا",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
@@ -148,6 +142,12 @@
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -163,14 +163,20 @@
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
       "ok": true
     },
     {
       "id": "dw",
       "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "euronews",
+      "name": "یورونیوز",
       "count": 0,
       "ok": false
     },
@@ -185,12 +191,6 @@
       "name": "ورزش سه",
       "count": 40,
       "ok": true
-    },
-    {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 99,
-      "ok": true
     }
   ],
   "retention": {
@@ -198,5 +198,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 222004
+  "durationMs": 368548
 }
