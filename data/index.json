@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790959998070,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۰ - ۲۰:۲۳:۱۸",
+  "generatedAt": 1790975954162,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۱ - ۰۰:۴۹:۱۴",
   "news": {
     "files": [
       "2026-10-02.json",
@@ -92,7 +92,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790959998021
+    "generatedAt": 1790975954119
   },
   "intervalMinutes": 30,
   "sources": [
@@ -109,28 +109,10 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "isna",
       "name": "ایسنا",
       "count": 30,
       "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "khabaronline",
@@ -139,27 +121,15 @@
       "ok": true
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
-      "ok": true
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
       "ok": true
     },
     {
@@ -169,20 +139,44 @@
       "ok": true
     },
     {
-      "id": "dw",
-      "name": "دویچه‌وله",
+      "id": "entekhab",
+      "name": "انتخاب",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
+      "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 29,
+      "ok": true
     },
     {
       "id": "euronews",
       "name": "یورونیوز",
-      "count": 0,
-      "ok": false
+      "count": 50,
+      "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
@@ -191,6 +185,12 @@
       "name": "ورزش سه",
       "count": 40,
       "ok": true
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -198,5 +198,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 368548
+  "durationMs": 259020
 }
