@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791055099348,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۱ - ۲۲:۴۸:۱۹",
+  "generatedAt": 1791066171571,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۲ - ۰۱:۵۲:۵۱",
   "news": {
     "files": [
       "2026-10-03.json",
@@ -93,7 +93,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791055099306
+    "generatedAt": 1791066171526
   },
   "intervalMinutes": 30,
   "sources": [
@@ -128,10 +128,10 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
     },
     {
       "id": "shana",
@@ -140,8 +140,8 @@
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "entekhab",
+      "name": "انتخاب",
       "count": 0,
       "ok": false
     },
@@ -152,8 +152,8 @@
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
@@ -176,14 +176,14 @@
       "ok": true
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
       "id": "dw",
       "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -199,5 +199,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 482852
+  "durationMs": 34034
 }
