@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791028874208,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۱ - ۱۵:۳۱:۱۴",
+  "generatedAt": 1791043838084,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۱ - ۱۹:۴۰:۳۸",
   "news": {
     "files": [
       "2026-10-03.json",
@@ -93,7 +93,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791028874162
+    "generatedAt": 1791043838050
   },
   "intervalMinutes": 30,
   "sources": [
@@ -110,6 +110,12 @@
       "ok": true
     },
     {
+      "id": "isna",
+      "name": "ایسنا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
@@ -122,10 +128,10 @@
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
-      "count": 30,
-      "ok": true
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "entekhab",
@@ -134,21 +140,9 @@
       "ok": false
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
-      "ok": true
-    },
-    {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
       "ok": true
     },
     {
@@ -158,10 +152,10 @@
       "ok": false
     },
     {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "bbc",
@@ -182,15 +176,21 @@
       "ok": false
     },
     {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     }
   ],
@@ -199,5 +199,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 269426
+  "durationMs": 315027
 }
