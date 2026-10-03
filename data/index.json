@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1790975954162,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۱ - ۰۰:۴۹:۱۴",
+  "generatedAt": 1790988252815,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۱ - ۰۴:۱۴:۱۲",
   "news": {
     "files": [
+      "2026-10-03.json",
       "2026-10-02.json",
       "2026-10-01.json",
       "2026-09-30.json",
@@ -27,7 +28,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 21
+    "days": 22
   },
   "prices": {
     "assets": [
@@ -92,7 +93,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1790975954119
+    "generatedAt": 1790988252773
   },
   "intervalMinutes": 30,
   "sources": [
@@ -115,16 +116,16 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "tejaratnews",
@@ -139,6 +140,12 @@
       "ok": true
     },
     {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "entekhab",
       "name": "انتخاب",
       "count": 0,
@@ -149,12 +156,6 @@
       "name": "زومیت",
       "count": 300,
       "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "bbc",
@@ -181,16 +182,16 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
-    },
-    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
     }
   ],
   "retention": {
@@ -198,5 +199,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 259020
+  "durationMs": 233888
 }
