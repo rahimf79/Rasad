@@ -76,7 +76,14 @@
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/peugeot",
       "at": 1790818068412
+    },
+    {
+      "name": "کرج، شاهین‌ویلا",
+      "price": 7800000000,
+      "source": "باما",
+      "page": "https://bama.ir/car",
+      "at": 1791101924215
     }
   ],
-  "updatedAt": 1791078995234
+  "updatedAt": 1791101935457
 }
