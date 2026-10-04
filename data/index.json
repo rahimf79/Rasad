@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791066171571,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۲ - ۰۱:۵۲:۵۱",
+  "generatedAt": 1791078997010,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۲ - ۰۵:۲۶:۳۷",
   "news": {
     "files": [
+      "2026-10-04.json",
       "2026-10-03.json",
       "2026-10-02.json",
       "2026-10-01.json",
@@ -28,7 +29,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 22
+    "days": 23
   },
   "prices": {
     "assets": [
@@ -93,7 +94,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791066171526
+    "generatedAt": 1791078996975
   },
   "intervalMinutes": 30,
   "sources": [
@@ -140,16 +141,16 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "fars",
@@ -170,16 +171,16 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
       "id": "dw",
       "name": "دویچه‌وله",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "eghtesadnews",
@@ -199,5 +200,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 34034
+  "durationMs": 31510
 }
