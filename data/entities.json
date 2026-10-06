@@ -1941,6 +1941,11 @@
       "group": "metal"
     },
     {
+      "code": "10000000004016",
+      "name": "سرب",
+      "group": "metal"
+    },
+    {
       "code": "10000000003001",
       "name": "فولاد",
       "group": "metal"
@@ -1953,11 +1958,6 @@
     {
       "code": "10000000004005",
       "name": "رودیم",
-      "group": "metal"
-    },
-    {
-      "code": "10000000004016",
-      "name": "سرب",
       "group": "metal"
     },
     {
@@ -2376,6 +2376,11 @@
       "group": "crypto"
     },
     {
+      "code": "921024",
+      "name": "اپتوس",
+      "group": "crypto"
+    },
+    {
       "code": "5000000000009",
       "name": "بایننس کوین",
       "group": "crypto"
@@ -2413,11 +2418,6 @@
     {
       "code": "921019",
       "name": "آوه",
-      "group": "crypto"
-    },
-    {
-      "code": "921024",
-      "name": "اپتوس",
       "group": "crypto"
     },
     {
@@ -2461,5 +2461,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1791253644391
+  "discoveredAt": 1791278351484
 }
