@@ -2401,6 +2401,11 @@
       "group": "crypto"
     },
     {
+      "code": "921022",
+      "name": "نیر",
+      "group": "crypto"
+    },
+    {
       "code": "921017",
       "name": "یونی‌سواپ",
       "group": "crypto"
@@ -2441,11 +2446,6 @@
       "group": "crypto"
     },
     {
-      "code": "921022",
-      "name": "نیر",
-      "group": "crypto"
-    },
-    {
       "code": "901001",
       "name": "یو‌اس‌دی کوین",
       "group": "crypto"
@@ -2461,5 +2461,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1791239358213
+  "discoveredAt": 1791253644391
 }
