@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791441218232,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۶ - ۱۰:۰۳:۳۸",
+  "generatedAt": 1791467748236,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۶ - ۱۷:۲۵:۴۸",
   "news": {
     "files": [
       "2026-10-08.json",
@@ -98,19 +98,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791441218196
+    "generatedAt": 1791467748187
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -121,16 +121,16 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "tejaratnews",
@@ -151,10 +151,10 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "entekhab",
@@ -175,6 +175,12 @@
       "ok": true
     },
     {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
+    },
+    {
       "id": "dw",
       "name": "دویچه‌وله",
       "count": 0,
@@ -191,12 +197,6 @@
       "name": "ورزش سه",
       "count": 40,
       "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     }
   ],
   "retention": {
@@ -204,5 +204,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 39009
+  "durationMs": 34562
 }
