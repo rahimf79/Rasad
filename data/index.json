@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791467748236,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۶ - ۱۷:۲۵:۴۸",
+  "generatedAt": 1791488842343,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۶ - ۲۳:۱۷:۲۲",
   "news": {
     "files": [
       "2026-10-08.json",
@@ -98,19 +98,13 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791467748187
+    "generatedAt": 1791488842308
   },
   "intervalMinutes": 30,
   "sources": [
     {
       "id": "mehr",
       "name": "مهر",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "irna",
-      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -125,6 +119,12 @@
       "name": "تسنیم",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "khabaronline",
@@ -145,12 +145,6 @@
       "ok": true
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
-    },
-    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
@@ -163,21 +157,27 @@
       "ok": false
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 28,
       "ok": true
     },
     {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
+      "ok": true
+    },
+    {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
       "ok": true
     },
     {
@@ -204,5 +204,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 34562
+  "durationMs": 32653
 }
