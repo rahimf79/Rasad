@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791418116037,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۶ - ۰۳:۳۸:۳۶",
+  "generatedAt": 1791441218232,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۶ - ۱۰:۰۳:۳۸",
   "news": {
     "files": [
       "2026-10-08.json",
@@ -98,19 +98,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791418116004
+    "generatedAt": 1791441218196
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
@@ -121,16 +121,16 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "tejaratnews",
@@ -151,16 +151,16 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "bbc",
@@ -173,12 +173,6 @@
       "name": "یورونیوز",
       "count": 50,
       "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "dw",
@@ -197,6 +191,12 @@
       "name": "ورزش سه",
       "count": 40,
       "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -204,5 +204,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 33885
+  "durationMs": 39009
 }
