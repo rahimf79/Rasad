@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791588989362,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۸ - ۰۳:۰۶:۲۹",
+  "generatedAt": 1791600517956,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۸ - ۰۶:۱۸:۳۷",
   "news": {
     "files": [
+      "2026-10-10.json",
       "2026-10-09.json",
       "2026-10-08.json",
       "2026-10-07.json",
@@ -34,7 +35,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 28
+    "days": 29
   },
   "prices": {
     "assets": [
@@ -99,7 +100,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791588989321
+    "generatedAt": 1791600517913
   },
   "intervalMinutes": 30,
   "sources": [
@@ -140,6 +141,12 @@
       "ok": true
     },
     {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "shana",
       "name": "شانا",
       "count": 30,
@@ -150,18 +157,6 @@
       "name": "زومیت",
       "count": 300,
       "ok": true
-    },
-    {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "digiato",
@@ -176,14 +171,8 @@
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
-      "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -194,10 +183,22 @@
       "ok": true
     },
     {
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
     }
   ],
   "retention": {
@@ -205,5 +206,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 637271
+  "durationMs": 648049
 }
