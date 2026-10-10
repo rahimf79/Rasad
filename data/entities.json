@@ -27,7 +27,7 @@
     },
     {
       "code": "800000",
-      "name": "شاخص دلار ثروتمندی",
+      "name": "شاخص همگرایی ثروتمندی",
       "group": "fx"
     },
     {
@@ -2391,6 +2391,11 @@
       "group": "crypto"
     },
     {
+      "code": "901002",
+      "name": "دای",
+      "group": "crypto"
+    },
+    {
       "code": "971001",
       "name": "زدکش",
       "group": "crypto"
@@ -2403,6 +2408,11 @@
     {
       "code": "921022",
       "name": "نیر",
+      "group": "crypto"
+    },
+    {
+      "code": "901001",
+      "name": "یو‌اس‌دی کوین",
       "group": "crypto"
     },
     {
@@ -2421,11 +2431,6 @@
       "group": "crypto"
     },
     {
-      "code": "901002",
-      "name": "دای",
-      "group": "crypto"
-    },
-    {
       "code": "921025",
       "name": "کازموس",
       "group": "crypto"
@@ -2441,11 +2446,6 @@
       "group": "crypto"
     },
     {
-      "code": "901001",
-      "name": "یو‌اس‌دی کوین",
-      "group": "crypto"
-    },
-    {
       "code": "921020",
       "name": "تائو",
       "group": "crypto"
@@ -2456,5 +2456,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1791647364070
+  "discoveredAt": 1791662303050
 }
