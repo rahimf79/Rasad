@@ -6,13 +6,13 @@
       "group": "fx"
     },
     {
-      "code": "901001",
-      "name": "یو‌اس‌دی کوین",
+      "code": "901002",
+      "name": "دای",
       "group": "fx"
     },
     {
-      "code": "901002",
-      "name": "دای",
+      "code": "901001",
+      "name": "یو‌اس‌دی کوین",
       "group": "fx"
     },
     {
@@ -2346,6 +2346,11 @@
       "group": "crypto"
     },
     {
+      "code": "901002",
+      "name": "دای",
+      "group": "crypto"
+    },
+    {
       "code": "921008",
       "name": "سوئی",
       "group": "crypto"
@@ -2393,11 +2398,6 @@
     {
       "code": "921009",
       "name": "چین‌لینک",
-      "group": "crypto"
-    },
-    {
-      "code": "901002",
-      "name": "دای",
       "group": "crypto"
     },
     {
@@ -2456,5 +2456,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1791708155224
+  "discoveredAt": 1791732744888
 }
