@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791684420536,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۹ - ۰۵:۳۷:۰۰",
+  "generatedAt": 1791708155280,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۱۹ - ۱۲:۱۲:۳۵",
   "news": {
     "files": [
       "2026-10-11.json",
@@ -101,19 +101,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791684420513
+    "generatedAt": 1791708155225
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -124,22 +124,22 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
       "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "shana",
@@ -160,9 +160,9 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -178,10 +178,10 @@
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "dw",
@@ -190,16 +190,16 @@
       "ok": false
     },
     {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
       "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     }
   ],
   "retention": {
@@ -207,5 +207,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 33186
+  "durationMs": 30875
 }
