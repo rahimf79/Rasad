@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791748235281,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۱۹ - ۲۳:۲۰:۳۵",
+  "generatedAt": 1791762248290,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۰ - ۰۳:۱۴:۰۸",
   "news": {
     "files": [
       "2026-10-11.json",
@@ -101,7 +101,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791748235238
+    "generatedAt": 1791762248245
   },
   "intervalMinutes": 30,
   "sources": [
@@ -207,5 +207,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 633972
+  "durationMs": 640503
 }
