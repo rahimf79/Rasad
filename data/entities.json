@@ -2236,6 +2236,11 @@
       "group": "crypto"
     },
     {
+      "code": "930001",
+      "name": "صندوق نفت آمریکا",
+      "group": "crypto"
+    },
+    {
       "code": "920019",
       "name": "آوه",
       "group": "crypto"
@@ -2248,11 +2253,6 @@
     {
       "code": "920008",
       "name": "سوئی",
-      "group": "crypto"
-    },
-    {
-      "code": "930001",
-      "name": "صندوق نفت آمریکا",
       "group": "crypto"
     },
     {
@@ -2486,5 +2486,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1791911152067
+  "discoveredAt": 1791928112653
 }
