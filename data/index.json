@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1791993527252,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۲ - ۱۹:۲۸:۴۷",
+  "generatedAt": 1792008468264,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۲ - ۲۳:۳۷:۴۸",
   "news": {
     "files": [
       "2026-10-14.json",
@@ -97,14 +97,14 @@
     "count": 16
   },
   "discovery": {
-    "total": 0,
-    "fresh": 0
+    "total": 497,
+    "fresh": 442
   },
   "bundle": {
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1791993527205
+    "generatedAt": 1792008468214
   },
   "intervalMinutes": 30,
   "sources": [
@@ -151,20 +151,20 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     },
@@ -181,6 +181,12 @@
       "ok": true
     },
     {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "dw",
       "name": "دویچه‌وله",
       "count": 0,
@@ -191,12 +197,6 @@
       "name": "ورزش سه",
       "count": 40,
       "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "digiato",
@@ -210,5 +210,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 100335
+  "durationMs": 45992
 }
