@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792019371698,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۳ - ۰۲:۳۹:۳۱",
+  "generatedAt": 1792028645742,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۳ - ۰۵:۱۴:۰۵",
   "news": {
     "files": [
+      "2026-10-15.json",
       "2026-10-14.json",
       "2026-10-13.json",
       "2026-10-12.json",
@@ -39,7 +40,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 33
+    "days": 34
   },
   "prices": {
     "assets": [
@@ -104,19 +105,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792019371648
+    "generatedAt": 1792028645710
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -163,10 +164,16 @@
       "ok": false
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "bbc",
@@ -193,16 +200,10 @@
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
     }
   ],
   "retention": {
@@ -210,5 +211,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 28308
+  "durationMs": 29441
 }
