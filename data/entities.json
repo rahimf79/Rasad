@@ -2376,6 +2376,11 @@
       "group": "crypto"
     },
     {
+      "code": "971001",
+      "name": "زدکش",
+      "group": "crypto"
+    },
+    {
       "code": "921008",
       "name": "سوئی",
       "group": "crypto"
@@ -2423,11 +2428,6 @@
     {
       "code": "921009",
       "name": "چین‌لینک",
-      "group": "crypto"
-    },
-    {
-      "code": "971001",
-      "name": "زدکش",
       "group": "crypto"
     },
     {
@@ -2486,5 +2486,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1792225724581
+  "discoveredAt": 1792239673544
 }

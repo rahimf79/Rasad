@@ -111,7 +111,14 @@
       "source": "باما",
       "page": "https://bama.ir/car",
       "at": 1791993501791
+    },
+    {
+      "name": "اهواز، کیانشهر",
+      "price": 2700000000,
+      "source": "باما (برندها)",
+      "page": "https://bama.ir/car/dena",
+      "at": 1792239667539
     }
   ],
-  "updatedAt": 1792225722949
+  "updatedAt": 1792239671078
 }
