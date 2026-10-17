@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792194663168,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۵ - ۰۳:۲۱:۰۳",
+  "generatedAt": 1792209786791,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۵ - ۰۷:۳۳:۰۶",
   "news": {
     "files": [
+      "2026-10-17.json",
       "2026-10-16.json",
       "2026-10-15.json",
       "2026-10-14.json",
@@ -41,7 +42,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 35
+    "days": 36
   },
   "prices": {
     "assets": [
@@ -106,7 +107,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792194663133
+    "generatedAt": 1792209786755
   },
   "intervalMinutes": 30,
   "sources": [
@@ -153,15 +154,27 @@
       "ok": false
     },
     {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 29,
       "ok": true
     },
     {
@@ -171,9 +184,9 @@
       "ok": false
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -193,18 +206,6 @@
       "name": "یورونیوز",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
-      "id": "fars",
-      "name": "فارس",
-      "count": 0,
-      "ok": false
     }
   ],
   "retention": {
@@ -212,5 +213,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 39666
+  "durationMs": 34643
 }
