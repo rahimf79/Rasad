@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792239673605,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۵ - ۱۵:۵۱:۱۳",
+  "generatedAt": 1792252347172,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۵ - ۱۹:۲۲:۲۷",
   "news": {
     "files": [
       "2026-10-17.json",
@@ -107,7 +107,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792239673545
+    "generatedAt": 1792252347141
   },
   "intervalMinutes": 30,
   "sources": [
@@ -130,16 +130,16 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "tejaratnews",
@@ -190,9 +190,9 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
       "ok": true
     },
     {
@@ -202,9 +202,9 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     }
   ],
@@ -213,5 +213,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 34831
+  "durationMs": 33110
 }
