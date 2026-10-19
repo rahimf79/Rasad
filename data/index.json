@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792360030132,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۷ - ۰۱:۱۷:۱۰",
+  "generatedAt": 1792368320586,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۷ - ۰۳:۳۵:۲۰",
   "news": {
     "files": [
+      "2026-10-19.json",
       "2026-10-18.json",
       "2026-10-17.json",
       "2026-10-16.json",
@@ -43,7 +44,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 37
+    "days": 38
   },
   "prices": {
     "assets": [
@@ -108,19 +109,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792360030082
+    "generatedAt": 1792368320545
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -131,16 +132,16 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "tejaratnews",
@@ -167,8 +168,8 @@
       "ok": false
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -177,18 +178,6 @@
       "name": "بی‌بی‌سی فارسی",
       "count": 29,
       "ok": true
-    },
-    {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
-      "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "digiato",
@@ -203,8 +192,20 @@
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "fars",
+      "name": "فارس",
       "count": 0,
       "ok": false
     }
@@ -214,5 +215,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 28746
+  "durationMs": 33586
 }
