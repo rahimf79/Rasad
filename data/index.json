@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792404723829,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۷ - ۱۳:۴۲:۰۳",
+  "generatedAt": 1792429769752,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۷ - ۲۰:۳۹:۲۹",
   "news": {
     "files": [
       "2026-10-19.json",
@@ -109,7 +109,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792404723774
+    "generatedAt": 1792429769683
   },
   "intervalMinutes": 30,
   "sources": [
@@ -126,12 +126,6 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
@@ -144,21 +138,27 @@
       "ok": true
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
       "ok": false
     },
     {
+      "id": "irna",
+      "name": "ایرنا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "shana",
       "name": "شانا",
       "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -192,16 +192,16 @@
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
       "ok": true
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "digiato",
@@ -215,5 +215,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 38622
+  "durationMs": 104754
 }
