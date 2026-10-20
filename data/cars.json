@@ -16,10 +16,10 @@
     },
     {
       "name": "تهران، ولنجک",
-      "price": 2770000000,
+      "price": 3650000000,
       "source": "باما (برندها)",
-      "page": "https://bama.ir/car/tara",
-      "at": 1792159794238
+      "page": "https://bama.ir/car/peugeot",
+      "at": 1792475464896
     },
     {
       "name": "شعبه مرکزیmvm(افتخار368)",
@@ -117,8 +117,15 @@
       "price": 2300000000,
       "source": "باما (برندها)",
       "page": "https://bama.ir/car/tara",
-      "at": 1792458071653
+      "at": 1792475471024
+    },
+    {
+      "name": "آریا نوین آسیا",
+      "price": 14200000000,
+      "source": "باما",
+      "page": "https://bama.ir/car",
+      "at": 1792475462162
     }
   ],
-  "updatedAt": 1792458072055
+  "updatedAt": 1792475471424
 }

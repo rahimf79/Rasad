@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792458073780,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۸ - ۰۴:۳۱:۱۳",
+  "generatedAt": 1792475473312,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۸ - ۰۹:۲۱:۱۳",
   "news": {
     "files": [
       "2026-10-20.json",
@@ -100,7 +100,7 @@
     "errors": 47
   },
   "cars": {
-    "count": 17
+    "count": 18
   },
   "discovery": {
     "total": 497,
@@ -110,7 +110,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792458073733
+    "generatedAt": 1792475473264
   },
   "intervalMinutes": 30,
   "sources": [
@@ -121,20 +121,14 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "isna",
       "name": "ایسنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -143,6 +137,12 @@
       "name": "تسنیم",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "tejaratnews",
@@ -157,15 +157,15 @@
       "ok": false
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
+      "ok": true
+    },
+    {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
       "ok": true
     },
     {
@@ -193,6 +193,12 @@
       "ok": false
     },
     {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
+    },
+    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
@@ -203,12 +209,6 @@
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
     }
   ],
   "retention": {
@@ -216,5 +216,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 30110
+  "durationMs": 27548
 }
