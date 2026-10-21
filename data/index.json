@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792546173311,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۹ - ۰۴:۵۹:۳۳",
+  "generatedAt": 1792564178205,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۹ - ۰۹:۵۹:۳۸",
   "news": {
     "files": [
       "2026-10-21.json",
@@ -111,7 +111,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792546173264
+    "generatedAt": 1792564178156
   },
   "intervalMinutes": 30,
   "sources": [
@@ -134,22 +134,28 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
     },
     {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
       "ok": true
+    },
+    {
+      "id": "entekhab",
+      "name": "انتخاب",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "shana",
@@ -164,14 +170,26 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 29,
+      "ok": true
+    },
+    {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     },
@@ -182,27 +200,9 @@
       "ok": true
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
-      "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
-      "ok": true
-    },
-    {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
       "ok": true
     },
     {
@@ -217,5 +217,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 50956
+  "durationMs": 56888
 }
