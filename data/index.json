@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792537593302,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۲۹ - ۰۲:۳۶:۳۳",
+  "generatedAt": 1792546173311,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۲۹ - ۰۴:۵۹:۳۳",
   "news": {
     "files": [
+      "2026-10-21.json",
       "2026-10-20.json",
       "2026-10-19.json",
       "2026-10-18.json",
@@ -45,7 +46,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 39
+    "days": 40
   },
   "prices": {
     "assets": [
@@ -110,19 +111,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792537593263
+    "generatedAt": 1792546173264
   },
   "intervalMinutes": 30,
   "sources": [
     {
-      "id": "mehr",
-      "name": "مهر",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "mehr",
+      "name": "مهر",
       "count": 30,
       "ok": true
     },
@@ -133,16 +134,16 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "tejaratnews",
@@ -175,15 +176,15 @@
       "ok": false
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 29,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 29,
       "ok": true
     },
     {
@@ -199,9 +200,9 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
       "ok": true
     },
     {
@@ -216,5 +217,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 49378
+  "durationMs": 50956
 }
