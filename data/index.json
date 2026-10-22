@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792642934081,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۰۷:۵۲:۱۴",
+  "generatedAt": 1792661718261,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۱۳:۰۵:۱۸",
   "news": {
     "files": [
       "2026-10-22.json",
@@ -112,7 +112,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792642934041
+    "generatedAt": 1792661718224
   },
   "intervalMinutes": 30,
   "sources": [
@@ -189,9 +189,9 @@
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -201,10 +201,10 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "fars",
@@ -218,5 +218,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 52056
+  "durationMs": 54591
 }
