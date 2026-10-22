@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792679906436,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۱۸:۰۸:۲۶",
+  "generatedAt": 1792696085360,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۲۲:۳۸:۰۵",
   "news": {
     "files": [
       "2026-10-22.json",
@@ -112,19 +112,13 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792679906382
+    "generatedAt": 1792696085311
   },
   "intervalMinutes": 30,
   "sources": [
     {
       "id": "mehr",
       "name": "مهر",
-      "count": 30,
-      "ok": true
-    },
-    {
-      "id": "isna",
-      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -141,15 +135,33 @@
       "ok": false
     },
     {
+      "id": "isna",
+      "name": "ایسنا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
     },
     {
+      "id": "fars",
+      "name": "فارس",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "tejaratnews",
       "name": "تجارت‌نیوز",
       "count": 100,
+      "ok": true
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
@@ -165,32 +177,14 @@
       "ok": false
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
-    },
-    {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
       "count": 29,
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
-      "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
@@ -201,14 +195,20 @@
       "ok": true
     },
     {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
     },
     {
-      "id": "fars",
-      "name": "فارس",
+      "id": "dw",
+      "name": "دویچه‌وله",
       "count": 0,
       "ok": false
     }
@@ -218,5 +218,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 54622
+  "durationMs": 36307
 }
