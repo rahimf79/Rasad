@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792661718261,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۱۳:۰۵:۱۸",
+  "generatedAt": 1792679906436,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۱۸:۰۸:۲۶",
   "news": {
     "files": [
       "2026-10-22.json",
@@ -102,7 +102,7 @@
     "errors": 47
   },
   "cars": {
-    "count": 18
+    "count": 19
   },
   "discovery": {
     "total": 497,
@@ -112,7 +112,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792661718224
+    "generatedAt": 1792679906382
   },
   "intervalMinutes": 30,
   "sources": [
@@ -123,14 +123,14 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -183,6 +183,18 @@
       "ok": true
     },
     {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
@@ -193,18 +205,6 @@
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "fars",
@@ -218,5 +218,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 54591
+  "durationMs": 54622
 }
