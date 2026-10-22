@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792627100349,
-  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۰۳:۲۸:۲۰",
+  "generatedAt": 1792642934081,
+  "generatedAtJalali": "۱۴۰۵/۰۷/۳۰ - ۰۷:۵۲:۱۴",
   "news": {
     "files": [
+      "2026-10-22.json",
       "2026-10-21.json",
       "2026-10-20.json",
       "2026-10-19.json",
@@ -46,7 +47,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 40
+    "days": 41
   },
   "prices": {
     "assets": [
@@ -111,7 +112,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792627100296
+    "generatedAt": 1792642934041
   },
   "intervalMinutes": 30,
   "sources": [
@@ -182,15 +183,15 @@
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
       "ok": true
     },
     {
@@ -200,9 +201,9 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -217,5 +218,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 51660
+  "durationMs": 52056
 }
