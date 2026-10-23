@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792786659611,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۲۳:۴۷:۳۹",
+  "generatedAt": 1792797829573,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۲ - ۰۲:۵۳:۴۹",
   "news": {
     "files": [
       "2026-10-23.json",
@@ -113,7 +113,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792786659577
+    "generatedAt": 1792797829544
   },
   "intervalMinutes": 30,
   "sources": [
@@ -130,21 +130,27 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "isna",
       "name": "ایسنا",
       "count": 30,
       "ok": true
     },
     {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -154,21 +160,15 @@
       "ok": false
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
       "id": "shana",
       "name": "شانا",
       "count": 30,
-      "ok": true
-    },
-    {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
       "ok": true
     },
     {
@@ -190,10 +190,10 @@
       "ok": false
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 0,
-      "ok": false
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "dw",
@@ -202,15 +202,15 @@
       "ok": false
     },
     {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
-      "ok": true
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
       "ok": true
     }
   ],
@@ -219,5 +219,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 45032
+  "durationMs": 32755
 }
