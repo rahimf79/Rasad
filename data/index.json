@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792718593335,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۰۴:۵۳:۱۳",
+  "generatedAt": 1792736760930,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۰۹:۵۶:۰۰",
   "news": {
     "files": [
       "2026-10-23.json",
@@ -113,7 +113,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792718593298
+    "generatedAt": 1792736760889
   },
   "intervalMinutes": 30,
   "sources": [
@@ -124,14 +124,14 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -148,6 +148,12 @@
       "ok": true
     },
     {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
+    },
+    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
@@ -157,12 +163,6 @@
       "id": "shana",
       "name": "شانا",
       "count": 30,
-      "ok": true
-    },
-    {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
       "ok": true
     },
     {
@@ -196,6 +196,12 @@
       "ok": false
     },
     {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
+    },
+    {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
@@ -206,12 +212,6 @@
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
     }
   ],
   "retention": {
@@ -219,5 +219,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 31117
+  "durationMs": 29328
 }
