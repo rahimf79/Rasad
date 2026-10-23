@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792708805023,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۰۲:۱۰:۰۵",
+  "generatedAt": 1792718593335,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۰۴:۵۳:۱۳",
   "news": {
     "files": [
+      "2026-10-23.json",
       "2026-10-22.json",
       "2026-10-21.json",
       "2026-10-20.json",
@@ -47,7 +48,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 41
+    "days": 42
   },
   "prices": {
     "assets": [
@@ -112,13 +113,19 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792708804970
+    "generatedAt": 1792718593298
   },
   "intervalMinutes": 30,
   "sources": [
     {
       "id": "mehr",
       "name": "مهر",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -135,12 +142,6 @@
       "ok": false
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
@@ -153,15 +154,15 @@
       "ok": false
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
       "id": "shana",
       "name": "شانا",
       "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -195,9 +196,9 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -207,9 +208,9 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
       "ok": true
     }
   ],
@@ -218,5 +219,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 35148
+  "durationMs": 31117
 }
