@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792756724130,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۱۵:۲۸:۴۴",
+  "generatedAt": 1792774419970,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۱ - ۲۰:۲۳:۳۹",
   "news": {
     "files": [
       "2026-10-23.json",
@@ -113,7 +113,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792756724093
+    "generatedAt": 1792774419907
   },
   "intervalMinutes": 30,
   "sources": [
@@ -130,21 +130,27 @@
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "tasnim",
       "name": "تسنیم",
       "count": 0,
       "ok": false
     },
     {
+      "id": "isna",
+      "name": "ایسنا",
+      "count": 30,
+      "ok": true
+    },
+    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -160,20 +166,14 @@
       "ok": true
     },
     {
-      "id": "entekhab",
-      "name": "انتخاب",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
+      "id": "entekhab",
+      "name": "انتخاب",
       "count": 0,
       "ok": false
     },
@@ -208,10 +208,10 @@
       "ok": true
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -219,5 +219,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 37196
+  "durationMs": 34113
 }
