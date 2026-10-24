@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792797829573,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۲ - ۰۲:۵۳:۴۹",
+  "generatedAt": 1792806849432,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۲ - ۰۵:۲۴:۰۹",
   "news": {
     "files": [
+      "2026-10-24.json",
       "2026-10-23.json",
       "2026-10-22.json",
       "2026-10-21.json",
@@ -48,7 +49,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 42
+    "days": 43
   },
   "prices": {
     "assets": [
@@ -113,7 +114,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792797829544
+    "generatedAt": 1792806849381
   },
   "intervalMinutes": 30,
   "sources": [
@@ -136,16 +137,16 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "khabaronline",
       "name": "خبرآنلاین",
       "count": 30,
       "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "tejaratnews",
@@ -184,6 +185,24 @@
       "ok": true
     },
     {
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
+    },
+    {
+      "id": "dw",
+      "name": "دویچه‌وله",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
+    },
+    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
       "count": 0,
@@ -194,24 +213,6 @@
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
-    },
-    {
-      "id": "dw",
-      "name": "دویچه‌وله",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 0,
-      "ok": false
-    },
-    {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
     }
   ],
   "retention": {
@@ -219,5 +220,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 32755
+  "durationMs": 33141
 }
