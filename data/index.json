@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792910446972,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۳ - ۱۰:۱۰:۴۶",
+  "generatedAt": 1792931303633,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۳ - ۱۵:۵۸:۲۳",
   "news": {
     "files": [
       "2026-10-25.json",
@@ -115,7 +115,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792910446931
+    "generatedAt": 1792931303580
   },
   "intervalMinutes": 30,
   "sources": [
@@ -126,8 +126,8 @@
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
@@ -144,8 +144,8 @@
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -154,6 +154,12 @@
       "name": "فارس",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "tejaratnews",
@@ -168,12 +174,6 @@
       "ok": true
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "entekhab",
       "name": "انتخاب",
       "count": 0,
@@ -182,14 +182,8 @@
     {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
-      "count": 29,
+      "count": 28,
       "ok": true
-    },
-    {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
     },
     {
       "id": "euronews",
@@ -198,16 +192,22 @@
       "ok": true
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
       "id": "dw",
       "name": "دویچه‌وله",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     },
     {
       "id": "varzesh3",
@@ -221,5 +221,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 27429
+  "durationMs": 32581
 }
