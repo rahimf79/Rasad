@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1793010364559,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۴ - ۱۳:۵۶:۰۴",
+  "generatedAt": 1793033716001,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۴ - ۲۰:۲۵:۱۶",
   "news": {
     "files": [
       "2026-10-26.json",
@@ -116,7 +116,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1793010364507
+    "generatedAt": 1793033715945
   },
   "intervalMinutes": 30,
   "sources": [
@@ -133,16 +133,22 @@
       "ok": true
     },
     {
-      "id": "tasnim",
-      "name": "تسنیم",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "isna",
       "name": "ایسنا",
       "count": 30,
       "ok": true
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "tasnim",
+      "name": "تسنیم",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "fars",
@@ -151,9 +157,15 @@
       "ok": false
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
+      "id": "shana",
+      "name": "شانا",
       "count": 30,
+      "ok": true
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
       "ok": true
     },
     {
@@ -163,22 +175,10 @@
       "ok": false
     },
     {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
-    },
-    {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
+      "id": "eghtesadnews",
+      "name": "اقتصادنیوز",
+      "count": 0,
+      "ok": false
     },
     {
       "id": "bbc",
@@ -187,10 +187,10 @@
       "ok": true
     },
     {
-      "id": "eghtesadnews",
-      "name": "اقتصادنیوز",
-      "count": 0,
-      "ok": false
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
+      "ok": true
     },
     {
       "id": "dw",
@@ -199,15 +199,15 @@
       "ok": false
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 0,
-      "ok": false
-    },
-    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
+      "ok": true
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
       "ok": true
     },
     {
@@ -222,5 +222,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 46562
+  "durationMs": 39207
 }
