@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792965617867,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۴ - ۰۱:۳۰:۱۷",
+  "generatedAt": 1792973002826,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۴ - ۰۳:۳۳:۲۲",
   "news": {
     "files": [
+      "2026-10-26.json",
       "2026-10-25.json",
       "2026-10-24.json",
       "2026-10-23.json",
@@ -50,7 +51,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 44
+    "days": 45
   },
   "prices": {
     "assets": [
@@ -115,7 +116,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792965617814
+    "generatedAt": 1792973002791
   },
   "intervalMinutes": 30,
   "sources": [
@@ -126,14 +127,20 @@
       "ok": true
     },
     {
-      "id": "isna",
-      "name": "ایسنا",
+      "id": "irna",
+      "name": "ایرنا",
       "count": 30,
       "ok": true
     },
     {
-      "id": "irna",
-      "name": "ایرنا",
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
+    },
+    {
+      "id": "isna",
+      "name": "ایسنا",
       "count": 30,
       "ok": true
     },
@@ -144,22 +151,10 @@
       "ok": false
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
     },
     {
       "id": "tejaratnews",
@@ -171,6 +166,12 @@
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
+      "ok": true
+    },
+    {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
       "ok": true
     },
     {
@@ -198,12 +199,6 @@
       "ok": false
     },
     {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
-    },
-    {
       "id": "varzesh3",
       "name": "ورزش سه",
       "count": 40,
@@ -214,6 +209,12 @@
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
+      "ok": true
     }
   ],
   "retention": {
@@ -221,5 +222,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 33233
+  "durationMs": 39337
 }
