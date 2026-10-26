@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1792973002826,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۴ - ۰۳:۳۳:۲۲",
+  "generatedAt": 1792989030349,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۴ - ۰۸:۰۰:۳۰",
   "news": {
     "files": [
       "2026-10-26.json",
@@ -116,7 +116,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1792973002791
+    "generatedAt": 1792989030309
   },
   "intervalMinutes": 30,
   "sources": [
@@ -133,12 +133,6 @@
       "ok": true
     },
     {
-      "id": "khabaronline",
-      "name": "خبرآنلاین",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "isna",
       "name": "ایسنا",
       "count": 30,
@@ -149,6 +143,12 @@
       "name": "تسنیم",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "khabaronline",
+      "name": "خبرآنلاین",
+      "count": 30,
+      "ok": true
     },
     {
       "id": "fars",
@@ -183,7 +183,7 @@
     {
       "id": "bbc",
       "name": "بی‌بی‌سی فارسی",
-      "count": 28,
+      "count": 29,
       "ok": true
     },
     {
@@ -199,22 +199,22 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
-      "ok": true
-    },
-    {
       "id": "eghtesadnews",
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
     },
     {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
+    },
+    {
       "id": "digiato",
       "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
+      "count": 0,
+      "ok": false
     }
   ],
   "retention": {
@@ -222,5 +222,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 39337
+  "durationMs": 70634
 }
