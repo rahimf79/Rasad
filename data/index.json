@@ -1,8 +1,8 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1793124840734,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۵ - ۲۱:۴۴:۰۰",
+  "generatedAt": 1793140399588,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۶ - ۰۲:۰۳:۱۹",
   "news": {
     "files": [
       "2026-10-27.json",
@@ -117,7 +117,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1793124840674
+    "generatedAt": 1793140399539
   },
   "intervalMinutes": 30,
   "sources": [
@@ -152,10 +152,22 @@
       "ok": true
     },
     {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
+    },
+    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "zoomit",
+      "name": "زومیت",
+      "count": 300,
+      "ok": true
     },
     {
       "id": "shana",
@@ -168,18 +180,6 @@
       "name": "انتخاب",
       "count": 0,
       "ok": false
-    },
-    {
-      "id": "zoomit",
-      "name": "زومیت",
-      "count": 300,
-      "ok": true
-    },
-    {
-      "id": "digiato",
-      "name": "دیجیاتو",
-      "count": 10,
-      "ok": true
     },
     {
       "id": "bbc",
@@ -206,9 +206,9 @@
       "ok": false
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
+      "id": "digiato",
+      "name": "دیجیاتو",
+      "count": 10,
       "ok": true
     },
     {
@@ -223,5 +223,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 34604
+  "durationMs": 33503
 }
