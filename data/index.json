@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1793231897751,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۷ - ۰۳:۲۸:۱۷",
+  "generatedAt": 1793251658623,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۷ - ۰۸:۵۷:۳۸",
   "news": {
     "files": [
+      "2026-10-29.json",
       "2026-10-28.json",
       "2026-10-27.json",
       "2026-10-26.json",
@@ -53,7 +54,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 47
+    "days": 48
   },
   "prices": {
     "assets": [
@@ -118,7 +119,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1793231897704
+    "generatedAt": 1793251658575
   },
   "intervalMinutes": 30,
   "sources": [
@@ -165,15 +166,15 @@
       "ok": false
     },
     {
-      "id": "shana",
-      "name": "شانا",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "zoomit",
       "name": "زومیت",
       "count": 300,
+      "ok": true
+    },
+    {
+      "id": "shana",
+      "name": "شانا",
+      "count": 30,
       "ok": true
     },
     {
@@ -224,5 +225,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 27987
+  "durationMs": 29477
 }
