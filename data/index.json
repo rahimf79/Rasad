@@ -1,10 +1,11 @@
 {
   "app": "رصد",
   "version": "3.0.0",
-  "generatedAt": 1793314555573,
-  "generatedAtJalali": "۱۴۰۵/۰۸/۰۸ - ۰۲:۲۵:۵۵",
+  "generatedAt": 1793327417120,
+  "generatedAtJalali": "۱۴۰۵/۰۸/۰۸ - ۰۶:۰۰:۱۷",
   "news": {
     "files": [
+      "2026-10-30.json",
       "2026-10-29.json",
       "2026-10-28.json",
       "2026-10-27.json",
@@ -54,7 +55,7 @@
       "2026-07-30.json",
       "2026-07-18.json"
     ],
-    "days": 48
+    "days": 49
   },
   "prices": {
     "assets": [
@@ -119,7 +120,7 @@
     "file": "latest.json",
     "posts": 400,
     "assets": 46,
-    "generatedAt": 1793314555526
+    "generatedAt": 1793327417083
   },
   "intervalMinutes": 30,
   "sources": [
@@ -154,16 +155,16 @@
       "ok": true
     },
     {
-      "id": "tejaratnews",
-      "name": "تجارت‌نیوز",
-      "count": 100,
-      "ok": true
-    },
-    {
       "id": "fars",
       "name": "فارس",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "tejaratnews",
+      "name": "تجارت‌نیوز",
+      "count": 100,
+      "ok": true
     },
     {
       "id": "zoomit",
@@ -184,21 +185,15 @@
       "ok": false
     },
     {
-      "id": "bbc",
-      "name": "بی‌بی‌سی فارسی",
-      "count": 30,
-      "ok": true
-    },
-    {
       "id": "digiato",
       "name": "دیجیاتو",
       "count": 10,
       "ok": true
     },
     {
-      "id": "euronews",
-      "name": "یورونیوز",
-      "count": 50,
+      "id": "bbc",
+      "name": "بی‌بی‌سی فارسی",
+      "count": 31,
       "ok": true
     },
     {
@@ -208,9 +203,9 @@
       "ok": false
     },
     {
-      "id": "varzesh3",
-      "name": "ورزش سه",
-      "count": 40,
+      "id": "euronews",
+      "name": "یورونیوز",
+      "count": 50,
       "ok": true
     },
     {
@@ -218,6 +213,12 @@
       "name": "اقتصادنیوز",
       "count": 0,
       "ok": false
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "count": 40,
+      "ok": true
     }
   ],
   "retention": {
@@ -225,5 +226,5 @@
     "priceDays": 1095,
     "commentsDays": 3650
   },
-  "durationMs": 34440
+  "durationMs": 31311
 }
