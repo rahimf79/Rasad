@@ -2066,6 +2066,11 @@
       "group": "metal"
     },
     {
+      "code": "50000000001402",
+      "name": "مس داخلی",
+      "group": "metal"
+    },
+    {
       "code": "800000",
       "name": "شاخص همگرایی ثروتمندی",
       "group": "material"
@@ -2486,5 +2491,5 @@
       "group": "crypto"
     }
   ],
-  "discoveredAt": 1793453520628
+  "discoveredAt": 1793469208467
 }
